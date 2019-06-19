@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Change Material">
+	<suite-files>
+    <suite-file path="17.Create_Vendor_with_Questionnaire_with_Global_and_Local_JDE.xml"></suite-file>
+    <suite-file path="18.Create_Vendor_Happy Flow Global and Local with Rejections_JDE.xml"></suite-file>
+    
+  
+</suite-files>	
+	
+</suite> 
+
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Create Vendor Happy flow - with disable Local and Bank Request(SAP)]">
+  <test thread-count="5" name="HeiPort_Login_LDR(failed)">
+    <classes>
+      <class name="com.mendix.test.LoginScript">
+        <methods>
+          <include name="loginAsLDRVendor" invocation-numbers="0 1"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.mendix.test.LoginScript -->
+    </classes>
+  </test> <!-- HeiPort_Login_LDR(failed) -->
+</suite> <!-- Failed suite [Create Vendor Happy flow - with disable Local and Bank Request(SAP)] -->

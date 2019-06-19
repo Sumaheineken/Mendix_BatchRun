@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml]">
+  <test thread-count="5" name="Vendor_Create_Fill_In_Data(failed)">
+    <classes>
+      <class name="com.mendix.test.VendorScript">
+        <methods>
+          <include name="Vendor_Create_Fill_In_Data" invocation-numbers="3"/>
+        </methods>
+      </class> <!-- com.mendix.test.VendorScript -->
+    </classes>
+  </test> <!-- Vendor_Create_Fill_In_Data(failed) -->
+  <test thread-count="5" name="Process_Information_Check GDA(failed)">
+    <classes>
+      <class name="com.mendix.test.VendorScript">
+        <methods>
+          <include name="Process_Information_Check" invocation-numbers="4"/>
+        </methods>
+      </class> <!-- com.mendix.test.VendorScript -->
+    </classes>
+  </test> <!-- Process_Information_Check GDA(failed) -->
+  <test thread-count="5" name="Vendor_Create_Review_Global_Data_Approve_GDA(failed)">
+    <classes>
+      <class name="com.mendix.test.VendorScript">
+        <methods>
+          <include name="Vendor_Create_Review_Global_Data_Approve_GDA" invocation-numbers="4"/>
+        </methods>
+      </class> <!-- com.mendix.test.VendorScript -->
+    </classes>
+  </test> <!-- Vendor_Create_Review_Global_Data_Approve_GDA(failed) -->
+  <test thread-count="5" name="Process_Information_Check_Approved(failed)">
+    <classes>
+      <class name="com.mendix.test.MaterialScript">
+        <methods>
+          <include name="process_Information_Check_GlobalID_Extend" invocation-numbers="4"/>
+        </methods>
+      </class> <!-- com.mendix.test.MaterialScript -->
+    </classes>
+  </test> <!-- Process_Information_Check_Approved(failed) -->
+</suite> <!-- Failed suite [14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml] -->

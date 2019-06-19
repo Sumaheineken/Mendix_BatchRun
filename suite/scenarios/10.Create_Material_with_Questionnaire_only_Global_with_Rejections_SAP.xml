@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="101.Vendor_Happy_with_rejections_discard_flag_for_deletion_JDE.xml">
+	<test name="HeiPort_Login_LDR">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="printSuiteName"/>
+                    <include name="openBrowser" />
+					<include name="loginAsLDRMaterialSAP" />
+				</methods>
+			</class>
+		</classes>
+	</test>	
+	<test name="Material_Create_Fill_in_questionnaire">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Material_Create_Fill_In_Questionnaire" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Fill_In_Data">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Material_Create_Fill_In_Data" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Material_Validate_Submit_Check">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Material_Create_Validate_Submit_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>	
+	<test name="Process_Information Check_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="HeiPort_Login_GDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsGDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>			
+	<test name="Material_Data_With_Reject_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Material_Data_With_Reject_GDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_LDRInitiator">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	 <test name="HeiPort_Login_LDR_Resubmit">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>				
+					<include name="openBrowser" />
+					<include name="loginAsLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+		<test name="Material_SaveASDraft_SubmitRequest_LDR">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include
+						name="Material_Save_As_Draft_Data_SubmitRequest_LDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_LDR">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />					
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="HeiPort_Login_GDA_Approval">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsGDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Review_Global_Data_Approve_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include
+						name="Material_Create_Review_Global_Data_Approve_GDA_Duplicate" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Syndication">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="process_Information_Check_GlobalID_Extend" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+ 	<test name="HeiPort_Login_LDR_Syndication">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+   <test name="Material_Create_Syndication_Check">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					 <include name="material_Create_Syndication_Check_GlobalId" /> 
+					<include name="launchUFT_SAP_Material"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+ </suite> 
+

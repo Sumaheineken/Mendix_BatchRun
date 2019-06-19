@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="74Extend Material Global and Local from SAP to  NAV with Rejections(With Local data adding).xml ">
+
+    <test name="HeiPort_Login_LDR">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="printSuiteName"/>
+                    <include name="getDependentScenarioName"/>
+                    <include name="getGlobalIdFromIndependentScript2" />
+					<include name="openBrowser" />
+					<include name="loginAsLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Extend Material Global and local from SAP to Nav(with local Data Addition)">
+	<classes>
+		<class name="com.mendix.test.MaterialScript">
+			<methods>
+				<include name="material_Data_Extend_NAV"/>
+			</methods>
+		</class>
+		<class name="com.mendix.test.MaterialNavScript">
+			<methods>
+				<include name="material_Local_Plant_Data_Fill_In_Nav"/>
+				<include name="material_Local_Finance_Data_Fill_In_Nav"/>
+				<include name="material_Create_Fill_In_Data_Nav_Local_Adding_Site"/>
+				<include name="material_Confirm_Extension"/>
+			</methods>
+		</class>
+	</classes>
+	</test>
+	 
+	<test name="Process_Information_Check">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<!--=================================Local Data Approvar LDP Start============================================================== -->
+  
+	 <test name="HeiPort_Login_LDP">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDP" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Material_Create_Review_Local_Data_Approve_LDP">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Create_Local_Data_Approve_LDP_NAV"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Process_Information_Check_Syndication_LDP_Local">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<!--=======================================LDP Local Approve END======================================================================================== -->  
+	<!-- ======================================LDS Local Approval Level Start With Rejections===============================================================================-->
+	 
+	 <test name="HeiPort_Login_LDS">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDS" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+	<test name="Reject_Material_Request_Local">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Reject_LDS"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Process_Information_Check_After_Reject_Local">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	 
+	<!-- =======================================================Local Rejections End at LDS================================================================== -->
+	<!-- ====================================Relogin LDR and Resubmitting the Local Material Data=============================================== -->
+	 
+	 <test name="HeiPort_ReLogin_LDR_For_Local">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Material_Resubmit_To_Approval_Local">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="navigate_To_MDM_Workflow"/>
+					<include name="material_Resubmit_To_Local_Approval"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Process_Information_ReCheck_After_Resubmit_Local">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+		<!-- ===============================================LDP Relogin and Approve the Rejected Request Local====================================== -->
+	 
+	 <test name="HeiPort_ReLogin_LDP_Local">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDP" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Material_Create_Review_Local_Data_Approve_LDP_ReApprove">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Create_Local_Data_Approve_LDP_NAV"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Process_Information_Check_Syndication_LDP_Local_Recheck">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<!-- =============================================LDP Re login And approving Local End================================================================= -->
+	<!-- =============================================LDS Re login and approving local Start=============================================================== -->
+	 
+	 <test name="HeiPort_ReLogin_LDS">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDS" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Material_Create_Review_Global_Data_Approve_LDS">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Create_Review_Local_Data_Approve_LDS"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Process_Information_Check_Syndication_LDS">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<!-- =====================================LDS Approval Local End============================================================================ -->
+	<!-- =====================================LBDA Global Approval Level Start==================================================  -->
+	
+	<test name="HeiPort_Login_LBDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLBDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Reject_Material_Request">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Material_Reject_LBDA"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+		
+	<test name="Process_Information_Check_Reject_Syndication_LBDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+<!-- =================================================Resubmission of the Global Approval Material Data Start ============================================ -->
+	
+	<test name="HeiPort_ReLogin_LDR_Global">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Material_Resubmit_To_Approval_Global">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="navigate_To_MDM_Workflow"/>
+					<include name="material_Resubmit_To_Global_Approval_Extend"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Process_Information_ReCheck_After_Resubmit_Global">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<!-- =================================================LBDA Approval level Start For Global============================================================ -->
+	<test name="HeiPort_ReLogin_LBDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLBDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+	<test name="Material_Create_Review_Global_Data_Approve_LBDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include
+						name="Material_Create_Review_Global_Data_Approve_LBDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+		
+	<test name="Process_Information_Check_Syndication_LBDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="process_Information_Check_GlobalID_Extend" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+  	<test name="HeiPort_Login_LDR_Syndication">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Material_Create_Syndication_Check">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Create_Syndication_Check_GlobalId" />
+					<include name="launchUFT_NAV_Material"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+</suite>

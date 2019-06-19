@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="81Extend vendor Global and Local nav from DZ to PA with Rejections.xml">
+	<test name="HeiPort_Login_LDR">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="printSuiteName"/>
+                    <include name="getDependentScenarioName"/>
+                    <include name="getGlobalIdFromIndependentScript2" />
+					<include name="openBrowser" />
+					<include name="loginAsLDRVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Vendor_Extend_Dashboard_Check">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="vendor_Extend_Global_Nav_With_Rejections"/>
+					 <include name="vendor_Create_Fill_In_Local_Finance_Tab"/>
+					<include name="vendor_Create_Fill_In_Local_Purchasing_Tab"/>
+					<include name="vendor_Confirm_Extension_Nav"/> 
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_LDR_FirstTime">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	 
+	<test name="HeiPort_Login_LDS">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDSVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Review_Local_Data_Reject_LDS">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include
+						name="material_Reject_LDS" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_LDS_RejectStatus">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	 <test name="HeiPort_ReLogin_LDR_To Submit Local Request">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					
+					<include name="openBrowser" />
+					<include name="loginAsLDRVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Resubmit_To_Approval_Local">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="navigate_To_MDM_Workflow"/>
+					<include name="material_Resubmit_To_Local_Approval"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Resubmit_State">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="HeiPort_Login_LDS_Approving">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDSVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	
+	<test name="vendor local data approve LDS">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Create_Review_Local_Data_Approve_LDS"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_LDS_Syndication">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	 <test name="HeiPort_Login_LBDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLBDAVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Vendor_Create_Review_Global_Data_Reject_LBDA">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="vendor_Create_Review_Global_Data_Reject_LBDA" /> 
+				</methods>
+			</class>
+		</classes>
+	</test>
+		<test name="Process_Information_Cheek_Reject_LBDA">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+ 
+	<test name="HeiPort_ReLogin_LDR_Resubmit_Global">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDRVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Vendor_Extend_Resubmit">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="navigate_To_MDM_Workflow"/>
+					<include name="material_Resubmit_To_Global_Approval_Extend"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Resubmit">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	 
+	<test name="HeiPort_Login_LBDA_Relogin and Approve">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLBDAVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Vendor_Create_Review_Global_Data_Approve_LBDA">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include
+						name="vendor_Create_Review_Global_Data_Approve_LBDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Syndication_LBDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="process_Information_Check_GlobalID_Extend" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	
+	 <test name="HeiPort_Login_LDR_Syndication check">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDRVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+		<test name="Vendor_Create_Syndication_Check">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="vendor_Create_Syndication_Check_Extend_Nav" />
+					<include name="launchUFT_NAV_Vendor"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
+

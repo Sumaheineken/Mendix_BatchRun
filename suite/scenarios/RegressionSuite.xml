@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Change Material">
+	<suite-files>	
+    <suite-file path="5.Change _vendor_global _Only.xml"></suite-file>
+    <suite-file path="6.Change_Vendor_Global_only_with_Rejections.xml"></suite-file> 
+  
+</suite-files>	
+	
+</suite> 
+
+

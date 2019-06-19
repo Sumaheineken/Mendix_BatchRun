@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Change Material">
+	<suite-files>
+    <suite-file path="14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml"></suite-file>
+    <suite-file path="17.Create_Vendor_with_Questionnaire_with_Global_and_Local_JDE.xml"></suite-file>
+    <suite-file path="22.Create_Vendor_with_Questionnaire_with_Global_and_Local_NAV.xml"></suite-file>
+    <suite-file path="7.Create_Material_Global_and_Local_for_JDE.xml"></suite-file>
+    <suite-file path="9.Create_Material_with_Questionnaire_only_Global_SAP.xml"></suite-file>   
+     <suite-file path="8.Create_Material_Global_and_Local_for_nav_Duplicate_not_Found.xml"></suite-file> 
+    
+  
+</suite-files>	
+	
+</suite> 
+
+

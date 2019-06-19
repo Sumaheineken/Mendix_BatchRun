@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="92.Extend_Global_Only _with_rejections_discardforSAP.xml">
+   <test name="HeiPort_Login_LDR">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="printSuiteName"/>
+                    <include name="getDependentScenarioName"/>
+                    <include name="getGlobalIdFromIndependentScript2" />
+					<include name="openBrowser" />
+					<include name="loginAsLDRVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Vendor_Extend_Dashboard_Check">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="vendor_Extend_Global_Sap_With_Rejections" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>     
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	
+ 	<test name="HeiPort_Login_LBDA_Reject">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLBDASAPVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+ 	<test name="Vendor_Create_Review_Global_Data_Reject_LBDA">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="vendor_Create_Review_Global_Data_Reject_LBDA" /> 
+				</methods>
+			</class>
+		</classes>
+	</test>
+		<test name="Process_Information_Chec_Approvedk">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	 
+   	<test name="HeiPort_ReLogin_LDR">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDRVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Chec_Approvedk">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Create_Vendor_Rejections_with_Discard_Extension " />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Chec">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>	
+		 
+	</suite> 
+
+

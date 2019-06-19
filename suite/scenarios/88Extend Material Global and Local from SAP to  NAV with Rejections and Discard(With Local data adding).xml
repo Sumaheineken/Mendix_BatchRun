@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="88Extend Material Global and Local from SAP to  NAV with Rejections and Discard(With Local data adding).xml">
+    <test name="HeiPort_Login_LDR">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="printSuiteName"/>
+                    <include name="getDependentScenarioName"/>
+                    <include name="getGlobalIdFromIndependentScript2" />
+					<include name="openBrowser" />
+					<include name="loginAsLDRNAVMZCB" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Extend Material Global and local from SAP to Nav(with local Data Addition)">
+	<classes>
+		<class name="com.mendix.test.MaterialScript">
+			<methods>
+				<include name="material_Data_Extend_NAV"/>
+			</methods>
+		</class>
+		<class name="com.mendix.test.MaterialNavScript">
+			<methods>
+				<include name="material_Local_Plant_Data_Fill_In_Nav"/>
+				<include name="material_Local_Finance_Data_Fill_In_Nav"/>
+				<include name="material_Create_Fill_In_Data_Nav_Local_Adding_Site"/>
+				<include name="material_Confirm_Extension"/>
+			</methods>
+		</class>
+	</classes>
+	</test>
+	 
+	<test name="Process_Information_Check">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	   
+	<!--=================================Local Data Approvar LDP Start============================================================== -->
+	 
+	 <test name="HeiPort_Login_LDP">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDPNAVMZCB" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Material_Create_Review_Local_Data_Approve_LDP">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Create_Local_Data_Approve_LDP_NAV"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Process_Information_Check_Syndication_LDP_Local">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<!--=======================================LDP Local Approve END======================================================================================== -->  
+	<!-- ======================================LDS Local Approval Level Start With Rejections===============================================================================-->
+	  
+	 <test name="HeiPort_Login_LDS">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDSNAVMZCB" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+	<test name="Reject_Material_Request_Local">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Reject_LDS"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Process_Information_Check_After_Reject_Local">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	
+	<!-- =======================================================Local Rejections End at LDS================================================================== -->
+
+	<!-- =====================================LBDA Global Approval Level Start==================================================  -->
+ 	  
+	<test name="HeiPort_Login_LBDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLBDANAVMZCB" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Reject_Material_Request">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Material_Reject_LBDA"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+		
+	<test name="Process_Information_Check_Reject_Syndication_LBDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+ 
+	<test name="HeiPort_ReLogin_LDR_Global">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDRNAVMZCB" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Discard_Material_Request_Global">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Create_Material_Rejections_with_Discard"/>
+				</methods>
+			</class>
+		</classes>
+	</test>	
+	
+		<test name="Process_Information_Check_After_Discard_Global">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	
+</suite>

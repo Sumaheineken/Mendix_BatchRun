@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="52Happy Flag for deletion(Not Shared with Multi OpCos) - JDE.xml">
+	<test name="HeiPort_Login_LDR">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="printSuiteName"/>
+                    <include name="getDependentScenarioName"/>
+                    <include name="getGlobalIdFromIndependentScript2" />
+					<include name="openBrowser" />
+					<include name="loginAsLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Happy_Flag_Deletion">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Happy_Flag_Deletion" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check GDA">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	
+	<test name="HeiPort_Login_LDP">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDP" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Material_Create_Review_Local_Data_Approve_LDP">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Create_Local_Data_Approve_LDP_NAV"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Syndication">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="process_Information_Check_GlobalID_Extend" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="HeiPort_Login_LDR_Syndication">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsSGLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Syndication_Check">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Create_Syndication_Check_GlobalId"/>
+					<include name="launchUFT_JDE_Material"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+
+</suite> 
+
+

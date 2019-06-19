@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+ <suite name="50Delete Records Shared with multi opcos.xml">
+	<test name="HeiPort_Login_LDR">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+				   <include name="printSuiteName"/>
+                    <include name="getDependentScenarioName"/>
+                    <include name="getGlobalIdFromIndependentScript2" />
+					<include name="openBrowser" />
+					<include name="loginAsLDR" />
+				</methods> 	
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Change_Check">
+		<classes>
+			<class name="com.mendix.test.MaterialChangeScript">
+				<methods>
+					<include name="Material_Delete_Record_Shared_With_Multiple_Opcos" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+</suite> 

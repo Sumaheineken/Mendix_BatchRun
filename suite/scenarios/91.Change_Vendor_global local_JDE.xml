@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="91.Change_Vendor_global local_JDE.xml">
+ 	  <test name="HeiPort_Login_LDR">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="printSuiteName"/>
+                    <include name="getDependentScenarioName"/>
+                    <include name="getGlobalIdFromIndependentScript2" />
+					<include name="openBrowser" />
+					<include name="loginAsLDRVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Vendor_Change_DashBoard">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Vendor_Change_DashBoard" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Vendor_Change_DashBoard_SearchWith_GlobalID">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Vendor_Changejde_DashBoard_SearchWith_GlobalID" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Fill in questionnaire">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Vendor_Change_Fill_In_Data_JDE" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+		<test name="Vendor_Create_Fill_In_Data_JDE">
+		<classes>
+			<class name="com.mendix.test.Vendor_JDE_Script">
+				<methods>
+					<include
+						name="Vendor_Change_Fill_In_Data_JDE_Local_Purchasing" />
+					<include
+						name="Vendor_Change_Fill_In_Data_JDE_Local_Finance" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check GDA">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	<test name="HeiPort_Login_LDS">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDSVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Vendor_Create_Review_Local_Data_Approve_LDS">
+		<classes>
+			<class name="com.mendix.test.VendorScript_NAV">
+				<methods>
+					<include name="Vendor_Create_Review_Local_Data_Approve_LDS" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_submit">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="HeiPort_Login_GDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsGDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Review_Global_Data_Approve_GDA">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include
+						name="Vendor_Create_Review_Global_Data_Approve_GDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Chec_Approved">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="process_Information_Check_GlobalID_Extend" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="HeiPort_Login_LDR_2">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDRVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	<test name="Vendor_Create_Syndication_Check">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Vendor_Create_Syndication_Check" />
+					<include name="launchUFT_JDE" />					
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite> 
+
+

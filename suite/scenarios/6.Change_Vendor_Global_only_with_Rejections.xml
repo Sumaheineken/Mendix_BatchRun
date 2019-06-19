@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="6.Change_Vendor_Global_only_with_Rejections.xml">
+  	 	    <test name="HeiPort_Login_LDR">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="printSuiteName"/>
+                    <include name="getDependentScenarioName"/>
+                    <include name="getGlobalIdFromIndependentScript2" />
+					<include name="openBrowser" />
+					<include name="loginAsLDRVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	 <test name="Vendor_Change_DashBoard">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Vendor_Change_DashBoard" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Vendor_Change_DashBoard_SearchWith_GlobalID">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Vendor_Change_DashBoard_SearchWith_GlobalID" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+   <!-- <test name="Vendor_Change_Fill_In_Data">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Vendor_Change_Fill_In_Data" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+<test name="Process_Information_Check GDA">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="HeiPort_Login_GDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsGDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+ 	
+ 	<test name="Vendor Create Global Reject GDA">
+ 		<classes>
+ 			<class name="com.mendix.test.VendorScript">
+ 				<methods>
+ 					<include name="Vendor_Create_Review_Global_Data_Reject_GDA"/>
+ 				</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="Process_Information_Check_Reject_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="HeiPort_ReLogin_Global_Resubmit_LDR">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDRVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Vendor_Create_Global_Resubmit">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="vendor_Reject_Resubmit_LDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+		<test name="Process_Information_Check_Approved">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="process_Information_Check_GlobalID_Extend" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	 <test name="HeiPort_Login_LDR_2">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDRVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+		<test name="Vendor_Create_Syndication_Check">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Vendor_Create_Syndication_Check_SAP" />
+					<include name="launchUFT_SAP_Vendor"/>
+				</methods>
+			</class>
+		</classes>
+	</test>  -->
+	</suite>

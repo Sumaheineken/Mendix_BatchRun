@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [5.Change _vendor_global _Only.xml]">
+  <test thread-count="5" name="Vendor_Change_DashBoard_SearchWith_GlobalID(failed)">
+    <classes>
+      <class name="com.mendix.test.VendorScript">
+        <methods>
+          <include name="Vendor_Change_DashBoard_SearchWith_GlobalID" invocation-numbers="25"/>
+        </methods>
+      </class> <!-- com.mendix.test.VendorScript -->
+    </classes>
+  </test> <!-- Vendor_Change_DashBoard_SearchWith_GlobalID(failed) -->
+</suite> <!-- Failed suite [5.Change _vendor_global _Only.xml] -->

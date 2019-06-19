@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [17.Create_Vendor_with_Questionnaire_with_Global_and_Local_JDE]">
+  <test thread-count="5" name="Vendor_Create_Fill_In_Data(failed)">
+    <classes>
+      <class name="com.mendix.test.VendorScript">
+        <methods>
+          <include name="Vendor_Create_Fill_In_Data_JDE"/>
+        </methods>
+      </class> <!-- com.mendix.test.VendorScript -->
+    </classes>
+  </test> <!-- Vendor_Create_Fill_In_Data(failed) -->
+  <test thread-count="5" name="Vendor_Create_Fill_In_Data_JDE(failed)">
+    <classes>
+      <class name="com.mendix.test.Vendor_JDE_Script">
+        <methods>
+          <include name="Vendor_Create_Fill_In_Data_JDE_Local_Purchasing"/>
+          <include name="Vendor_Create_Fill_In_Data_JDE_Local_Finance"/>
+        </methods>
+      </class> <!-- com.mendix.test.Vendor_JDE_Script -->
+    </classes>
+  </test> <!-- Vendor_Create_Fill_In_Data_JDE(failed) -->
+  <test thread-count="5" name="Process_Information_Check_LDS(failed)">
+    <classes>
+      <class name="com.mendix.test.MaterialScript">
+        <methods>
+          <include name="Process_Information_Check"/>
+        </methods>
+      </class> <!-- com.mendix.test.MaterialScript -->
+    </classes>
+  </test> <!-- Process_Information_Check_LDS(failed) -->
+</suite> <!-- Failed suite [17.Create_Vendor_with_Questionnaire_with_Global_and_Local_JDE] -->

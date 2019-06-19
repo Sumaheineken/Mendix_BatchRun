@@ -1,0 +1,631 @@
+<html>
+<head>
+<title>TestNG:  Process_Information_Check_Approved</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Process_Information_Check_Approved</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>94/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Jun 18 15:01:22 IST 2019</td>
+</tr>
+<tr><td>Total time:</td><td>49 seconds (49498 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=5.0, OpCo=BE01, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml, RequestId=ABC, Global_ID=1234.0, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == .//div[contains(@class,&apos;searchResults&apos;)]/div[3]/div/table[2]/tbody/tr[1]/td[10]/div
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
+System info: host: &apos;YKUNTALA&apos;, ip: &apos;9.79.141.225&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: false, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: true, initialBrowserUrl: http://localhost:19307/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 04b992f1-5d78-4a08-a582-d813d4592b12
+*** Element info: {Using=xpath, value=.//div[contains(@class,&apos;searchResults&apos;)]/div[3]/div/table[2]/tbody/tr[1]/td[10]/div}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at com.mendix.page.MaterialPage.getGlobalIdProcessInfo_Extend(MaterialPage.java:2398)
+	at com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend(MaterialScript.java:362)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1834544402", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1834544402'><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == .//div[contains(@class,&apos;searchResults&apos;)]/div[3]/div/table[2]/tbody/tr[1]/td[10]/div
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
+System info: host: &apos;YKUNTALA&apos;, ip: &apos;9.79.141.225&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: false, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: true, initialBrowserUrl: http://localhost:19307/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 04b992f1-5d78-4a08-a582-d813d4592b12
+*** Element info: {Using=xpath, value=.//div[contains(@class,&apos;searchResults&apos;)]/div[3]/div/table[2]/tbody/tr[1]/td[10]/div}
+	at sun.reflect.GeneratedConstructorAccessor39.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at com.mendix.page.MaterialPage.getGlobalIdProcessInfo_Extend(MaterialPage.java:2398)
+	at com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend(MaterialScript.java:362)
+	at sun.reflect.GeneratedMethodAccessor18.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1204)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>49</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=1.0, OpCo=10.Create_Material_with_Questionnaire_only_Global_with_Rejections_SAP, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=2.0, OpCo=11.Create_Material_with_Questionnaire_only_Global_with_Rejections_and_Discard_SAP, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=3.0, OpCo=12.Create Material with Save as Draft only Global_SAP, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=4.0, OpCo=13.Create Vendor with Questionnaire only Globa Rejections with Discard_SAP, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=6.0, OpCo=15.Create_Vendor_with_Save_as_Draft_only_Global_SAP, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=7.0, OpCo=16.Create_Vendor_with_Questionnaire_only_Global_with_Rejections_SAP, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=8.0, OpCo=17.Create_Vendor_with_Questionnaire_with_Global_and_Local_JDE, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=9.0, OpCo=18.Create_Vendor_Happy Flow Global and Local with Rejections_JDE, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=10.0, OpCo=19.Create_Vendor_with_Questionnaire_with_Global_and_Local_with_Discard _JDE, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=11.0, OpCo=20.Create_Vendor_with_Questionnaire_with_Global_and_Local_and_Bank_JDE, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=12.0, OpCo=21.Create_Vendor_with_Questionnaire_with_Global_and_Local_and_Bank_with_Discard_JDE, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=13.0, OpCo=22.Create_Vendor_with_Questionnaire_with_Global_and_Local_NAV, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=14.0, OpCo=23.Create_Vendor_with_Questionnaire_with_Global_and_Local_with_Rejections_NAV, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=15.0, OpCo=24Create_Vendor_with_Questionnaire_with_Global_and_Local_with_Rejections_and_Discard_NAV, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=16.0, OpCo=25Create_Vendor_with_Questionnaire_with_Global_and_Local_and_Bank_NAV, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=17.0, OpCo=35Create_Material_SaveAsDraft_JDE.xml, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=18.0, OpCo=7.Create_Material_Global_and_Local_for_JDE, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=19.0, OpCo=75Create Material with Questionnaire only Global - SAP Duplicate Found Extend Selected, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=20.0, OpCo=MZCB, Test_Case=8.Create_Material_Global_and_Local_for_nav_Duplicate_not_Found.xml, RequestId=1427396, Global_ID=416678, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=21.0, OpCo=9.Create_Material_with_Questionnaire_only_Global_SAP, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=22.0, OpCo=97.Create_Vendor_with_Questionnaire_banklocalonly_Global2, Test_Case=, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=23.0, OpCo=, Test_Case=108.Create_Material_JDE_with_Questionnaire_Global_And_Local_with_Rejections.xml, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=24.0, OpCo=, Test_Case=109.Create_Material_JDE_with_Questionnaire_Global_And_Local_with_Rejections and Discard.xml, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=25.0, OpCo=4.Change_vendor_global_&_local_&_Bank, Test_Case=97.Create_Vendor_with_Questionnaire_banklocalonly_Global2, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=26.0, OpCo=5.Change _vendor_global _Only, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=27.0, OpCo=6.Change_Vendor_Global_only_with_Rejections, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=28.0, OpCo=86Change Vendor global and local NAV, Test_Case=22.Create_Vendor_with_Questionnaire_with_Global_and_Local_NAV, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=29.0, OpCo=87Change Vendor global and local with Rejections and Discard NAV, Test_Case=22.Create_Vendor_with_Questionnaire_with_Global_and_Local_NAV, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=30.0, OpCo=91.Change_Vendor_global local_JDE, Test_Case=17.Create_Vendor_with_Questionnaire_with_Global_and_Local_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=31.0, OpCo=98.Change_Vendor_Happy Flow Global and Local with Rejections_JDE, Test_Case=17.Create_Vendor_with_Questionnaire_with_Global_and_Local_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=32.0, OpCo=55Vendor_Extend_Global_only_for_SAP, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=33.0, OpCo=58Extend Vendor Global, Local NAV(Diff. Target System local data adding), Test_Case=22.Create_Vendor_with_Questionnaire_with_Global_and_Local_NAV, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=34.0, OpCo=59.Extend vendor Global and Local for JDE, Test_Case=17.Create_Vendor_with_Questionnaire_with_Global_and_Local_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=35.0, OpCo=58Extend Vendor Global, Local NAV(Diff. Target System local data adding), Test_Case=22.Create_Vendor_with_Questionnaire_with_Global_and_Local_NAV, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=36.0, OpCo=68.Vendor_Extend_Global_only_for_SAP, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=37.0, OpCo=69Extend Vendor Global and Local from  SAP to JDE (With Local data adding), Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=38.0, OpCo=70Extend Vendor Global and Local from SAP to  NAV(With Local data adding), Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=39.0, OpCo=71Extend Vendor Global only with Rejections for SAP any opco to PL, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=40.0, OpCo=72Extend Vendor Global Only  with Rejections and Discard for SAP (Extend any OpCo to PL), Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=41.0, OpCo=80Extend Vendor Global and local with Rejections with Discard for NAV (For Algeria to panama), Test_Case=22.Create_Vendor_with_Questionnaire_with_Global_and_Local_NAV, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=42.0, OpCo=81Extend vendor Global and Local nav from DZ to PA with Rejections, Test_Case=22.Create_Vendor_with_Questionnaire_with_Global_and_Local_NAV, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=43.0, OpCo=89Extend Vendor Global and Local from  NAV to JDE (With Local data adding), Test_Case=22.Create_Vendor_with_Questionnaire_with_Global_and_Local_NAV, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=44.0, OpCo=90Extend Vendor Global and Local from JDE to  NAV(With Local data adding), Test_Case=17.Create_Vendor_with_Questionnaire_with_Global_and_Local_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=45.0, OpCo=69Extend Vendor Global and Local from  SAP to JDE (With Local data adding), Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=46.0, OpCo=57ExtendGlobalandorLocalforNAV.xml, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=47.0, OpCo=60Vendor_Delete_Records_Shared_with_multi_opcos, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=48.0, OpCo=61Vendor_Happy_Flag_for_deletion, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=49.0, OpCo=79.Vendor_Happy_with_rejections_discard_flag_for_deletion_SAP, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=50.0, OpCo=83.Happy Flag for deletion_JDE_Vendor, Test_Case=17.Create_Vendor_with_Questionnaire_with_Global_and_Local_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=51.0, OpCo=84 Flag for Deletion_Nav_Vendor, Test_Case=22.Create_Vendor_with_Questionnaire_with_Global_and_Local_NAV, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=52.0, OpCo=101.Vendor_Happy_with_rejections_discard_flag_for_deletion_JDE.xml, Test_Case=17.Create_Vendor_with_Questionnaire_with_Global_and_Local_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=53.0, OpCo=2.Change_Material_global_and_local_JDE, Test_Case=7.Create_Material_Global_and_Local_for_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=54.0, OpCo=1.Change _Material_global_and_local_for_NAV, Test_Case=8.Create_Material_Global_and_Local_for_nav_Duplicate_not_Found, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=55.0, OpCo=26Change_Material_Global_only_with_Rejections_SAP, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=56.0, OpCo=27Change_Material_Global_Only_With_Reject_Discard_SAP, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=57.0, OpCo=28Change MaterialGlobal and Local  with Rejections and Discard NAV, Test_Case=8.Create_Material_Global_and_Local_for_nav_Duplicate_not_Found, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=58.0, OpCo=29Change MaterialGlobal and Local  with Rejections and Discard for JDE, Test_Case=7.Create_Material_Global_and_Local_for_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=59.0, OpCo=3.Change_Material_global_only_SAP, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=60.0, OpCo=100Extend Global and Local for NAV, Test_Case=8.Create_Material_Global_and_Local_for_nav_Duplicate_not_Found, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=61.0, OpCo=103Extend Global and Local for NAV to JDE(With Local Data Adding)(PA01 SG04), Test_Case=7.Create_Material_Global_and_Local_for_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=62.0, OpCo=107Extend material Global and Local for JDE(SG04 to KH01), Test_Case=7.Create_Material_Global_and_Local_for_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=63.0, OpCo=49Extend Material Global, Local  for JDE  to Nav(Diff. Target System), Test_Case=7.Create_Material_Global_and_Local_for_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=64.0, OpCo=45Extend same target system - Extend Global for SAP, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=65.0, OpCo=46Extend_same_target system - Extend_Global_and_Local_for_Non_SAP JDE, Test_Case=7.Create_Material_Global_and_Local_for_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=66.0, OpCo=47.Extend Global only for SAP, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=67.0, OpCo=65Extend Material Global and Local from SAP to  JDE with Rejections(With Local data adding), Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=68.0, OpCo=66Extend Material Global and Local from SAP to  JDE(With Local data adding), Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=69.0, OpCo=73Extend Material Global and Local from SAP to  NAV(With Local data adding), Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=70.0, OpCo=74Extend Material Global and Local from SAP to  NAV with Rejections(With Local data adding), Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=71.0, OpCo=77Extend Material Global, Local  for JDE  to Nav(Diff. Target System), Test_Case=7.Create_Material_Global_and_Local_for_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=72.0, OpCo=78Extend Material Global Within SAP- (BG to UK) (Different System), Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=73.0, OpCo=88Extend Material Global and Local from SAP to  NAV with Rejections and Discard(With Local data adding), Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=74.0, OpCo=92.Extend_Global_Only _with_rejections_discardforSAP, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=75.0, OpCo=96Extend Material Global and Local with Rejections for JDE (Extend KH01 Opco to SG04), Test_Case=7.Create_Material_Global_and_Local_for_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=76.0, OpCo=107Extend material Global and Local for JDE(SG04 to KH01).xml, Test_Case=7.Create_Material_Global_and_Local_for_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=77.0, OpCo=51.Happy Flag For Deletion(Not Shared With Multiple Opcos)_SAP, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=78.0, OpCo=50Delete Records Shared with multi opcos, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=79.0, OpCo=52Happy Flag for deletion(Not Shared with Multi OpCos) - JDE, Test_Case=7.Create_Material_Global_and_Local_for_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=80.0, OpCo=53Happy Flag for deletion (Not Shared with Multi OpCos)- NAV_Material, Test_Case=8.Create_Material_Global_and_Local_for_nav_Duplicate_not_Found, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=81.0, OpCo=94.Material_Happy with rejections &discard flag for deletion_SAP, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=82.0, OpCo=54Material Lock Check(covered in), Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=83.0, OpCo=63Vendor LockCheck(covered in), Test_Case=14.Create_Vendor_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=84.0, OpCo=30Create_with_ref_Global_Only-Direct_Copy SAP, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=85.0, OpCo=31Create with Ref save as draft global Only - Direct Copy_SAP, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=86.0, OpCo=32Create with ref Global Only - SAP Direct Copy with Rejections, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=87.0, OpCo=33Create with ref Global and Local- JDE Direct Copy, Test_Case=7.Create_Material_Global_and_Local_for_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=88.0, OpCo=34Create with ref Global and local - NAV Direct Copy, Test_Case=8.Create_Material_Global_and_Local_for_nav_Duplicate_not_Found, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=89.0, OpCo=36Create with ref Global and local - Edit Global and Local Data_NAV, Test_Case=8.Create_Material_Global_and_Local_for_nav_Duplicate_not_Found, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=90.0, OpCo=37Create with ref Global and Local Material- JDE Direct Copy With Rejections, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=91.0, OpCo=38Create with ref Global and local - NAV Direct Copy with rejections, Test_Case=8.Create_Material_Global_and_Local_for_nav_Duplicate_not_Found, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=92.0, OpCo=39Create with ref Global Only - SAP Direct Copy with rejections and discard, Test_Case=9.Create_Material_with_Questionnaire_only_Global_SAP, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=93.0, OpCo=40Create with ref Global and Local Only - JDE Direct Copy with rejections and discard, Test_Case=7.Create_Material_Global_and_Local_for_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=94.0, OpCo=41Create with ref Global and local - NAV Direct Copy with rejections and discard, Test_Case=8.Create_Material_Global_and_Local_for_nav_Duplicate_not_Found, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+<tr>
+<td title='com.mendix.test.MaterialScript.process_Information_Check_GlobalID_Extend()'><b>process_Information_Check_GlobalID_Extend</b><br>Test class: com.mendix.test.MaterialScript<br>Parameters: {Sl No=95.0, OpCo=93Create Mat. with Ref save as draft global and local  - Direct Copy_JDE .xml, Test_Case=7.Create_Material_Global_and_Local_for_JDE, RequestId=, Global_ID=, Material_Number_AH1=, Material_Number_AE1=, Material Description=, Dependent TC Name=}, org.testng.TestRunner@42af2977</td>
+<td></td>
+<td>0</td>
+<td>com.mendix.test.MaterialScript@3dd4520b</td></tr>
+</table><p>
+</body>
+</html>

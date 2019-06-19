@@ -1,0 +1,3 @@
+﻿<Properties>
+  <WatchEntry0 value="Instr(StatusBarText,StrVendorDDLLhasnotbeencreated) &gt; 0" />
+</Properties>

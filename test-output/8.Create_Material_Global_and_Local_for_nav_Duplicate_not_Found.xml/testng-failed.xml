@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [8.Create_Material_Global_and_Local_for_nav_Duplicate_not_Found.xml]">
+  <test thread-count="5" name="Process_Information_Check_Syndication_LDP_Local(failed)">
+    <classes>
+      <class name="com.mendix.test.MaterialScript">
+        <methods>
+          <include name="Process_Information_Check" invocation-numbers="19"/>
+        </methods>
+      </class> <!-- com.mendix.test.MaterialScript -->
+    </classes>
+  </test> <!-- Process_Information_Check_Syndication_LDP_Local(failed) -->
+  <test thread-count="5" name="Material_Create_Review_Global_Data_Approve_LDS(failed)">
+    <classes>
+      <class name="com.mendix.test.MaterialScript">
+        <methods>
+          <include name="material_Create_Review_Local_Data_Approve_LDS" invocation-numbers="19"/>
+        </methods>
+      </class> <!-- com.mendix.test.MaterialScript -->
+    </classes>
+  </test> <!-- Material_Create_Review_Global_Data_Approve_LDS(failed) -->
+</suite> <!-- Failed suite [8.Create_Material_Global_and_Local_for_nav_Duplicate_not_Found.xml] -->
