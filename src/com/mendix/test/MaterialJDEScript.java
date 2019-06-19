@@ -502,7 +502,7 @@ public class MaterialJDEScript extends BaseScript{
 			SharedDriver.pageContainer.materialPage.navigateToDashboard();
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
 			SharedDriver.pageContainer.materialPage.clickFullMaterialDataNew();
 			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 			SharedDriver.pageContainer.material_Change_Page.clickExtendbutton();
