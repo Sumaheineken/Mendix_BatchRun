@@ -500,7 +500,7 @@ public class ExcelUtil {
 	}
 	
 	
-	public static void setCellData_New_VendorAccNumber(String sheetName, String colName, String value)
+	public static void setCellData_New_VendorAccNumber(String sheetName, String colName, String value, String suiteName)
 	{
 		List<Object[]> data = new ArrayList<Object[]>();
 		try
@@ -526,7 +526,7 @@ public class ExcelUtil {
 			Row firstRow=rowIterator.next();
 
 
-			testCaseName = getTestCaseName("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX, sheetName, value);
+			testCaseName = getTestCaseName("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX, "TestPlan", suiteName);
 			Map<String, String> headerRow = getColumnNames(firstRow);
 			while(rowIterator.hasNext()){
 				Iterator<Cell> cellIterator=rowIterator.next().cellIterator();

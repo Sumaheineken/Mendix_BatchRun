@@ -381,12 +381,14 @@ public class MaterialScript extends BaseScript{
 			SharedDriver.pageContainer.materialPage.navigateToDashboard();
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
-			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
+			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
 			
 			SharedDriver.pageContainer.materialPage.checkDashboardLock();
 			// SharedDriver.pageContainer.materialPage.getGlobalId();
 			// SharedDriver.pageContainer.materialPage.clickFullMaterialData();
-			// SharedDriver.pageContainer.materialPage.getMaterial_Number();
+			//SharedDriver.pageContainer.materialPage.getMaterial_Number();
+			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			SharedDriver.pageContainer.materialPage.getMaterialNumber(suiteName, dataMap.get("OpCo"));
 			SharedDriver.pageContainer.processInfoPage.browserClose();
 			// SharedDriver.pageContainer.materialApprovalPage.launchUFT();
 			

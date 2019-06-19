@@ -423,6 +423,18 @@ public class MaterialPage {
 
 	@FindBy(how = How.XPATH, using = ".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[3]/div")
 	WebElement txtFFDValue;
+	
+	@FindBy(how=How.XPATH, using = ".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PH1700']")
+	WebElement materialTargetSystemBE;
+	
+	@FindBy(how=How.XPATH, using = ".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PH1700']/../../td[1]/div")
+	WebElement materialNumberBE;
+	
+	@FindBy(how = How.XPATH, using = ".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PE2700']")
+	WebElement materialTargetSystemPL;
+	
+	@FindBy(how = How.XPATH, using = ".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PE2700']/../../td[1]/div")
+	WebElement materialNumberPL;
 
 	/**
 	 * Enter UserName. Enter Password
@@ -2470,7 +2482,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
  		}
  		else
  		{
- 			Thread.sleep(1200000);
+ 			//Thread.sleep(1200000);
  			Sync.waitForSeconds(Constants.WAIT_3);
  			Sync.waitForObject(driver, "Wait for Request Id", txtboxRequestId);
 		
@@ -2567,7 +2579,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 
 			Sync.waitForSeconds(Constants.WAIT_10);
 
-			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
 			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
@@ -2595,8 +2607,73 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 			assrt.assertEquals(globalLockValue, "No", "Global Lock is still active");
 			assrt.assertEquals(localLockValue, "No", "Local lock is still active");
 			assrt.assertEquals(fFDValue, "No", "FFD Value is still active");
+			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
+
+			Sync.waitForSeconds(Constants.WAIT_10);
+
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+
+			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+
+			List<WebElement> materialNumberlist = driver
+					.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[1]"));
+
+			List<WebElement> targetSystemList = driver
+					.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]"));
+
+			Iterator<WebElement> i = targetSystemList.iterator();
+			while (i.hasNext()) {
+
+				WebElement row = i.next();
+				String targetSystem = row.getText();
+
+				for (WebElement materialList : materialNumberlist) {
+
+					String materialNumb = materialList.getText();
+					System.out.println("Material Number = " + materialNumb + " for Target System : " + targetSystem);
+				}
+			}
 		}
 
+	}
+	
+	
+	public void getMaterialNumber(String suiteName, String opco) {
+		// TODO Auto-generated method stub
+		//Sync.waitForObject(driver, materialTargetSystemBE);
+		//SoftAssert assertTargetSystem = new SoftAssert();
+		//assertTargetSystem.assertEquals(materialTargetSystemBE.getText(), "PH1700", "The Target System is not there in Vendor Details of selected Global ID");
+		if(opco.equalsIgnoreCase("BE01"))
+		{
+			String materialTargetSystemBelgium = materialTargetSystemBE.getText();
+			if(materialTargetSystemBelgium.equalsIgnoreCase("PH1700"))
+			{
+				String materialNumber = materialNumberBE.getText();
+				System.out.println("The Material Number is :"+materialNumber);
+				ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", materialNumber, suiteName);
+				System.out.println(""+materialNumber);
+			}
+			else
+			{
+				System.out.println("No Element found to print in console");
+			}			
+		}
+		else if(opco.equalsIgnoreCase("PL01"))
+		{
+			String materialTargetSystemPoland = materialTargetSystemPL.getText();
+			if(materialTargetSystemPoland.equalsIgnoreCase("PE2700"))
+			{
+				String materialNumber = materialNumberPL.getText();
+				System.out.println("The Material Number is :"+materialNumber);
+				ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", materialNumber, suiteName);
+				System.out.println(""+materialNumber);
+			}
+			else
+			{
+				System.out.println("No Element found to print in console");
+			}
+		}
+		
 	}
 	
 	public void submitGlobalRequestExtend() throws InterruptedException {

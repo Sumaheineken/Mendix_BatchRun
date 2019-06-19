@@ -611,19 +611,16 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
  			//SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
- 			SharedDriver.pageContainer.vendorPage.globalSearch(dependentGlobalId);
+ 			SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
  			SharedDriver.pageContainer.vendorPage.checkDashboardLockVendor();
  			//SharedDriver.pageContainer.vendorPage.getGlobalId();
  			//SharedDriver.pageContainer.vendorPage.GetFullVendorData();
  			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
  			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
- 			SharedDriver.pageContainer.vendorPage.getVendorAccountNumber();
+ 			SharedDriver.pageContainer.vendorPage.getVendorAccountNumber(suiteName, dataMap.get("OpCo"));
  			SharedDriver.pageContainer.processInfoPage.browserClose();	
  		}
 	}
-	
-
-	
 	
 	@Test
 	public void launchUFT_SAP_Vendor() throws IOException, InterruptedException
