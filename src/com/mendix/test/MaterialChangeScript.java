@@ -30,7 +30,7 @@ public class MaterialChangeScript extends BaseScript
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 //			SharedDriver.pageContainer.materialPage.getCurrDate();
 
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));			
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);			
 
 			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 			//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
@@ -53,7 +53,7 @@ public class MaterialChangeScript extends BaseScript
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 //			SharedDriver.pageContainer.materialPage.getCurrDate();
 
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
 			//Thread.sleep(20000);
 
 			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
@@ -79,7 +79,7 @@ public class MaterialChangeScript extends BaseScript
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 //			SharedDriver.pageContainer.materialPage.getCurrDate();
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
 			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 			//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
@@ -103,7 +103,7 @@ public class MaterialChangeScript extends BaseScript
 			SharedDriver.pageContainer.materialPage.navigateToDashboard();
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();    	
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));	    
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);	    
 			SharedDriver.pageContainer.material_Change_Page.clickFullMaterialDataNew();
 			//SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
 			//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
@@ -124,7 +124,7 @@ public class MaterialChangeScript extends BaseScript
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 	    	//SharedDriver.pageContainer.materialPage.getCurrDate();
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
 		    //SharedDriver.pageContainer.materialPage.getGlobalId();
 			//SharedDriver.pageContainer.materialPage.clickFullMaterialDataNew();
 			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
@@ -149,7 +149,7 @@ public class MaterialChangeScript extends BaseScript
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 	    	//SharedDriver.pageContainer.materialPage.getCurrDate();
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
 		    //SharedDriver.pageContainer.materialPage.getGlobalId();
 			//SharedDriver.pageContainer.materialPage.clickFullMaterialDataNew();
 			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
@@ -236,7 +236,7 @@ public class MaterialChangeScript extends BaseScript
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 	    	//SharedDriver.pageContainer.materialPage.getCurrDate();
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
 			//		SharedDriver.pageContainer.materialPage.getGlobalId();
 			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 			//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
@@ -269,7 +269,7 @@ public class MaterialChangeScript extends BaseScript
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 	    	//SharedDriver.pageContainer.materialPage.getCurrDate();
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
 			//		SharedDriver.pageContainer.materialPage.getGlobalId();
 			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
@@ -356,7 +356,7 @@ public class MaterialChangeScript extends BaseScript
 //			SharedDriver.pageContainer.materialPage.advancedSearch();
 //			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 //			SharedDriver.pageContainer.materialPage.getCurrDate();
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
 //			SharedDriver.pageContainer.materialPage.getGlobalId();
 			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
@@ -427,7 +427,7 @@ public class MaterialChangeScript extends BaseScript
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 	    	//SharedDriver.pageContainer.materialPage.getCurrDate();
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
 		    //SharedDriver.pageContainer.materialPage.getGlobalId();
 			SharedDriver.pageContainer.material_Change_Page.clickFullMaterialDataSAP();
 			SharedDriver.pageContainer.material_Change_Page.selectOperatingEntity();

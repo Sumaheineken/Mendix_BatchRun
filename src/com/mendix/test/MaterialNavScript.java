@@ -626,7 +626,7 @@ public class MaterialNavScript extends BaseScript{
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 			// SharedDriver.pageContainer.materialPage.getCurrDate();
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
 			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 			SharedDriver.pageContainer.materialPage.clickflagDeletion();
 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
@@ -647,7 +647,7 @@ public class MaterialNavScript extends BaseScript{
 			SharedDriver.pageContainer.materialPage.navigateToDashboard();
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
 			
 			SharedDriver.pageContainer.materialPage.checkFFDLock();
 			// SharedDriver.pageContainer.materialPage.getGlobalId();

@@ -31,7 +31,7 @@ public class VendorScript extends BaseScript{
 		SharedDriver.pageContainer.vendorPage.createButtonClick();
 	}
 	
-	@Test(dataProvider="Vendor_Create_Global_Disable_BankData",dataProviderClass=staticProviderClass.class)
+	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Create_Fill_In_Data_Bank_sap(Map<String,String> dataMap, ITestContext context) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		String suiteName = context.getSuite().getName();
@@ -50,7 +50,7 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();			
  		}
 	}
-	@Test(dataProvider="Vendor_Create_Global_Disable_BankData",dataProviderClass=staticProviderClass.class)
+	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
 	public void Vendor_change_Fill_In_Data_Bank_sap(Map<String,String> dataMap, ITestContext context) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		String suiteName = context.getSuite().getName();
@@ -71,7 +71,7 @@ public class VendorScript extends BaseScript{
 	}
 
 
-	@Test(dataProvider="Vendor_Create_Global_Disable_BankData",dataProviderClass=staticProviderClass.class)
+	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
 	public void vendor_Create_Fill_In_Data_Global_Nav(Map<String,String> dataMap, ITestContext context) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		String suiteName = context.getSuite().getName();
@@ -105,7 +105,7 @@ public class VendorScript extends BaseScript{
 				
 	}
 	
-	@Test(dataProvider="Vendor_Create_Global_Disable_BankData",dataProviderClass=staticProviderClass.class)
+	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Create_local_Fill_In_Data(Map<String,String> dataMap, ITestContext context) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		String suiteName = context.getSuite().getName();
@@ -170,7 +170,7 @@ public class VendorScript extends BaseScript{
  		}
 				
 	}
-	@Test(dataProvider="Vendor_Create_Global_Disable_BankData",dataProviderClass=staticProviderClass.class)
+	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Change_local_Fill_In_Data(Map<String,String> dataMap, ITestContext context) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		String suiteName = context.getSuite().getName();
@@ -236,7 +236,7 @@ public class VendorScript extends BaseScript{
  		}				
 	}
 	
-	@Test(dataProvider="Vendor_Create_Global_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
+	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
 	public void vendor_Create_Fill_In_Data_Global_Nav_IncludeBank(Map<String,String> dataMap, ITestContext context) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		String suiteName = context.getSuite().getName();
@@ -406,7 +406,7 @@ public class VendorScript extends BaseScript{
 	}
 
 	/****************************************************************************************************/
-	@Test(dataProvider="Vendor_Create_Global_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
+	@Test
 	public void Vendor_Create_Fill_In_Data_JDE_Bank(Map<String,String> dataMap, ITestContext context) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		String suiteName = context.getSuite().getName();
@@ -611,7 +611,7 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
  			//SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
- 			SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
+ 			SharedDriver.pageContainer.vendorPage.globalSearch(dependentGlobalId);
  			SharedDriver.pageContainer.vendorPage.checkDashboardLockVendor();
  			//SharedDriver.pageContainer.vendorPage.getGlobalId();
  			//SharedDriver.pageContainer.vendorPage.GetFullVendorData();
@@ -645,7 +645,7 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
  			//SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
- 			SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
+ 			SharedDriver.pageContainer.vendorPage.globalSearch(dependentGlobalId);
  			SharedDriver.pageContainer.vendorPage.checkDashboardLockVendor();
  			//SharedDriver.pageContainer.vendorPage.getGlobalId();
  			//SharedDriver.pageContainer.vendorPage.GetFullVendorData();
@@ -667,7 +667,7 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
+ 			SharedDriver.pageContainer.vendorPage.globalSearch(dependentGlobalId);
  			SharedDriver.pageContainer.vendorPage.checkDashboardLockVendorExtend(dataMap.get("Global_Id"));
  			SharedDriver.pageContainer.processInfoPage.browserClose(); 			
  		}
@@ -694,7 +694,7 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
  			//SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
- 			SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
+ 			SharedDriver.pageContainer.vendorPage.globalSearch(dependentGlobalId);
  			SharedDriver.pageContainer.vendorPage.checkDashboardLockVendor();
  			SharedDriver.pageContainer.processInfoPage.browserClose(); 			
  		}
@@ -754,15 +754,14 @@ public class VendorScript extends BaseScript{
  		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
  		{
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.vendorPage.globalSearch(dependentGlobalId);	
- 			driver.quit();
- 			/*SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
+ 			SharedDriver.pageContainer.vendorPage.globalSearch(dependentGlobalId);	 			
+ 			SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
  			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
  			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
  			SharedDriver.pageContainer.vendorPage.EditVendorData();
  			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
  			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
- 			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	*/
+ 			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
  		}		
 	}
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
@@ -773,7 +772,7 @@ public class VendorScript extends BaseScript{
  		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
  		{
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));	
+ 			SharedDriver.pageContainer.vendorPage.globalSearch(dependentGlobalId);	
  			SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
  			
  			SharedDriver.pageContainer.vendorPage.EditVendorgloballovalsapData();
@@ -788,7 +787,7 @@ public class VendorScript extends BaseScript{
  		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
  		{
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));	
+ 			SharedDriver.pageContainer.vendorPage.globalSearch(dependentGlobalId);	
  			SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
  			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
  			SharedDriver.pageContainer.vendorPage.EditVendorgloballovajdeData();
@@ -804,7 +803,7 @@ public class VendorScript extends BaseScript{
  		String testCaseName = dataMap.get("Test_Case");
  		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
  		{
- 			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+ 			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
  			SharedDriver.pageContainer.vendorPage.GetFullVendorData();
  			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
  			SharedDriver.pageContainer.vendorPage.EditVendorDataGlobalLocal();
@@ -821,7 +820,7 @@ public class VendorScript extends BaseScript{
  		{
  			/*SharedDriver.pageContainer.vendorPage.disableLocaData();
  			SharedDriver.pageContainer.vendorPage.disableBankData();*/
- 			SharedDriver.pageContainer.vendorPage.VendorName(dataMap.get("Name12"));
+ 			SharedDriver.pageContainer.vendorPage.VendorName("Test");
  			SharedDriver.pageContainer.vendorPage.AddressStreet("Change Hauptstrasse");//dataMap.get("Street")
  			SharedDriver.pageContainer.vendorPage.AddresHouseNumber("12"); //dataMap.get("House number")
  			SharedDriver.pageContainer.vendorPage.AddresPostalCode("3551"); //dataMap.get("Postal Code")
@@ -853,7 +852,7 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+ 			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
  			SharedDriver.pageContainer.vendorPage.GetFullVendorData();
  			SharedDriver.pageContainer.vendorPage.clickOkToHandlePopup();
  			SharedDriver.pageContainer.vendorPage.clickExtendButton();
@@ -894,7 +893,7 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+ 			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
  			SharedDriver.pageContainer.vendorPage.GetFullVendorData();
  			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
  			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
@@ -925,12 +924,12 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();	
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+ 			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
  			SharedDriver.pageContainer.vendorPage.GetFullVendorData();
  			SharedDriver.pageContainer.vendorPage.checkGlobalIdYes();	
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+ 			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
  			SharedDriver.pageContainer.vendorPage.checkGlobalIdYes();	
  		}	
 	}
@@ -1000,7 +999,7 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
  			//SharedDriver.pageContainer.vendorPage.gobalIDSearchGlobal(dataMap.get("Global_ID"));
  			//SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("GlobalId"));
- 			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+ 			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
  			SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
  			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
  			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
@@ -1174,7 +1173,7 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+ 			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
  			SharedDriver.pageContainer.vendorPage.GetFullVendorData();	
  			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
  			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
@@ -1201,7 +1200,7 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));	
+ 			SharedDriver.pageContainer.vendorPage.globalSearch(dependentGlobalId);	
  			SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
  			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
  			SharedDriver.pageContainer.vendorPage.clickflagDeletion();
@@ -1273,7 +1272,7 @@ public class VendorScript extends BaseScript{
 			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 			SharedDriver.pageContainer.vendorPage.advancedSearch();			
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
 			SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
 			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();	
 			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();	
