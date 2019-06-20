@@ -2512,7 +2512,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
  		}
  		else
  		{
- 			//Thread.sleep(1200000);
+ 			Thread.sleep(1200000);
  			Sync.waitForSeconds(Constants.WAIT_3);
  			Sync.waitForObject(driver, "Wait for Request Id", txtboxRequestId);
 		
