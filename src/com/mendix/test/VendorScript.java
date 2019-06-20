@@ -659,7 +659,6 @@ public class VendorScript extends BaseScript{
 			SharedDriver.pageContainer.processInfoPage.browserClose();			
 		}
 	}
-
 	
 	@Test
 	public void launchUFT_SAP_Vendor() throws IOException, InterruptedException

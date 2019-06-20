@@ -4,7 +4,8 @@
 	<suite-files>	
 	
 	<suite-file path="14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml"></suite-file>
-    <suite-file path="9.Create_Material_with_Questionnaire_only_Global_SAP.xml"></suite-file>  
+    <suite-file path="9.Create_Material_with_Questionnaire_only_Global_SAP.xml"></suite-file>
+      
 </suite-files>	
 	
 </suite> 
