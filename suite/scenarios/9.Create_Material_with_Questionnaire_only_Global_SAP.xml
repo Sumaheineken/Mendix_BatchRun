@@ -73,11 +73,13 @@
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="process_Information_Check_GlobalID_Extend" />
+					<include name="process_Information_Check_GlobalID_Extend_SAP_Material" />
+					<include name="get_Material_Number_SAP"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
+	<!-- 
  	<test name="HeiPort_Login_LDR_Syndication">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -98,6 +100,7 @@
 			</class>
 		</classes>
 	</test>
+	 -->
 </suite> 
 
 

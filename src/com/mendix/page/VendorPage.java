@@ -1739,13 +1739,14 @@ public class VendorPage {
 				
 				Sync.waitForSeconds(Constants.WAIT_10);
 				
-				SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-				
 				if(driver.findElements(By.xpath("//*[@class='close mx-dialog-close']")).size()>0)
 				{
 					SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+					if(driver.findElements(By.xpath("//*[@class='close mx-dialog-close']")).size()>0)
+					{
+						SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+					}
 				}
-				
 				List<WebElement> vendorAccountNumberList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]"));
 				
 				List<WebElement> targetSystemList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[2]"));

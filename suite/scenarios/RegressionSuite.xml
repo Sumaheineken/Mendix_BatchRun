@@ -4,10 +4,7 @@
 	<suite-files>	
 	
 	<suite-file path="14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml"></suite-file>
-    <suite-file path="5.Change _vendor_global _Only.xml"></suite-file>
-    <suite-file path="14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml"></suite-file>
-     <suite-file path="6.Change_Vendor_Global_only_with_Rejections.xml"></suite-file>  
-  
+    <suite-file path="9.Create_Material_with_Questionnaire_only_Global_SAP.xml"></suite-file>  
 </suite-files>	
 	
 </suite> 

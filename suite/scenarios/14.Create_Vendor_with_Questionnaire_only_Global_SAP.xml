@@ -62,14 +62,15 @@
 	</test>
 		<test name="Process_Information_Check_Approved">
 		<classes>
-			<class name="com.mendix.test.MaterialScript">
+			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="process_Information_Check_GlobalID_Extend" />
+					<include name="process_Information_Check_GlobalID_Extend_SAP_Vendor" />
+					<include name="get_Vendor_Account_Number_SAP"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
-	
+	<!-- 
     <test name="HeiPort_Login_LDR_2">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -90,7 +91,7 @@
 			</class>
 		</classes>
 	</test> 
-	 
+	  -->
 </suite> 
 
 

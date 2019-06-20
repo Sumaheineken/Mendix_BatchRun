@@ -2578,8 +2578,10 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 
 			Sync.waitForSeconds(Constants.WAIT_10);
-
-			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			if(driver.findElements(By.xpath("//*[@class='close mx-dialog-close']")).size()>0)
+			{
+				SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();				
+			}
 
 			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
