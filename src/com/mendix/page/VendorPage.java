@@ -1799,7 +1799,6 @@ public class VendorPage {
 						SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 					}	
 				}
-				
 				List<WebElement> vendorAccountNumberList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]"));
 				
 				List<WebElement> targetSystemList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[2]"));

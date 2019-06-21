@@ -407,6 +407,7 @@ public class MaterialScript extends BaseScript{
 		}
 	}
 	
+	
 	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
 	public void material_Create_Syndication_Check_GlobalId(Map<String, String> dataMap, ITestContext context)
 			throws InterruptedException, FileNotFoundException, IOException {

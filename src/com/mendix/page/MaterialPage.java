@@ -2623,6 +2623,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 			{
 				SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
 			}
+			
 			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
 			List<WebElement> materialNumberlist = driver
