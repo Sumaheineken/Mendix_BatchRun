@@ -5,7 +5,8 @@
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
-					<include name="printSuiteName"/>                    
+					<include name="test"/>
+					<!-- <include name="tasKill" /> -->
 					<include name="openBrowser" />
 					<include name="loginAsLDRVendor" />
 				</methods>
@@ -70,9 +71,8 @@
 			</class>
 		</classes>
 	</test>
-	
 	<!-- 
-    <test name="HeiPort_Login_LDR_2">
+  	 <test name="HeiPort_Login_LDR_2">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -91,8 +91,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	  -->
+	</test>
+	 --> 
 </suite> 
 
 

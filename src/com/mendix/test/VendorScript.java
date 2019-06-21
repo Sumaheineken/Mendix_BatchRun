@@ -651,12 +651,12 @@ public class VendorScript extends BaseScript{
 		String testCaseName = dataMap.get("Test_Case");
 		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
 		{
-			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
+			SharedDriver.pageContainer.vendorPage.navigateToDashboardSearch_SAP();
 			SharedDriver.pageContainer.vendorPage.advancedSearch();
 			SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
 			SharedDriver.pageContainer.vendorPage.checkDashboardLockVendor();
-			SharedDriver.pageContainer.vendorPage.getVendorAccountNumber(suiteName, dataMap.get("OpCo"));			SharedDriver.pageContainer.processInfoPage.browserClose();	
-			SharedDriver.pageContainer.processInfoPage.browserClose();			
+			SharedDriver.pageContainer.vendorPage.getVendorAccountNumber(suiteName, dataMap.get("OpCo"));			
+			SharedDriver.pageContainer.processInfoPage.browserClose();				
 		}
 	}
 	

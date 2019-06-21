@@ -918,13 +918,17 @@ public class VendorPage {
 	/****************************************************************************************************/
 	public boolean navigateToDashboard() {
 
-		Sync.waitUntilObjectDisappears(driver, "Wait for Materials",
-				By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
 		Sync.waitForObject(driver, "Wait until the vendor appears", textVendor);
-		Button.click("Click Materials Menu", textVendor);
+		Button.jsclick("Click Vendor Menu", textVendor, driver);
 		return Button.click("Click Dashboard Menu", menuMaterialDashboard);
 	}
 	
+	
+	public boolean navigateToDashboardSearch_SAP() {
+
+		Button.jsclick("Click Vendor Menu", textVendor, driver);
+		return Button.click("Click Dashboard Menu", menuMaterialDashboard);
+	}
 
 	/****************************************************************************************************/
 	public void advancedSearch() throws InterruptedException {
@@ -1787,10 +1791,13 @@ public class VendorPage {
 //				Assert.assertEquals(fFDValue, "No", "FFD Value is still active");
 				SharedDriver.pageContainer.vendorPage.GetFullVendorData();
 				Sync.waitForSeconds(Constants.WAIT_10);
-				SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 				if(driver.findElements(By.xpath("//*[@class='close mx-dialog-close']")).size()>0)
 				{
 					SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+					if(driver.findElements(By.xpath("//*[@class='close mx-dialog-close']")).size()>0)
+					{
+						SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+					}	
 				}
 				
 				List<WebElement> vendorAccountNumberList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]"));

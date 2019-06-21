@@ -391,13 +391,13 @@ public class MaterialScript extends BaseScript{
 	}
 	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
-	public void get_Material_Number_SAP(Map<String,String> dataMap, ITestContext context) throws InterruptedException, FileNotFoundException, IOException 
+	public void get_Material_Number_SAP(Map<String,String> dataMap, ITestContext context) throws InterruptedException 
 	{
 		String suiteName = context.getSuite().getName();
 		String testCaseName = dataMap.get("Test_Case");
 		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
 		{
-			SharedDriver.pageContainer.materialPage.navigateToDashboard();
+			SharedDriver.pageContainer.materialPage.navigateToDashboardSearch();
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));

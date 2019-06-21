@@ -5,7 +5,7 @@
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
-					<include name="printSuiteName"/>                    
+					<!-- <include name="tasKill" />  -->
 					<include name="openBrowser" />
 					<include name="loginAsLDR" />
 				</methods>
@@ -64,7 +64,7 @@
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include
-						name="Material_Create_Review_Global_Data_Approve_GDA_Duplicate" />
+						name="Material_Create_Review_Global_Data_Approve_GDA" />
 				</methods>
 			</class>
 		</classes>
@@ -79,7 +79,6 @@
 			</class>
 		</classes>
 	</test>
-	
 	<!-- 
  	<test name="HeiPort_Login_LDR_Syndication">
 		<classes>

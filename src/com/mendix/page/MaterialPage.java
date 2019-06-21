@@ -1057,10 +1057,17 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_6);
 		Sync.waitForSeconds(Constants.WAIT_1);
 
-		// Sync.waitUntilObjectDisappears(driver, "Wait for Materials",
-		// By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
 		Sync.waitForObject(driver, "Wait until the Material appears", textMaterial);
 		Button.jsclick("Click Materials Menu", textMaterial, driver);
+		return Button.jsclick("Click Dashboard Menu", menuMaterialDashboard, driver);
+	}
+	
+	public boolean navigateToDashboardSearch() {
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForSeconds(Constants.WAIT_1);
+
+//		Sync.waitForObject(driver, "Wait until the Material appears", textMaterial);
+		Button.jsclick("Click Material Menu", textMaterial, driver);
 		return Button.jsclick("Click Dashboard Menu", menuMaterialDashboard, driver);
 	}
 
@@ -2524,7 +2531,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
  		}
  		else
  		{
- 			Thread.sleep(1200000);
+ 			//Thread.sleep(1200000);
  			Sync.waitForSeconds(Constants.WAIT_3);
  			Sync.waitForObject(driver, "Wait for Request Id", txtboxRequestId);
 		
@@ -2612,9 +2619,10 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 
 			Sync.waitForSeconds(Constants.WAIT_10);
-
-			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-
+			if(driver.findElements(By.xpath("//*[@class='close mx-dialog-close']")).size()>0)
+			{
+				SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
+			}
 			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
 			List<WebElement> materialNumberlist = driver
