@@ -893,7 +893,7 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.clickOkToHandlePopup();
  			SharedDriver.pageContainer.vendorPage.clickExtendButton();
  			SharedDriver.pageContainer.vendorPage.clickOkToHandlePopup();
- 			SharedDriver.pageContainer.vendorPage.clickGlobalDataButton();
+ 			SharedDriver.pageContainer.materialNavPage.switchToGlobal();
  			SharedDriver.pageContainer.vendorPage.clickToConfirm();
  			SharedDriver.pageContainer.vendorPage.clickConfirmExtension();
  			SharedDriver.pageContainer.vendorPage.clickOkToHandlePopup(); 			

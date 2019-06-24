@@ -31,7 +31,7 @@ import org.testng.ITestContext;
  */
 public class ExcelUtil {
 
-	private static XSSFWorkbook workbook;
+	public static XSSFWorkbook workbook;
 	public static String testCaseName= null;
 	public static ITestContext context;
 	

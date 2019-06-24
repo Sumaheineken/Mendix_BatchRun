@@ -223,7 +223,6 @@ public class LoginScript extends BaseScript {
 			Assert.assertTrue(SharedDriver.pageContainer.loginPage.login("MDM_GDA", "Heineken01"));			
 		}
 	}
-
 	
 	
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)

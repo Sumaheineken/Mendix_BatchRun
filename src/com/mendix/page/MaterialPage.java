@@ -2730,4 +2730,36 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 
 	}
 	
+	public void checkMaterialVendorSyndicationLocks() {
+
+		Sync.waitForSeconds(Constants.WAIT_5);
+		globalLockValue = txtGlobalLockValue.getText();
+
+		localLockValue = txtLocalLockValue.getText();
+
+		fFDValue = txtFFDValue.getText();
+
+		System.out.println("Global lock: " + globalLockValue);
+		System.out.println("Local Lock : " + localLockValue);
+		System.out.println("FFD : " + fFDValue);
+
+		if (globalLockValue.equalsIgnoreCase("No") && localLockValue.equalsIgnoreCase("No")
+				&& fFDValue.equalsIgnoreCase("No")) {
+			System.out.println("Syndication Done");
+			
+
+		}
+		else {
+			System.out.println("Syndiction not done");
+			SoftAssert assrt = new SoftAssert();
+			assrt.assertEquals(globalLockValue, "No", "Global Lock is still active");
+			assrt.assertEquals(localLockValue, "No", "Local lock is still active");
+			assrt.assertEquals(fFDValue, "No", "FFD Value is still active");
+			
+			
+		}
+
+	}
+
+	
 }
