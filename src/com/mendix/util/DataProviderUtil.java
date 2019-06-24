@@ -146,6 +146,13 @@ public class DataProviderUtil {
 			Iterator<Object[]> testData=ExcelUtil.getTestData("input/Mendix-MDM"+Constants.EXCEL_FORMAT, "MaterialPage");
 			return testData;
 		}
+		
+		
+		@DataProvider(name="Dashboard_Syndication_Flag_Check",parallel=false)
+		public static Iterator<Object[]> dashboardSyndicationFlagCheck(){
+			Iterator<Object[]> testData=ExcelUtil.getTestData("input/MDM_Output_Dummy"+Constants.EXCEL_FORMAT_XLSX, "OutputTestData");
+			return testData;
+		}
 	
 		/*@DataProvider(name="CreateMaterial_Fill_In",parallel=false)
 		public static Iterator<Object[]> MaterialApprovalPage(){
