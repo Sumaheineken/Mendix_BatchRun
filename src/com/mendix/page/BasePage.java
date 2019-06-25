@@ -28,6 +28,7 @@ import com.mendix.util.ExcelUtil;
 public class BasePage extends ExcelUtil{
 	
 	WebDriver driver;
+	
 
 	public BasePage(WebDriver driver){
 		PageFactory.initElements(driver, this);
@@ -141,6 +142,73 @@ public class BasePage extends ExcelUtil{
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public static void createNewRowInOutputFile(String testCaseValue, String globalIdValue, String materialVendorNumberValue,String loginValue, String uftUserValue)
+	{
+		try
+		{
+			FileInputStream file = new FileInputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+			workbook = new XSSFWorkbook(file);
+			XSSFSheet sheet = workbook.getSheet("OutputTestData");
+			int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
+			System.out.println("The rowCount is : "+rowCount);
+			Row row = sheet.getRow(0);
+			
+			Row newRow = sheet.createRow(rowCount+1);
+			
+//			for(int i=0; i< row.getLastCellNum(); i++)
+//			{
+				Cell cell0 = newRow.createCell(0);
+				cell0.setCellValue(testCaseValue);
+				Cell cell1 = newRow.createCell(1);
+				cell1.setCellValue(globalIdValue);
+				Cell cell2 = newRow.createCell(2);
+				cell2.setCellValue(materialVendorNumberValue);
+				Cell cell3 = newRow.createCell(3);
+				cell3.setCellValue(loginValue);
+				Cell cell4 = newRow.createCell(4);
+				cell4.setCellValue("Syndication Not Done");
+				Cell cell5 = newRow.createCell(5);
+				cell5.setCellValue(uftUserValue);
+//			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	public void writeOutputGlobalId(String globalIdValue, String testCaseOutputValue) {
+		
+		ExcelUtil.setCellDataOutputFile("OutputTestData", "Global_ID", globalIdValue, testCaseOutputValue);
+		System.out.println(globalIdValue);
+	}
+
+	public void writeOutputMaterialVendorNumber(String materialVendorNumberValue, String testCaseOutputValue) {
+		
+		ExcelUtil.setCellDataOutputFile("OutputTestData", "Material_Number_AH1", materialVendorNumberValue, testCaseOutputValue);
+		System.out.println(materialVendorNumberValue);
+	}
+
+	public void writeOutputMindexUser(String loginValue, String testCaseOutputValue) {
+		
+		ExcelUtil.setCellDataOutputFile("OutputTestData", "Mendix_User", loginValue, testCaseOutputValue);
+		System.out.println(loginValue);
+		
+	}
+
+	public void writeOutputSyndicationStatus(String syndicationValue, String testCaseOutputValue) {
+		
+		ExcelUtil.setCellDataOutputFile("OutputTestData", "Syndication_Status", syndicationValue, testCaseOutputValue);
+		System.out.println(syndicationValue);
+		
+	}
+
+	public void writeOutputUftUser(String uftUserValue, String testCaseOutputValue) {
+		
+		ExcelUtil.setCellDataOutputFile("OutputTestData", "UFT_User", uftUserValue, testCaseOutputValue);
+		System.out.println(uftUserValue);
 	}
 
 }
