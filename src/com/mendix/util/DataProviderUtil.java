@@ -150,7 +150,7 @@ public class DataProviderUtil {
 		
 		@DataProvider(name="Dashboard_Syndication_Flag_Check",parallel=false)
 		public static Iterator<Object[]> dashboardSyndicationFlagCheck(){
-			Iterator<Object[]> testData=ExcelUtil.getTestData("input/MDM_Output_Dummy"+Constants.EXCEL_FORMAT_XLSX, "OutputTestData");
+			Iterator<Object[]> testData=ExcelUtil.getTestData("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX, "OutputTestData");
 			return testData;
 		}
 	

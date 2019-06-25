@@ -77,6 +77,10 @@ public class ExcelUtil {
 					try{
 						Cell cell=cellIterator.next();
 						if(cell!=null){strValue=cell.toString();}
+						else
+						{
+							strValue = null;
+						}
 					}catch(Exception e){}
 					rowMap.put(strColumnName, strValue.trim());
 				}

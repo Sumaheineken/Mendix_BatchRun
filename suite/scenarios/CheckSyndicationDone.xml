@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CheckSyndicationDone.xml">
+<!-- 	<test name="Browser Launch">
+		<classes>
+		<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+				</methods>
+			</class>
+		</classes>
+	</test> -->
+	<test name="Check syndication done status">
+		<classes>
+			<class name="com.mendix.test.BaseScript">
+				<methods>
+					<!-- <include name="globalIdSyndicationCheck"/> -->
+					<include name = "readAndSetValuesFromDataSheet"/>
+					<include name = "writeIntoTestDataSheet"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+</suite> 
+
+
+

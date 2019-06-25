@@ -3,11 +3,14 @@ package com.mendix.page;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -88,7 +91,56 @@ public class BasePage extends ExcelUtil{
 			
 //		}
 		
+		
+		
 	}
 	
+	public static void removingSheetFromExcel() 
+	{
+		try {
+			System.out.println("Geting into the method and then checking for the excel sheet");
+			FileInputStream file = new FileInputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);//input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX));
+			workbook = new XSSFWorkbook(file);
+			XSSFSheet sheet = workbook.getSheet("OutputTestData");
+			
+			if(sheet.getSheetName().equalsIgnoreCase("OutputTestData"))
+			{
+				workbook.removeSheetAt(0);
+			}
+			
+			FileOutputStream output = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX); //input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+			workbook.write(output);
+			output.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void addingNewSheetAndNewColumnToExcel()
+	{
+		
+		workbook = new XSSFWorkbook();
+		FileOutputStream output;
+		try {
+			output = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+			CreationHelper createHelper = workbook.getCreationHelper();
+			Sheet sheet1 = workbook.createSheet("OutputTestData");
+			Row headerRow = sheet1.createRow(0);
+			headerRow.createCell(0).setCellValue(createHelper.createRichTextString("Test_Case"));
+			headerRow.createCell(1).setCellValue(createHelper.createRichTextString("Global_ID"));
+			headerRow.createCell(2).setCellValue(createHelper.createRichTextString("Material_Number_AH1"));
+			headerRow.createCell(3).setCellValue(createHelper.createRichTextString("Mendix_User"));
+			headerRow.createCell(4).setCellValue(createHelper.createRichTextString("Syndication_Status"));
+			headerRow.createCell(5).setCellValue(createHelper.createRichTextString("UFT_User"));
+			
+			workbook.write(output);
+			output.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 }
