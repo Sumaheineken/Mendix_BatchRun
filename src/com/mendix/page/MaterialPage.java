@@ -1510,7 +1510,7 @@ public class MaterialPage {
 		Sync.waitForObject(driver, btnDiscardCreate);
 		Textbox.click("Click on discard button in locl action", btnDiscardCreate);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Button.jsclick("Click Proceed button", btnProceed, driver);
+		//Button.jsclick("Click Proceed button", btnProceed, driver);
 		Sync.waitForObject(driver, btnOK);
 		Button.click("Click On OK button", btnOK);
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -1731,8 +1731,8 @@ public class MaterialPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".modal-body.mx-dialog-body>p")));
 
 		Sync.waitForObject(driver, "Wait of Dialog Box Success Message", msgRequestSuccessMsg);
-		 String reqId=driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")).getText();
-		//String reqId = driver.findElement(By.cssSelector(".modal-body.mx-dialog-body>p")).getText();
+		// String reqId=driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")).getText();
+		String reqId = driver.findElement(By.cssSelector(".modal-body.mx-dialog-body>p")).getText();
 		String[] parts = reqId.split(" ");
 		String Id = parts[2];
 		System.out.println(Id);
@@ -2639,7 +2639,29 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 			System.out.println("Flag for Deletion not done");
 
 		}
-
+		
 	}
-	
+	public void clickDuplicateCheck_SAP() throws InterruptedException 
+    {
+
+   	 //Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+   	 Sync.waitForSeconds(Constants.WAIT_5); 
+   	 Sync.waitForSeconds(Constants.WAIT_6);
+   	 //btnDuplicateSubmit
+
+   	 Thread.sleep(30000);
+   	 if(driver.findElements(By.xpath(".//*[text()='Open Record']")).size()>0) 
+   	 {
+   		 System.out.println("Entered into the if loop");
+   		 Sync.waitForSeconds(Constants.WAIT_5);
+   		 this.duplicateCheck_New();
+   	 }
+   	 else if(Button.verifyObject(btnClose))
+   	 {
+   		 Sync.waitForSeconds(Constants.WAIT_5);
+   		 Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
+   		 clickCloseButtonToPopUp();
+   		 submitGlobalRequest();
+   	 }
+    } 
 }

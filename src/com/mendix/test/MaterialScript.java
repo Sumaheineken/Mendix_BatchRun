@@ -195,13 +195,10 @@ public class MaterialScript extends BaseScript{
 			SharedDriver.pageContainer.materialPage.validate();
 			SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 			SharedDriver.pageContainer.materialApprovalPage.clickDuplicateCheck_GDA();
-			SharedDriver.pageContainer.materialPage.clickLocalAction();		
-			SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
-			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
 		}
 	}
 
-
+	
 
 	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
 	public void Material_Create_Review_Global_Data_Approve_GDA(Map<String, String> dataMap, ITestContext context)
@@ -250,10 +247,12 @@ public class MaterialScript extends BaseScript{
 		String suiteName = context.getSuite().getName();
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
-		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
-		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck_SAP();		
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew(suiteName);
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		// SharedDriver.pageContainer.materialPage.getRequestId();
+		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		// SharedDriver.pageContainer.materialApprovalPage.okbuttonClick();
 		// SharedDriver.pageContainer.materialPage.getRequestId();
 		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		// SharedDriver.pageContainer.materialApprovalPage.okbuttonClick();
@@ -1115,7 +1114,7 @@ public class MaterialScript extends BaseScript{
 		}
 		
 	}
-
+	
 }
 	
 
