@@ -409,18 +409,21 @@ public class MaterialNavScript extends BaseScript{
 		String testCaseName = dataMap.get("Test_Case");
 		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
 		{
-			Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+			SharedDriver.pageContainer.homePage.navigateToWorkflow();
 			SharedDriver.pageContainer.materialPage.switchToPopup();
 			SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));		
 			SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
 			SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 			SharedDriver.pageContainer.materialPage.duplicateCheck_New();
 			SharedDriver.pageContainer.materialPage.submitGlobalRequestExtend();
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			Sync.waitForSeconds(Constants.WAIT_10);
 			SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 			SharedDriver.pageContainer.materialPage.Localactionbutton();
 			SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
 			SharedDriver.pageContainer.materialNavPage.submitLocalRequest();
-			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+
 		}
 		
 	}
