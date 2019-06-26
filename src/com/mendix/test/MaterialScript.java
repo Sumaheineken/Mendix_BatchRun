@@ -1162,16 +1162,32 @@ public class MaterialScript extends BaseScript{
 	public void globalIdSyndicationCheck(Map<String, String> dataMap, ITestContext context)
 			throws InterruptedException, FileNotFoundException, IOException 
 	{
-		LoginScript.openBrowser();
-		Assert.assertTrue(SharedDriver.pageContainer.loginPage.login(dataMap.get("Mendix_User"), "Heineken01"));	
-		SharedDriver.pageContainer.homePage.navigateToWorkflow();
-		SharedDriver.pageContainer.materialPage.switchToPopup();
-		SharedDriver.pageContainer.materialPage.navigateToDashboard();
-		SharedDriver.pageContainer.materialPage.advancedSearch();
-		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
-		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
-		SharedDriver.pageContainer.materialPage.checkMaterialVendorSyndicationLocks();
-		SharedDriver.pageContainer.processInfoPage.browserClose();
+		String globalIdFromSheet = dataMap.get("Global_ID");
+		String loginFromSheet = dataMap.get("Mendix_User");
+		String testCaseNameFromSheet = dataMap.get("Test_Case");
+		String curStr = "CurrRowNo";		
+		String lastStr = "LastRowNo";
+		int currentRowFirstIndexGlobalId = globalIdFromSheet.indexOf("CurrRowNo");
+		int currentRowFirstIndexMendixLogin = loginFromSheet.indexOf("CurrRowNo");
+		int currentRowFirstIndexTestCaseName = testCaseNameFromSheet.indexOf("CurrRowNo");
+		String globalId = globalIdFromSheet.substring(0,currentRowFirstIndexGlobalId);
+		String mendixLogin = loginFromSheet.substring(0, currentRowFirstIndexMendixLogin);
+		String testCaseNameValue = testCaseNameFromSheet.substring(0, currentRowFirstIndexTestCaseName);
+		
+		if(!globalId.equalsIgnoreCase("dummyRow"))
+		{
+			LoginScript.openBrowser();
+			Assert.assertTrue(SharedDriver.pageContainer.loginPage.login(mendixLogin, "Heineken01"));	
+			SharedDriver.pageContainer.homePage.navigateToWorkflow();
+			SharedDriver.pageContainer.materialPage.switchToPopup();
+			SharedDriver.pageContainer.materialPage.navigateToDashboard();
+			SharedDriver.pageContainer.materialPage.advancedSearch();
+			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
+			SharedDriver.pageContainer.materialPage.globalSearch(globalId);
+			SharedDriver.pageContainer.materialPage.checkMaterialVendorSyndicationLocks(testCaseNameValue);
+			SharedDriver.pageContainer.processInfoPage.browserClose();
+		}
+
 	}
 	
 }

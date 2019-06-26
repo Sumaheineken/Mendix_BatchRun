@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml">
-<!-- <test name="HeiPort_Login_LDR">
+	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -69,14 +69,13 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
- 	
+	</test>
+	
  	<test name="picking from excel Sheet">
 		<classes>
 			<class name="com.mendix.test.BaseScript">
 				<methods>
 					<include name="readAndSetValuesFromDataSheet" />
-					<include name = "sample"/>
 				</methods>
 			</class>
 		</classes>
@@ -86,35 +85,12 @@
 		<classes>
 			<class name="com.mendix.test.BaseScript">
 				<methods>
-					<include name = "sample"/>
 					<include name="writeIntoTestDataSheet"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
-	
-	<!-- 
-  	 <test name="HeiPort_Login_LDR_2">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsLDRVendor" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-		<test name="Vendor_Create_Syndication_Check">
-		<classes>
-			<class name="com.mendix.test.VendorScript">
-				<methods>
-					<include name="Vendor_Create_Syndication_Check_SAP" />
-					<include name="launchUFT_SAP_Vendor"/>
-				</methods>
-			</class>
-		</classes>
-	</test>
-	 --> 
+
 </suite> 
 
 

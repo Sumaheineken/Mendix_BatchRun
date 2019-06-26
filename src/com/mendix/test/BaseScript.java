@@ -58,50 +58,40 @@ public class BaseScript
 	{
 		String testCaseOutputValue = dataMap.get("Test_Case");
 		
-		System.out.println("Test Case Values:"+dataMap.get("Test_Case"));
+		System.out.println("Test Case Value Got from DataMap:"+dataMap.get("Test_Case"));
 		String curStr = "CurrRowNo";		
 		String lastStr = "LastRowNo";
-		int cuurentRowFirstIndex = testCaseOutputValue.indexOf("CurrRowNo");
-		int cuurentRowLastIndex = cuurentRowFirstIndex + curStr.length();
-		System.out.println("cuurentRowLastIndex"+cuurentRowLastIndex);
-		
+		int currentRowFirstIndex = testCaseOutputValue.indexOf("CurrRowNo");
+		int currentRowLastIndex = currentRowFirstIndex + curStr.length();
+		//System.out.println("cuurentRowLastIndex"+cuurentRowLastIndex);
 		int lastRowFirstIndex = testCaseOutputValue.indexOf("LastRowNo");
-		System.out.println("lastRowFirstIndex"+lastRowFirstIndex);
+		//System.out.println("lastRowFirstIndex"+lastRowFirstIndex);
 		int lastRowLastIndex = lastRowFirstIndex+lastStr.length();
-		System.out.println("lastRowLastIndex"+lastRowLastIndex);
-		String currentRowNum = testCaseOutputValue.substring(cuurentRowLastIndex, lastRowFirstIndex);
+		//System.out.println("lastRowLastIndex"+lastRowLastIndex);
+		String currentRowNum = testCaseOutputValue.substring(currentRowLastIndex, lastRowFirstIndex);
 		System.out.println("current Row Num:"+currentRowNum);
 		String lastRowNum = testCaseOutputValue.substring(lastRowLastIndex);
 		System.out.println("Last Row Num: "+lastRowNum);
 		
-		String testCaseName = testCaseOutputValue.substring(0,cuurentRowFirstIndex);
+		String testCaseName = testCaseOutputValue.substring(0,currentRowFirstIndex);
 		System.out.println("testCaseName: "+testCaseName);
 
-//		if(testCaseOutputValue != null)
-//		{
-			System.out.println("sai coding");
-			if(testCaseName.equalsIgnoreCase(testCaseValue))
-			{
-				System.out.println("Checking for the columns");
-				SharedDriver.pageContainer.basePage.writeOutputGlobalId(globalIdValue, testCaseOutputValue);
-//				SharedDriver.pageContainer.basePage.writeOutputMaterialVendorNumber(materialVendorNumberValue, testCaseOutputValue);
-//				SharedDriver.pageContainer.basePage.writeOutputMindexUser(loginValue, testCaseOutputValue);
-//				SharedDriver.pageContainer.basePage.writeOutputSyndicationStatus("Syndication Not Done", testCaseOutputValue);
-//				SharedDriver.pageContainer.basePage.writeOutputUftUser(uftUserValue, testCaseOutputValue);
-				System.out.println("Excel updation is done");
-			}
-			else if(currentRowNum.equals(lastRowNum))
-			{
-				
-				System.out.println("sai ");
-				BasePage.createNewRowInOutputFile(testCaseValue, globalIdValue, materialVendorNumberValue, loginValue, uftUserValue);
-			}
-//		}
+		if(testCaseName.equalsIgnoreCase(testCaseValue))
+		{
+			System.out.println("Checking for the columns");
+			BasePage.writeOutputGlobalId(globalIdValue, testCaseName);
+			BasePage.writeOutputMaterialVendorNumber(materialVendorNumberValue, testCaseName);
+			BasePage.writeOutputMindexUser(loginValue, testCaseName);
+			BasePage.writeOutputSyndicationStatus("Syndication Not Done", testCaseName);
+			BasePage.writeOutputUftUser(uftUserValue, testCaseName);
+			System.out.println("Excel updation is done");
+		}
+		else if(currentRowNum.equals(lastRowNum))
+		{		
+			System.out.println("New Row is getting created as there are no rows exists with test case name");
+			BasePage.createNewRowInOutputFile(testCaseValue, globalIdValue, materialVendorNumberValue, loginValue, uftUserValue);
+		}
 
-//			System.out.println("sai coding34455");
-//			BasePage.createNewRowInOutputFile(testCaseValue, globalIdValue, materialVendorNumberValue, loginValue, uftUserValue);
-
-//		SharedDriver.pageContainer.basePage.readAndWriteInEmptyCellsOfOutputExcel();
 	}
 	
 	
@@ -111,13 +101,6 @@ public class BaseScript
 			BasePage.removingSheetFromExcel();
 			BasePage.addingNewSheetAndNewColumnToExcel();
 			BasePage.createDummyRow();
-//			BasePage.createNewRowInOutputFile(testCaseValue, globalIdValue, materialVendorNumberValue, loginValue, uftUserValue);
-	}
-	
-	@Test
-	public void sample()
-	{
-		System.out.println("Sample method done");
 	}
 
 	@Test

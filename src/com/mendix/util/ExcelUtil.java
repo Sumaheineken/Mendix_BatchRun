@@ -87,7 +87,7 @@ public class ExcelUtil {
 					rowMap.put(strColumnName, strValue.trim());
 				}
 
-				System.out.println("rowMap Values:"+rowMap.toString());
+				//System.out.println("rowMap Values:"+rowMap.toString());
 				//if(rowMap.get("Execute").equalsIgnoreCase("Y")){	
 					//rowMap.put("Iteration", ""+inRowCounter);
 					data.add(new Object[]{rowMap});
@@ -302,37 +302,6 @@ public class ExcelUtil {
 			XSSFSheet sheet = workbook.getSheet("TestPlan");
 			Cell cell = sheet.getRow(1).getCell(5);
 			cell.setCellValue(materialNum);
-			FileOutputStream fos = new FileOutputStream("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX);
-			workbook.write(fos);
-			fos.close();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	public static void excelWriteState(String globalId)
-			throws FileNotFoundException, IOException {
-		try {
-			FileInputStream fis = new FileInputStream("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX);
-			XSSFWorkbook workbook = new XSSFWorkbook(fis);
-			//call the getSheet() method of Workbook and pass the Sheet Name here. 
-			//In this case I have given the sheet name as “TestData” 
-			//or if you use the method getSheetAt(), you can pass sheet number starting from 0. Index starts with 0.
-			XSSFSheet sheet = workbook.getSheet("TestPlan");
-			//XSSFSheet sheet = workbook.getSheetAt(0);
-			//Now create a row number and a cell where we want to enter a value. 
-			//Here im about to write my test data in the cell B2. It reads Column B as 1 and Row 2 as 1. Column and Row values start from 0.
-			//The below line of code will search for row number 2 and column number 2 (i.e., B) and will create a space. 
-			//The createCell() method is present inside Row class.
-			//		Row row = sheet.c
-			//		Cell cell = row.createCell(1);
-			Cell cell = sheet.getRow(1).getCell(3);
-			//Now we need to find out the type of the value we want to enter. 
-			//If it is a string, we need to set the cell type as string 
-			//if it is numeric, we need to set the cell type as number
-			//		cell.setCellType(cell.CELL_TYPE_STRING);
-			cell.setCellValue(globalId);
 			FileOutputStream fos = new FileOutputStream("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX);
 			workbook.write(fos);
 			fos.close();
@@ -729,68 +698,4 @@ public class ExcelUtil {
 		return testCaseName;
 	}
 	
-	
-	//==================================================================
-	
-	public static void setCellDataOutput_GlobalId(String sheetName, String colName, String value, String suiteName)
-	{
-		List<Object[]> data = new ArrayList<Object[]>();
-		try
-		{
-			FileInputStream fis = new FileInputStream("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX);
-			XSSFWorkbook workbook = new XSSFWorkbook(fis);
-			int col_Num = 0;
-			XSSFSheet sheet = workbook.getSheet(sheetName);
-
-			XSSFRow row = sheet.getRow(getRowNum("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX, "TestPlan", value));
-			for (int i = 0; i < row.getLastCellNum(); i++) {
-				if (row.getCell(i).getStringCellValue().trim().equals(colName))
-				{
-					col_Num = i;
-				}
-			}
-
-			//			sheet.autoSizeColumn(col_Num);
-			//			row = sheet.getRow(getRowNum("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX, "TestPlan", value) - 1);
-			//			if(row==null)
-			//				row = sheet.createRow(rowNum - 1);
-			Iterator<Row> rowIterator = sheet.rowIterator();
-			Row firstRow=rowIterator.next();
-
-
-			testCaseName = getTestCaseName("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX, "TestPlan", suiteName);
-			Map<String, String> headerRow = getColumnNames(firstRow);
-			while(rowIterator.hasNext()){
-				Iterator<Cell> cellIterator=rowIterator.next().cellIterator();
-				Map<String,String> rowMap=new LinkedHashMap<String, String>();
-				for(Entry<?, ?> entry:headerRow.entrySet()){
-					String strColumnName=entry.getKey().toString();
-					String strValue="";
-					try{
-						Cell cell=cellIterator.next();
-						if(cell!=null){strValue=cell.toString();
-						rowMap.put(strColumnName, strValue.trim());
-							
-						if(strColumnName.equalsIgnoreCase("RequestId")) {
-							if(rowMap.get("Test_Case").equalsIgnoreCase(testCaseName)){
-							cell.setCellValue(value);
-							}
-						}
-						}
-					}catch(Exception e){}
-				}
-
-				FileOutputStream fos = new FileOutputStream("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX);
-				workbook.write(fos);
-				fos.close();
-			}
-		}
-		catch (Exception ex)
-		{
-			ex.printStackTrace();
-			//            return  false;
-		}
-		//        return true;
-	}
-
 }

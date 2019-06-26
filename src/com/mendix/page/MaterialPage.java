@@ -2730,7 +2730,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 
 	}
 	
-	public void checkMaterialVendorSyndicationLocks() {
+	public void checkMaterialVendorSyndicationLocks(String testCaseNameValue) {
 
 		Sync.waitForSeconds(Constants.WAIT_5);
 		globalLockValue = txtGlobalLockValue.getText();
@@ -2746,8 +2746,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 		if (globalLockValue.equalsIgnoreCase("No") && localLockValue.equalsIgnoreCase("No")
 				&& fFDValue.equalsIgnoreCase("No")) {
 			System.out.println("Syndication Done");
-			
-
+			ExcelUtil.setCellDataOutputFile("OutputTestData", "Syndication_Status", "SyndicationsDone", testCaseNameValue);
 		}
 		else {
 			System.out.println("Syndiction not done");
@@ -2756,10 +2755,16 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 			assrt.assertEquals(localLockValue, "No", "Local lock is still active");
 			assrt.assertEquals(fFDValue, "No", "FFD Value is still active");
 			
-			
 		}
 
 	}
 
+	public void writeOutputGlobalId(String testCaseOutputValue, String globalIdValue) {
+		
+		System.out.println(globalIdValue);
+		System.out.println("Moving onto the excel");
+		ExcelUtil.setCellDataOutputFile("OutputTestData", "Global_ID", globalIdValue, testCaseOutputValue);
+		
+	}
 	
 }

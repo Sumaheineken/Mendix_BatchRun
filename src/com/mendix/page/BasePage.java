@@ -45,56 +45,6 @@ public class BasePage extends ExcelUtil{
 		
 	}
 	
-
-	/* Test Code Created by Sai for UFT solution */
-	public void readAndWriteInEmptyCellsOfOutputExcel() throws IOException
-	{
-		FileInputStream file = new FileInputStream(new File("input/MDM_Output_Dummy"+Constants.EXCEL_FORMAT_XLSX));
-		workbook = new XSSFWorkbook(file);
-		XSSFSheet sheet = workbook.getSheet("OutputTestData");
-		Iterator rows = sheet.rowIterator();
-		
-		while(rows.hasNext())
-		{
-			XSSFRow row = (XSSFRow) rows.next();
-			System.out.println("Row:");
-			Iterator cells = row.cellIterator();
-			
-			while(cells.hasNext())
-			{
-				XSSFCell cell = (XSSFCell) cells.next();
-				System.out.println("Cell: "+cell.toString());
-			}
-		}
-//		for(int rn = sheet.getFirstRowNum(); rn <= sheet.getLastRowNum(); rn++)
-//		{
-//			Row row = sheet.getRow(rn);
-//			if(row == null)
-//			{
-//				System.out.println("The row is empty and we can print the new test case data here");
-//				
-//			}
-//			else
-//			{
-//				for(int cn = 0; cn<row.getLastCellNum(); cn++)
-//				{
-//					Cell cell = row.getCell(cn);
-//					if(cell == null)
-//					{
-//						System.out.println("Cell is empty");
-//					}
-//					else
-//					{
-//						System.out.println("Cell is not empty");
-//					}
-//				}
-//		}
-			
-//		}
-		
-		
-		
-	}
 	
 	public static void removingSheetFromExcel() 
 	{
@@ -215,33 +165,35 @@ public class BasePage extends ExcelUtil{
 		}
 	}
 
-	public void writeOutputGlobalId(String globalIdValue, String testCaseOutputValue) {
+	public static void writeOutputGlobalId(String testCaseOutputValue, String globalIdValue) {
 		
-		ExcelUtil.setCellDataOutputFile("OutputTestData", "Global_ID", globalIdValue, testCaseOutputValue);
 		System.out.println(globalIdValue);
+		System.out.println("Moving onto the excel");
+		ExcelUtil.setCellDataOutputFile("OutputTestData", "Global_ID", globalIdValue, testCaseOutputValue);
+		
 	}
 
-	public void writeOutputMaterialVendorNumber(String materialVendorNumberValue, String testCaseOutputValue) {
+	public static void writeOutputMaterialVendorNumber(String materialVendorNumberValue, String testCaseOutputValue) {
 		
 		ExcelUtil.setCellDataOutputFile("OutputTestData", "Material_Number_AH1", materialVendorNumberValue, testCaseOutputValue);
 		System.out.println(materialVendorNumberValue);
 	}
 
-	public void writeOutputMindexUser(String loginValue, String testCaseOutputValue) {
+	public static void writeOutputMindexUser(String loginValue, String testCaseOutputValue) {
 		
 		ExcelUtil.setCellDataOutputFile("OutputTestData", "Mendix_User", loginValue, testCaseOutputValue);
 		System.out.println(loginValue);
 		
 	}
 
-	public void writeOutputSyndicationStatus(String syndicationValue, String testCaseOutputValue) {
+	public static void writeOutputSyndicationStatus(String syndicationValue, String testCaseOutputValue) {
 		
 		ExcelUtil.setCellDataOutputFile("OutputTestData", "Syndication_Status", syndicationValue, testCaseOutputValue);
 		System.out.println(syndicationValue);
 		
 	}
 
-	public void writeOutputUftUser(String uftUserValue, String testCaseOutputValue) {
+	public static void writeOutputUftUser(String uftUserValue, String testCaseOutputValue) {
 		
 		ExcelUtil.setCellDataOutputFile("OutputTestData", "UFT_User", uftUserValue, testCaseOutputValue);
 		System.out.println(uftUserValue);
