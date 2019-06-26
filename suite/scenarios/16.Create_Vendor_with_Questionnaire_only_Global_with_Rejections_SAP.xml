@@ -74,7 +74,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDRVendorSAP" />
+					<include name="loginAsLDRVendor" />
 				</methods>
 			</class>
 		</classes>
@@ -131,7 +131,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDRVendorSAP" />
+					<include name="loginAsLDRVendor" />
 				</methods>
 			</class>
 		</classes>

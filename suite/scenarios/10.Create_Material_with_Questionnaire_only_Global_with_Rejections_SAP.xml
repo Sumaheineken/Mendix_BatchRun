@@ -7,7 +7,7 @@
 				<methods>
 					<include name="printSuiteName"/>
                     <include name="openBrowser" />
-					<include name="loginAsLDRMaterialSAP" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>

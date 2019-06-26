@@ -62,7 +62,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDPNAVMZCB" />
+					<include name="loginAsLDP" />
 				</methods>
 			</class>
 		</classes>
@@ -97,7 +97,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDSNAVMZCB" />
+					<include name="loginAsLDS" />
 				</methods>
 			</class>
 		</classes>

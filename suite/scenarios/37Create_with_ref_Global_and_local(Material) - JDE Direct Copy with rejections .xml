@@ -86,7 +86,7 @@
 		<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDS" />
+					<include name="loginAsLDS" />
 				</methods>
 			</class>
 		</classes>
@@ -115,7 +115,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDR" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
@@ -145,7 +145,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDS" />
+					<include name="loginAsLDS" />
 				</methods>
 			</class>
 		</classes>
@@ -204,7 +204,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDR" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>

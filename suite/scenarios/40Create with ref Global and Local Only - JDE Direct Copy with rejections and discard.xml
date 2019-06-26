@@ -86,7 +86,7 @@
 		<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDS" />
+					<include name="loginAsLDS" />
 				</methods>
 			</class>
 		</classes>

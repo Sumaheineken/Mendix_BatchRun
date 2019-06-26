@@ -9,7 +9,7 @@
                     <include name="getDependentScenarioName"/>
                     <include name="getGlobalIdFromIndependentScript2" />
 					<include name="openBrowser" />
-					<include name="loginAsLDRMaterial" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
