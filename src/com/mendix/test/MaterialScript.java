@@ -367,6 +367,45 @@ public class MaterialScript extends BaseScript{
 		}		
 	}
 	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void process_Information_Check_GlobalID_Extend_SAP_Material(Map<String,String> dataMap, ITestContext context) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		String suiteName = context.getSuite().getName();
+		String testCaseName = dataMap.get("Test_Case");
+		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
+		{
+			System.out.println("Waiting for Clicking on Process Info Search");
+			SharedDriver.pageContainer.processInfoPage.processInfoSearch();
+			SharedDriver.pageContainer.processInfoPage.reqIdSearch_Global(dataMap.get("RequestId"));
+			//SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
+			//SharedDriver.pageContainer.processInfoPage.capturing_GlobalID();
+			
+			SharedDriver.pageContainer.materialPage.checkSyndicationTest(dataMap.get("RequestId"));
+			SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo_Extend(dataMap.get("RequestId"), suiteName);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			SharedDriver.pageContainer.materialPage.checkSyndicationDoneStatus(dataMap.get("RequestId"));
+			Sync.waitForSeconds(Constants.WAIT_10);
+			Sync.waitForSeconds(Constants.WAIT_10);	
+		}		
+	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void get_Material_Number_SAP(Map<String,String> dataMap, ITestContext context) throws InterruptedException 
+	{
+		String suiteName = context.getSuite().getName();
+		String testCaseName = dataMap.get("Test_Case");
+		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
+		{
+			SharedDriver.pageContainer.materialPage.navigateToDashboardSearch();
+			SharedDriver.pageContainer.materialPage.advancedSearch();
+			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
+			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.materialPage.checkDashboardLock();
+			SharedDriver.pageContainer.materialPage.getMaterialNumber(suiteName, dataMap.get("OpCo"));
+			SharedDriver.pageContainer.processInfoPage.browserClose();			
+		}
+	}
+	
 	
 	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
 	public void material_Create_Syndication_Check_GlobalId(Map<String, String> dataMap, ITestContext context)
@@ -380,12 +419,14 @@ public class MaterialScript extends BaseScript{
 			SharedDriver.pageContainer.materialPage.navigateToDashboard();
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
-			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
+			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
 			
 			SharedDriver.pageContainer.materialPage.checkDashboardLock();
 			// SharedDriver.pageContainer.materialPage.getGlobalId();
 			// SharedDriver.pageContainer.materialPage.clickFullMaterialData();
-			// SharedDriver.pageContainer.materialPage.getMaterial_Number();
+			//SharedDriver.pageContainer.materialPage.getMaterial_Number();
+			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			SharedDriver.pageContainer.materialPage.getMaterialNumber(suiteName, dataMap.get("OpCo"));
 			SharedDriver.pageContainer.processInfoPage.browserClose();
 			// SharedDriver.pageContainer.materialApprovalPage.launchUFT();
 			
@@ -1115,6 +1156,24 @@ public class MaterialScript extends BaseScript{
 		
 	}
 	
+
+	
+	@Test(dataProvider="Dashboard_Syndication_Flag_Check",dataProviderClass=staticProviderClass.class)
+	public void globalIdSyndicationCheck(Map<String, String> dataMap, ITestContext context)
+			throws InterruptedException, FileNotFoundException, IOException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.loginPage.login(dataMap.get("Login"), "Heineken01"));	
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialPage.navigateToDashboard();
+		SharedDriver.pageContainer.materialPage.advancedSearch();
+		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
+		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+		SharedDriver.pageContainer.materialPage.checkMaterialVendorSyndicationLocks();
+		SharedDriver.pageContainer.processInfoPage.browserClose();
+	}
+	
+
 }
 	
 
