@@ -57,9 +57,14 @@ public class LoginScript extends BaseScript {
 	}
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
 	public void printSuiteName(Map<String,String> dataMap, ITestContext context){
-		String suitName=context.getSuite().getName();
-		ResultUtil.reporter.startTest("ScenatioName is" +suitName);
+		String suitName=context.getSuite().getName();		
+		String testCaseName = dataMap.get("Test_Case");
+		System.out.println("the test case name is"+testCaseName);
+		if(matchTestCaseAndSuiteName(testCaseName, suitName)){		
+		ResultUtil.reporter.startTest("ScenatioName is" +context.getSuite().getName());
+		}
 	}
+		
 	
 	@Test
 	public void test()
