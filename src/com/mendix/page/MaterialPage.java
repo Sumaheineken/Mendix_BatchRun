@@ -2753,8 +2753,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 			SoftAssert assrt = new SoftAssert();
 			assrt.assertEquals(globalLockValue, "No", "Global Lock is still active");
 			assrt.assertEquals(localLockValue, "No", "Local lock is still active");
-			assrt.assertEquals(fFDValue, "No", "FFD Value is still active");
-			
+			assrt.assertEquals(fFDValue, "No", "FFD Value is still active");	
 		}
 
 	}

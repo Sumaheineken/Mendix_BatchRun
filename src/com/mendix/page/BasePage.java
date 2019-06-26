@@ -186,6 +186,7 @@ public class BasePage extends ExcelUtil{
 		
 	}
 
+	
 	public static void writeOutputSyndicationStatus(String syndicationValue, String testCaseOutputValue) {
 		
 		ExcelUtil.setCellDataOutputFile("OutputTestData", "Syndication_Status", syndicationValue, testCaseOutputValue);

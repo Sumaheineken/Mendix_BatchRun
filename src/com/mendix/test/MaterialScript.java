@@ -1157,7 +1157,6 @@ public class MaterialScript extends BaseScript{
 		
 	}
 	
-	
 	@Test(dataProvider="Dashboard_Syndication_Flag_Check",dataProviderClass=staticProviderClass.class)
 	public void globalIdSyndicationCheck(Map<String, String> dataMap, ITestContext context)
 			throws InterruptedException, FileNotFoundException, IOException 
