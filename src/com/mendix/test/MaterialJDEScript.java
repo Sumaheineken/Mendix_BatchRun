@@ -109,7 +109,7 @@ public class MaterialJDEScript extends BaseScript{
 			SharedDriver.pageContainer.materialJdePage.clickProceedAction();
 			SharedDriver.pageContainer.materialJdePage.clickPlantData();*/
 //			SharedDriver.pageContainer.materialNavPage.clickEditFinanceData();
-			
+
 		/*	SharedDriver.pageContainer.materialNavPage.clickEditFinanceData();*/
 			SharedDriver.pageContainer.materialJdePage.selectGLClass();
 			SharedDriver.pageContainer.materialJdePage.selectingCostingMethodPurchasing(dataMap.get("Costing Method - Purchasing"));
@@ -124,10 +124,9 @@ public class MaterialJDEScript extends BaseScript{
 			SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
 			SharedDriver.pageContainer.materialNavPage.enterGlobalData();		
 			SharedDriver.pageContainer.materialPage.duplicateCheckButton();
-			SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
-			SharedDriver.pageContainer.materialPage.submitGlobalandLocalRequestTest();
+			SharedDriver.pageContainer.materialPage.clickDuplicateCheck();		
 			SharedDriver.pageContainer.materialPage.getRequestId_CreateNew(suiteName);
-			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();			
+			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();			
 		}
 
 	}
@@ -369,10 +368,10 @@ public class MaterialJDEScript extends BaseScript{
 			SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
 			SharedDriver.pageContainer.materialNavPage.enterGlobalData();
 			SharedDriver.pageContainer.materialPage.duplicateCheckButton();
-			SharedDriver.pageContainer.materialPage.duplicateCheck_New();		
+			SharedDriver.pageContainer.materialPage.clickDuplicateCheck();	
 			//SharedDriver.pageContainer.materialNavPage.submitGlobalLocalRequestTest();
 			SharedDriver.pageContainer.materialPage.getRequestId_CreateNew(suiteName);
-			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();			
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();		
 		}
 
 		
@@ -554,5 +553,6 @@ public class MaterialJDEScript extends BaseScript{
        SharedDriver.pageContainer.materialPage.getRequestId_CreateNew(suiteName);
 	   SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
+	
 }
 
