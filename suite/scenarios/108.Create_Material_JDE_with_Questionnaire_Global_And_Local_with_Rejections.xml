@@ -1,48 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="65Extend Material Global and Local from SAP to  JDE with Rejections(With Local data adding).xml">
+<suite name="108.Create_Material_JDE_with_Questionnaire_Global_And_Local_with_Rejections">
 	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
-					<include name="printSuiteName"/>
+				    <include name="printSuiteName"/>
                     <include name="getDependentScenarioName"/>
-                    <include name="getGlobalIdFromIndependentScript2" />
+                    <include name="getGlobalIdFromIndependentScript2" />					    
 					<include name="openBrowser" />
 					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Extend_Process">
+	
+	<test name="Material_Create_Fill in questionnaire">
 		<classes>
-			<class name="com.mendix.test.MaterialChangeScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Material_Extend" />
+					<include name="Material_Create_Fill_In_Questionnaire" />
 				</methods>
 			</class>
 		</classes>
 	</test>
+	<test name="Material_Create_Fill_In_Data">
+		<classes>
+			<class name="com.mendix.test.MaterialJDEScript">
+				<methods>
+					<include name="Material_Create_Fill_In_Data" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
 	<test name="Material_Create_Fill_In_Data_Local_JDE">
 		<classes>
 			<class name="com.mendix.test.MaterialJDEScript">
 				<methods>
-					<include name="Material_Create_Fill_In_Data_JDE_Planning_Extend" />
-					<include name="Material_Create_Fill_In_Data_JDE_Finance_Extend" />					
+					<include name="Material_Create_Fill_In_Data_JDE_Planning" />
+					<include name="Material_Create_Fill_In_Data_JDE_Finance" />
 				</methods>
 			</class>
 		</classes>
-	</test>
-	<test name="Material_ConfirmExtension_Process">
-		<classes>
-			<class name="com.mendix.test.MaterialChangeScript">
-				<methods>
-					<include name="confirmExtensionNonSAP" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Process_Information_Check_Extend_Jde">
+	</test> 
+	<test name="Process_Information_Check">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
@@ -50,10 +52,38 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
-	<test name="HeiPort_Login_LDS">
+	</test>	
+	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsGDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Data_With_Reject_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Material_Data_With_Reject_GDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test> 		
+	<test name="HeiPort_Login_LDS">
+		<classes>
+		<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
 					<include name="loginAsSGLDS" />
@@ -71,7 +101,8 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_LDS">
+	
+	<test name="Process_Information_CheckReject__LDS">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
@@ -80,22 +111,22 @@
 			</class>
 		</classes>
 	</test>
-	<test name="HeiPort_Login_LDR_Submitting">
+	 <test name="HeiPort_Login_LDR_Resubmit">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
-				<methods>
+				<methods>				
 					<include name="openBrowser" />
-					<include name="loginAsSGLDR" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Material_LocalData_Submit_LDR">
+		<test name="Material_LocalData_Submit_LDR">
 		<classes>
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
 					<include
-						name="Material_LocalData_Submit_LDR" />
+						name="Material_Global_LocalData_Submit_LDR" />
 				</methods>
 			</class>
 		</classes>
@@ -104,18 +135,47 @@
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
+					<include name="Process_Information_Check" />					
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="HeiPort_Login_GDA_Approval">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsGDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Review_Global_Data_Approve_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include
+						name="Material_Create_Review_Global_Data_Approve_GDA_Duplicate" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Syndication">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
 					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	
+	</test>
 	<test name="HeiPort_Login_LDS_Approve">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDS" />
+					<include name="loginAsLDS" />
 				</methods>
 			</class>
 		</classes>
@@ -130,7 +190,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_LDS_Approve">
+	<test name="Process_Information_Check_Syndication">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
@@ -139,26 +199,29 @@
 			</class>
 		</classes>
 	</test>
-	<test name="HeiPort_Login_LDR_Syndication">
+	
+ 	<test name="HeiPort_Login_LDR_Syndication">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDR" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Create_Syndication_Check">
+   <test name="Material_Create_Syndication_Check">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="material_Create_Syndication_Check_GlobalId" />
-					<include name="launchUFT_JDE_Material"/>
+					 <include name="material_Create_Syndication_Check_GlobalId" /> 
+					<include name="launchUFT_SAP_Material"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
+	
 </suite> 
+
 
 

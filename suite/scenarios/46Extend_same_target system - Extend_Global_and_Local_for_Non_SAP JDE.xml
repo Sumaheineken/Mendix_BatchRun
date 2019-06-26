@@ -44,9 +44,9 @@
 	</test>	    
 	<test name="Process_Information_Check_Extend">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScriprt">
 				<methods>
-					<include name="Process_Information_Check_Local" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
@@ -73,7 +73,7 @@
 	</test>
 	<test name="Process_Information_Check_LDS_Approve">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include name="Process_Information_Check_GlobalID_Extend" />
 				</methods>
