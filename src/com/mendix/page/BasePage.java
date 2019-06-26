@@ -108,7 +108,7 @@ public class BasePage extends ExcelUtil{
 			{
 				workbook.removeSheetAt(0);
 			}
-			
+			//file.close();
 			FileOutputStream output = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX); //input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
 			workbook.write(output);
 			output.close();
@@ -122,9 +122,8 @@ public class BasePage extends ExcelUtil{
 	{
 		
 		workbook = new XSSFWorkbook();
-		FileOutputStream output;
 		try {
-			output = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+			FileOutputStream output = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
 			CreationHelper createHelper = workbook.getCreationHelper();
 			Sheet sheet1 = workbook.createSheet("OutputTestData");
 			Row headerRow = sheet1.createRow(0);
@@ -143,6 +142,38 @@ public class BasePage extends ExcelUtil{
 		}
 		
 	}
+	
+	public static void createDummyRow()
+	{
+		try
+		{
+			FileInputStream file = new FileInputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+			workbook = new XSSFWorkbook(file);
+			XSSFSheet sheet = workbook.getSheet("OutputTestData");
+			int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
+			System.out.println("The rowCount is : "+rowCount);
+			Row row = sheet.getRow(0);
+			
+			Row newRow = sheet.createRow(rowCount+1);
+			
+			for(int i=0; i< row.getLastCellNum(); i++)
+			{
+				Cell cell = newRow.createCell(i);
+				cell.setCellValue("DummyRow");
+			}
+				
+				FileOutputStream output = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+				workbook.write(output);
+				output.close();
+				file.close();
+//			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}		
+	}
+
 	
 	public static void createNewRowInOutputFile(String testCaseValue, String globalIdValue, String materialVendorNumberValue,String loginValue, String uftUserValue)
 	{
@@ -171,6 +202,11 @@ public class BasePage extends ExcelUtil{
 				cell4.setCellValue("Syndication Not Done");
 				Cell cell5 = newRow.createCell(5);
 				cell5.setCellValue(uftUserValue);
+				
+				FileOutputStream output = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+				workbook.write(output);
+				output.close();
+				file.close();
 //			}
 		}
 		catch(Exception e)

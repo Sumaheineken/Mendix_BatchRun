@@ -51,7 +51,7 @@ public class LoginScript extends BaseScript {
 	 * Open browser.
 	 */
 	@Test
-	public void openBrowser(){
+	public static void openBrowser(){
 		ResultUtil.reporter.startTest("Open Browser");
 		SharedDriver.createDriver();
 	}

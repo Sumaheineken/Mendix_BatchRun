@@ -157,7 +157,7 @@ public class TestData {
 		ArrayList<String[]> data = new ArrayList<String[]>();
 		while (rowIterator.hasNext()) {
 			int i = 0;
-			String[] currentRowData = new String[colCount];
+			String[] currentRowData = new String[colCount+0];
 			Row currentRow = rowIterator.next();
 			Cell testCaseStatusCell = currentRow.getCell(testCaseIdColNo);
 

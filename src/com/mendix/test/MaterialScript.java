@@ -1162,7 +1162,8 @@ public class MaterialScript extends BaseScript{
 	public void globalIdSyndicationCheck(Map<String, String> dataMap, ITestContext context)
 			throws InterruptedException, FileNotFoundException, IOException 
 	{
-		Assert.assertTrue(SharedDriver.pageContainer.loginPage.login(dataMap.get("Login"), "Heineken01"));	
+		LoginScript.openBrowser();
+		Assert.assertTrue(SharedDriver.pageContainer.loginPage.login(dataMap.get("Mendix_User"), "Heineken01"));	
 		SharedDriver.pageContainer.homePage.navigateToWorkflow();
 		SharedDriver.pageContainer.materialPage.switchToPopup();
 		SharedDriver.pageContainer.materialPage.navigateToDashboard();

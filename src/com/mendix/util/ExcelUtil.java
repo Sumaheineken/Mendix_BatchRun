@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.poi.ss.formula.functions.Column;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -50,8 +51,6 @@ public class ExcelUtil {
 	public static Iterator<Object[]> getTestData(String strWorkbookPath,String strWorksheetName){
 		List<Object[]> data = new ArrayList<Object[]>();
 		
-		
-
 		try{
 		     
 			FileInputStream file = new FileInputStream(new File(strWorkbookPath));
@@ -60,9 +59,12 @@ public class ExcelUtil {
 
 			//Get first sheet from the workbook
 			XSSFSheet sheet = workbook.getSheet(strWorksheetName);
+		
 
 			//Get iterator to all the rows in current sheet
 			Iterator<Row> rowIterator = sheet.rowIterator();
+
+
 
 			Row firstRow=rowIterator.next();
 
@@ -85,6 +87,65 @@ public class ExcelUtil {
 					rowMap.put(strColumnName, strValue.trim());
 				}
 
+				System.out.println("rowMap Values:"+rowMap.toString());
+				//if(rowMap.get("Execute").equalsIgnoreCase("Y")){	
+					//rowMap.put("Iteration", ""+inRowCounter);
+					data.add(new Object[]{rowMap});
+					//inRowCounter++;
+
+				//}
+			}
+
+			file.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return data.iterator();
+	}
+	
+	public static Iterator<Object[]> getTestDataOutputSheet(String strWorkbookPath,String strWorksheetName){
+		List<Object[]> data = new ArrayList<Object[]>();
+		
+		try{
+		     
+			FileInputStream file = new FileInputStream(new File(strWorkbookPath));
+
+			workbook = new XSSFWorkbook(file);
+
+			//Get first sheet from the workbook
+			XSSFSheet sheet = workbook.getSheet(strWorksheetName);
+		
+
+			//Get iterator to all the rows in current sheet
+			Iterator<Row> rowIterator = sheet.rowIterator();
+
+
+
+			Row firstRow=rowIterator.next();
+
+			Map<String,String> columnNamesMap=getColumnNames(firstRow);
+
+			while(rowIterator.hasNext()){
+				Row itrRow = rowIterator.next();
+				Iterator<Cell> cellIterator=itrRow.cellIterator();
+				Map<String,String> rowMap=new LinkedHashMap<String, String>();
+				for(Entry<?, ?> entry:columnNamesMap.entrySet()){
+					String strColumnName=entry.getKey().toString();
+					String strValue="";
+					try{
+						Cell cell=cellIterator.next();
+						if(cell!=null){strValue=cell.toString();}
+						else
+						{
+							strValue = null;
+						}
+					}catch(Exception e){}
+					String appendRowNum = strValue+"CurrRowNo"+itrRow.getRowNum()+"LastRowNo"+sheet.getLastRowNum();
+					rowMap.put(strColumnName, appendRowNum.trim());
+				}
+
+				System.out.println("rowMap Values:"+rowMap.toString());
 				//if(rowMap.get("Execute").equalsIgnoreCase("Y")){	
 					//rowMap.put("Iteration", ""+inRowCounter);
 					data.add(new Object[]{rowMap});
@@ -587,7 +648,7 @@ public class ExcelUtil {
 			Row firstRow=rowIterator.next();
 
 
-			testCaseName = getOutputTestCaseName("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX, sheetName, testCaseNameValue);
+			testCaseName = getOutputTestCaseName("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX, "OutputTestData", testCaseNameValue);
 			Map<String, String> headerRow = getColumnNames(firstRow);
 			while(rowIterator.hasNext()){
 				Iterator<Cell> cellIterator=rowIterator.next().cellIterator();
@@ -666,6 +727,70 @@ public class ExcelUtil {
 		System.out.println(testCaseName);
 		//TestData.testCaseIdColNo = testCaseIdColNo;
 		return testCaseName;
+	}
+	
+	
+	//==================================================================
+	
+	public static void setCellDataOutput_GlobalId(String sheetName, String colName, String value, String suiteName)
+	{
+		List<Object[]> data = new ArrayList<Object[]>();
+		try
+		{
+			FileInputStream fis = new FileInputStream("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX);
+			XSSFWorkbook workbook = new XSSFWorkbook(fis);
+			int col_Num = 0;
+			XSSFSheet sheet = workbook.getSheet(sheetName);
+
+			XSSFRow row = sheet.getRow(getRowNum("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX, "TestPlan", value));
+			for (int i = 0; i < row.getLastCellNum(); i++) {
+				if (row.getCell(i).getStringCellValue().trim().equals(colName))
+				{
+					col_Num = i;
+				}
+			}
+
+			//			sheet.autoSizeColumn(col_Num);
+			//			row = sheet.getRow(getRowNum("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX, "TestPlan", value) - 1);
+			//			if(row==null)
+			//				row = sheet.createRow(rowNum - 1);
+			Iterator<Row> rowIterator = sheet.rowIterator();
+			Row firstRow=rowIterator.next();
+
+
+			testCaseName = getTestCaseName("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX, "TestPlan", suiteName);
+			Map<String, String> headerRow = getColumnNames(firstRow);
+			while(rowIterator.hasNext()){
+				Iterator<Cell> cellIterator=rowIterator.next().cellIterator();
+				Map<String,String> rowMap=new LinkedHashMap<String, String>();
+				for(Entry<?, ?> entry:headerRow.entrySet()){
+					String strColumnName=entry.getKey().toString();
+					String strValue="";
+					try{
+						Cell cell=cellIterator.next();
+						if(cell!=null){strValue=cell.toString();
+						rowMap.put(strColumnName, strValue.trim());
+							
+						if(strColumnName.equalsIgnoreCase("RequestId")) {
+							if(rowMap.get("Test_Case").equalsIgnoreCase(testCaseName)){
+							cell.setCellValue(value);
+							}
+						}
+						}
+					}catch(Exception e){}
+				}
+
+				FileOutputStream fos = new FileOutputStream("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX);
+				workbook.write(fos);
+				fos.close();
+			}
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+			//            return  false;
+		}
+		//        return true;
 	}
 
 }

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml">
-    <test name="HeiPort_Login_LDR">
+<!-- <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="test"/>
-					<!-- <include name="tasKill" /> -->
 					<include name="openBrowser" />
 					<include name="loginAsLDRVendor" />
 				</methods>
@@ -67,6 +66,28 @@
 				<methods>
 					<include name="process_Information_Check_GlobalID_Extend_SAP_Vendor" />
 					<include name="get_Vendor_Account_Number_SAP"/>
+				</methods>
+			</class>
+		</classes>
+	</test> -->
+ 	
+ 	<test name="picking from excel Sheet">
+		<classes>
+			<class name="com.mendix.test.BaseScript">
+				<methods>
+					<include name="readAndSetValuesFromDataSheet" />
+					<include name = "sample"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Printing into MDM Output Sheet">
+		<classes>
+			<class name="com.mendix.test.BaseScript">
+				<methods>
+					<include name = "sample"/>
+					<include name="writeIntoTestDataSheet"/>
 				</methods>
 			</class>
 		</classes>
