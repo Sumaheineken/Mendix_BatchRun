@@ -483,12 +483,13 @@ public class MaterialNavScript extends BaseScript{
 			SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 			SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
 			SharedDriver.pageContainer.materialPage.duplicateCheckButton();		
-			SharedDriver.pageContainer.materialPage.clickDuplicateCheck_SAP();		
-			SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+			SharedDriver.pageContainer.materialPage.clickDuplicateCheck_SAP();					
+			Sync.waitForSeconds(Constants.WAIT_10);
 	        SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
-			SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
-			SharedDriver.pageContainer.materialPage.submitGlobalandLocalRequestTest();
-			SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();	
+			SharedDriver.pageContainer.materialPage.Localactionbutton();
+			SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
+			SharedDriver.pageContainer.materialNavPage.submitLocalRequest();
+			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();	
 		}
 	}
 	
