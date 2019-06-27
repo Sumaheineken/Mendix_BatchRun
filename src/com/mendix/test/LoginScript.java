@@ -55,6 +55,7 @@ public class LoginScript extends BaseScript {
 		ResultUtil.reporter.startTest("Open Browser");
 		SharedDriver.createDriver();
 	}
+	
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
 	public void printSuiteName(Map<String,String> dataMap, ITestContext context){
 		String suitName=context.getSuite().getName();

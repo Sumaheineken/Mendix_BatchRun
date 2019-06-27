@@ -2,12 +2,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Regression Suite">
 <suite-files>	
-	<suite-file path="OutputExcelUtility.xml"></suite-file>
+	<!-- <suite-file path="OutputExcelUtility.xml"></suite-file> -->
 	<suite-file path="14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml"></suite-file>
+	<suite-file path="9.Create_Material_with_Questionnaire_only_Global_SAP.xml"></suite-file>
 	<suite-file path="14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml"></suite-file>
+	<suite-file path="9.Create_Material_with_Questionnaire_only_Global_SAP.xml"></suite-file>
 	<suite-file path="14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml"></suite-file>
-    <!-- <suite-file path="9.Create_Material_with_Questionnaire_only_Global_SAP.xml"></suite-file>
-       -->
+    <suite-file path="9.Create_Material_with_Questionnaire_only_Global_SAP.xml"></suite-file>
+    <suite-file path="14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml"></suite-file>
     <!-- <suite-file path="CheckSyndicationDone.xml"></suite-file> -->
 </suite-files>	
 	

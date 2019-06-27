@@ -83,6 +83,7 @@ public class BasePage extends ExcelUtil{
 			headerRow.createCell(3).setCellValue(createHelper.createRichTextString("Mendix_User"));
 			headerRow.createCell(4).setCellValue(createHelper.createRichTextString("Syndication_Status"));
 			headerRow.createCell(5).setCellValue(createHelper.createRichTextString("UFT_User"));
+			headerRow.createCell(6).setCellValue(createHelper.createRichTextString("Result"));
 			
 			workbook.write(output);
 			output.close();

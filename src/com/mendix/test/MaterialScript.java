@@ -16,6 +16,7 @@ import com.mendix.tool.SharedDriver;
 import com.mendix.tool.Sync;
 import com.mendix.util.BrowserUtil;
 import com.mendix.util.DataProviderUtil.staticProviderClass;
+import com.mendix.util.ExcelUtil;
 import com.mendix.util.ResultUtil;
 
 public class MaterialScript extends BaseScript{
@@ -366,45 +367,6 @@ public class MaterialScript extends BaseScript{
 			Sync.waitForSeconds(Constants.WAIT_10);
 			SharedDriver.pageContainer.processInfoPage.browserClose();	
 		}		
-	}
-	
-	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
-	public void process_Information_Check_GlobalID_Extend_SAP_Material(Map<String,String> dataMap, ITestContext context) throws InterruptedException, FileNotFoundException, IOException 
-	{
-		String suiteName = context.getSuite().getName();
-		String testCaseName = dataMap.get("Test_Case");
-		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
-		{
-			System.out.println("Waiting for Clicking on Process Info Search");
-			SharedDriver.pageContainer.processInfoPage.processInfoSearch();
-			SharedDriver.pageContainer.processInfoPage.reqIdSearch_Global(dataMap.get("RequestId"));
-			//SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
-			//SharedDriver.pageContainer.processInfoPage.capturing_GlobalID();
-			
-			SharedDriver.pageContainer.materialPage.checkSyndicationTest(dataMap.get("RequestId"));
-			SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo_Extend(dataMap.get("RequestId"), suiteName);
-			Sync.waitForSeconds(Constants.WAIT_5);
-			SharedDriver.pageContainer.materialPage.checkSyndicationDoneStatus(dataMap.get("RequestId"));
-			Sync.waitForSeconds(Constants.WAIT_10);
-			Sync.waitForSeconds(Constants.WAIT_10);	
-		}		
-	}
-	
-	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
-	public void get_Material_Number_SAP(Map<String,String> dataMap, ITestContext context) throws InterruptedException 
-	{
-		String suiteName = context.getSuite().getName();
-		String testCaseName = dataMap.get("Test_Case");
-		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
-		{
-			SharedDriver.pageContainer.materialPage.navigateToDashboardSearch();
-			SharedDriver.pageContainer.materialPage.advancedSearch();
-			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
-			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
-			SharedDriver.pageContainer.materialPage.checkDashboardLock();
-			SharedDriver.pageContainer.materialPage.getMaterialNumber(suiteName, dataMap.get("OpCo"));
-			SharedDriver.pageContainer.processInfoPage.browserClose();			
-		}
 	}
 	
 	
@@ -1183,6 +1145,23 @@ public class MaterialScript extends BaseScript{
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 			SharedDriver.pageContainer.materialPage.globalSearch(globalId);
+			switch(mendixLogin)
+			{
+			case "MDVM_BE01_LDR" :
+				SharedDriver.pageContainer.vendorPage.get_Vendor_Account_Number_SAP(testCaseNameValue, mendixLogin);
+				break;
+			case "MDMM_BE01_LDR" :
+				SharedDriver.pageContainer.materialPage.get_Material_Number_SAP(testCaseNameValue, mendixLogin);
+				break;
+			case "MDVM_PL01_LDR" :
+				SharedDriver.pageContainer.vendorPage.get_Vendor_Account_Number_SAP(testCaseNameValue, mendixLogin);
+				break;
+			case "MDMM_PL01_LDR" :
+				SharedDriver.pageContainer.materialPage.get_Material_Number_SAP(testCaseNameValue, mendixLogin);
+				break;
+			default:
+				System.out.println("The System is not an SAP so move on");
+			}
 			SharedDriver.pageContainer.materialPage.checkMaterialVendorSyndicationLocks(testCaseNameValue);
 			SharedDriver.pageContainer.processInfoPage.browserClose();
 		}

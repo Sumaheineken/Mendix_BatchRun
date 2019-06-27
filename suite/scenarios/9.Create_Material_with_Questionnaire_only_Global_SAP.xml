@@ -5,7 +5,7 @@
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
-					<!-- <include name="tasKill" />  -->
+					<include name = "printSuiteName"/>
 					<include name="openBrowser" />
 					<include name="loginAsLDR" />
 				</methods>
@@ -73,35 +73,32 @@
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="process_Information_Check_GlobalID_Extend_SAP_Material" />
-					<include name="get_Material_Number_SAP"/>
+					<include name="process_Information_Check_GlobalID_Extend" />
 				</methods>
 			</class>
 		</classes>
 	</test>
 	
-	<!-- 
- 	<test name="HeiPort_Login_LDR_Syndication">
+	 <test name="picking from excel Sheet">
 		<classes>
-			<class name="com.mendix.test.LoginScript">
+			<class name="com.mendix.test.BaseScript">
 				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsLDR" />
+					<include name="readAndSetValuesFromDataSheet" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-   <test name="Material_Create_Syndication_Check">
+	
+	<test name="Printing into MDM Output Sheet">
 		<classes>
-			<class name="com.mendix.test.MaterialScript">
+			<class name="com.mendix.test.BaseScript">
 				<methods>
-					 <include name="material_Create_Syndication_Check_GlobalId" /> 
-					<include name="launchUFT_SAP_Material"/>
+					<include name="writeIntoTestDataSheet"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
-	 -->
+	
 </suite> 
 
 
