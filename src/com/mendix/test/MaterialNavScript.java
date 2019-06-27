@@ -127,14 +127,21 @@ public class MaterialNavScript extends BaseScript{
 	public void Process_Information_Check_Local(Map<String, String> dataMap, ITestContext context)
 			throws InterruptedException, FileNotFoundException, IOException {
 		String suiteName = context.getSuite().getName();
-		String testCaseName = dataMap.get("Test_Case");
-		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
-		{
-			SharedDriver.pageContainer.processInfoPage.processInfoSearch();
-			SharedDriver.pageContainer.processInfoPage.reqIdSearch_Local(dataMap.get("RequestId"));
-			SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
-			SharedDriver.pageContainer.processInfoPage.browserClose();
-		}
+ 		String testCaseName = dataMap.get("Test_Case");
+ 		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
+ 		{
+ 			Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+ 			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+ 			SharedDriver.pageContainer.processInfoPage.processInfoSearch();
+ 			SharedDriver.pageContainer.processInfoPage.reqIdSearch_Global(dataMap.get("RequestId"));
+ 			SharedDriver.pageContainer.processInfoPage.getState(dataMap.get("RequestId"));
+ 			SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+ 			SharedDriver.pageContainer.vendorPage.Localactionbutton();
+ 			SharedDriver.pageContainer.vendorPage.validateTestCreate();
+ 			SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
+ 			SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+ 			SharedDriver.pageContainer.vendorPage.submitRequestPopup();	
+ 		}		
 	}
 
 	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
