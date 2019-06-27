@@ -251,6 +251,9 @@ public class MaterialPage {
 	@FindBy(how = How.XPATH, using = ".//*[text()='Open Record']")
 	WebElement btnOpenRecord;
 	
+	@FindBy(how = How.XPATH, using = "//*[text()='Local Actions:']/..//*[text()='Save As Draft']")
+    WebElement btnSaveAsDraftJde;
+	
 
 	// @FindBy(how=How.XPATH, using="(.//*[text()='New'])[4]")
 	/*
@@ -2785,6 +2788,19 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 		}
 
 	}
+	public void saveAsDraftJDE() throws InterruptedException {
+
+		Sync.waitForSeconds(Constants.WAIT_5);
+		WebDriverWait wait=new WebDriverWait(driver,80);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Local Actions:']/..//*[text()='Save As Draft']")));
+				
+		//Sync.waitForObject(drivr, "Verify Validate message", txtValidationMsg);
+		/* Button.jsclick("Click Save as Draft", btnSaveAsDraft); */
+		Button.jsclick("Click Save as Draft", btnSaveAsDraftJde,driver);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		// Sync.waitForSeconds(Constants.WAIT_6);
+	}
+
 
 	
 
