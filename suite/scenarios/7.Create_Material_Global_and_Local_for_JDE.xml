@@ -79,6 +79,35 @@
 			</class>
 		</classes>
 	</test>	
+	<test name="HeiPort_Login_GBDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsGBDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Change_Review_Global_Data_Approve_GBDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include
+						name="Material_Create_Review_Global_Data_Approve_GBDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_GBDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -128,36 +157,7 @@
 			</class>
 		</classes>
 	</test>
-	<!-- <test name="HeiPort_Login_LBDA">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsLBDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Material_Create_Review_Global_Data_Approve_LBDA">
-		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
-				<methods>
-					<include
-						name="Material_Create_Review_Global_Data_Approve_LBDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Process_Information_Check_GDA">
-		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
-				<methods>
-					<include name="Process_Information_Check" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	 -->
+	
 </suite> 
 
 
