@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="6.Change_Vendor_Global_only_with_Rejections.xml">
-  	 	    <test name="HeiPort_Login_LDR">
+<suite name="104.Extend vendor global and local for JDE with rejections">
+	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -14,36 +14,35 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="Vendor_Change_DashBoard">
+	<test name="Vendor_Extend_Global_Data">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Vendor_Change_DashBoard" />
+					<include name="vendor_Extend_Global_JDE"/>						
+				</methods>
+			</class>
+		</classes>
+	</test>	
+	<test name="Vendor_Create_Fill_In_Data_JDE">
+		<classes>
+			<class name="com.mendix.test.Vendor_JDE_Script">
+				<methods>
+					<include name="Vendor_Extend_Create_Fill_In_Data_JDE_Local_Purchasing" />
+					<include name="Vendor_Extend_Create_Fill_In_Data_JDE_Local_Finance" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Vendor_Change_DashBoard_SearchWith_GlobalID">
+	<test name="Vendor_Extend_Global_Data_JDE">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
-				<methods>
-					<include name="Vendor_Change_DashBoard_SearchWith_GlobalID" />
+				<methods>											
+					<include name="vendor_Confirm_Extension_Nav"/>					
 				</methods>
 			</class>
 		</classes>
-	</test>
-	
-    <test name="Vendor_Change_Fill_In_Data">
-		<classes>
-			<class name="com.mendix.test.VendorScript">
-				<methods>
-					<include name="Vendor_Change_Fill_In_Data" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-   <test name="Process_Information_Check GDA">
+	</test>	
+	<test name="Process_Information_Check_LDR">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
@@ -51,28 +50,28 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	<test name="HeiPort_Login_GDA">
+	</test>
+	 <test name="HeiPort_Login_LDS_Reject">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsGDA" />
+					<include name="loginAsSGLDSVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>	
+	<test name="Material_Create_Review_Local_Data_Reject_LDS">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include
+						name="Material_Create_Review_Local_Data_Reject_LDS" />
 				</methods>
 			</class>
 		</classes>
 	</test>
- 	
- 	<test name="Vendor Create Global Reject GDA">
- 		<classes>
- 			<class name="com.mendix.test.VendorScript">
- 				<methods>
- 					<include name="Vendor_Create_Review_Global_Data_Reject_GDA"/>
- 				</methods>
- 			</class>
- 		</classes>
- 	</test>
-	<test name="Process_Information_Check_GDA">
+	<test name="Process_Information_Check_LDS">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
@@ -80,29 +79,29 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 		
-	
-	<test name="HeiPort_ReLogin_Global_Resubmit_LDR">
+	</test>
+	 <test name="HeiPort_ReLogin_LDR_To Submit Local Request">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
+					
 					<include name="openBrowser" />
 					<include name="loginAsLDRVendor" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Material_SubmitRequest_LDR">
+	<test name="Material_LocalData_Submit_LDR">
 		<classes>
-			<class name="com.mendix.test.MaterialScript">
+			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
 					<include
-						name="Material_Save_As_Draft_Data_SubmitRequest_LDR" />
+						name="Material_LocalData_Submit_LDR" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-		<test name="Process_Information_Check_Approved">
+	<test name="Process_Information_Check_Resubmit_State">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
@@ -111,26 +110,26 @@
 			</class>
 		</classes>
 	</test>
-	<test name="HeiPort_ReLogin_GDA_Approve">
+	 <test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsGDA" />
+					<include name="loginAsSGLDSVendor" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Vendor_Create_Review_Global_Data_Approve_GDA">
+	<test name="Material_Create_Review_Global_Data_Approve_LDS">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
-					<include name="Vendor_Create_Review_Global_Data_Approve_GDA" />
+					<include
+						name="Material_Create_Review_Global_Data_Approve_LDS" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-
 	<test name="Process_Information_Check_Syndication">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
@@ -142,25 +141,29 @@
 	</test>
 	
 	
-	 <test name="HeiPort_Login_LDR_2">
+	<test name="HeiPort_Login_LDR_Syndication">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDRVendor" />
+					<include name="loginAsSGLDRVendor" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-		<test name="Vendor_Create_Syndication_Check">
+	<test name="Vendor_Create_Syndication_Check">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Vendor_Create_Syndication_Check_SAP" />
-					<include name="launchUFT_SAP_Vendor"/>
+					<include name="Vendor_Create_Syndication_Check_NAV" />
+					<include name="launchUFT_NAV_Vendor"/>
 				</methods>
 			</class>
 		</classes>
 	</test> 
- 
-	</suite>
+
+
+	
+</suite> 
+
+

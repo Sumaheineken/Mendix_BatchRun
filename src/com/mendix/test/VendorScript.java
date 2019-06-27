@@ -792,11 +792,13 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
  			SharedDriver.pageContainer.vendorPage.globalSearch(dependentGlobalId);	 			
  			SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
- 			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
- 			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
  			SharedDriver.pageContainer.vendorPage.EditVendorData();
- 			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
- 			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+ 			Sync.waitForSeconds(Constants.WAIT_10);
+
  			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
  		}		
 	}
@@ -827,7 +829,7 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
  			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
  			SharedDriver.pageContainer.vendorPage.EditVendorgloballovajdeData();
- 			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
  		}		
 	}
 	
@@ -870,11 +872,12 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.AddresIndustryKey("Y001, Trade/Serv/Transport");
  			SharedDriver.pageContainer.vendorPage.AddresCorporateGroup("PR-RAW, PR-Raw Materials");
  			SharedDriver.pageContainer.vendorPage.BtnLocalActions();
- 			SharedDriver.pageContainer.vendorPage.validateTestCreate();
- 			
+ 			SharedDriver.pageContainer.vendorPage.validateTestCreate();		
  			SharedDriver.pageContainer.materialPage.duplicateCheckButton();
- 			SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
- 			SharedDriver.pageContainer.vendorPage.getRequestId_Vendor(suiteName);	
+ 			SharedDriver.pageContainer.materialPage.clickDuplicateCheck_SAP();
+ 			SharedDriver.pageContainer.materialPage.getRequestId_CreateNew(suiteName);
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+
  		}				
 	}
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
@@ -888,15 +891,17 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
+ 			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
  			SharedDriver.pageContainer.vendorPage.GetFullVendorData();
- 			SharedDriver.pageContainer.vendorPage.clickOkToHandlePopup();
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
  			SharedDriver.pageContainer.vendorPage.clickExtendButton();
- 			SharedDriver.pageContainer.vendorPage.clickOkToHandlePopup();
- 			SharedDriver.pageContainer.materialNavPage.switchToGlobal();
- 			SharedDriver.pageContainer.vendorPage.clickToConfirm();
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+ 			SharedDriver.pageContainer.vendorPage.clickGlobalDataButton();
+ 			SharedDriver.pageContainer.materialPage.clickLocalAction();
  			SharedDriver.pageContainer.vendorPage.clickConfirmExtension();
- 			SharedDriver.pageContainer.vendorPage.clickOkToHandlePopup(); 			
+ 			SharedDriver.pageContainer.vendorPage.getRequestId_Extend(suiteName);
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+
  		}
 	}
 
@@ -960,13 +965,17 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();	
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
+ 			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
  			SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
  			SharedDriver.pageContainer.vendorPage.checkGlobalIdYes();	
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
- 			SharedDriver.pageContainer.vendorPage.checkGlobalIdYes();	
+ 			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+ 			Sync.waitForSeconds(Constants.WAIT_10);
+ 			SharedDriver.pageContainer.vendorPage.checkGlobalIdYes();
+
  		}	
 	}
 
@@ -1209,16 +1218,18 @@ public class VendorScript extends BaseScript{
  			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
  			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
  			SharedDriver.pageContainer.vendorPage.advancedSearch();
- 			SharedDriver.pageContainer.materialPage.globalSearch(dependentGlobalId);
+ 			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
  			SharedDriver.pageContainer.vendorPage.GetFullVendorData();	
- 			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
- 			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
  			SharedDriver.pageContainer.vendorPage.clickExtendButton();
- 			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
- 			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+ 			Sync.waitForSeconds(Constants.WAIT_10);
  			SharedDriver.pageContainer.materialPage.clickLocalAction();
  			SharedDriver.pageContainer.vendorPage.clickConfirmExtension();
  			SharedDriver.pageContainer.vendorPage.getRequestId_Extend(suiteName);
+ 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
  			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp(); 			
  		}
 	}

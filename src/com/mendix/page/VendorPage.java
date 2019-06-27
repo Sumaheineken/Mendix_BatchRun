@@ -464,8 +464,9 @@ public class VendorPage {
 
 	/*****************************************************************************/
 	public void EditVendorData() {
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Select EDit button", EditGlobalData);
-		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Click EDit button", btnEdit);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		
@@ -483,14 +484,13 @@ public class VendorPage {
 		
 	}
 	public void EditVendorgloballovajdeData() {
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Button.click("Select EDit button", EditGlobalData);
-		Sync.waitForSeconds(Constants.WAIT_2);
-				Button.click("Select EDit button", EditlocalData);
-		Sync.waitForSeconds(Constants.WAIT_2);
-
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Button.click("Select EDit button", EditlocalData);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Button.click("Click EDit button", btnEdit);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		
+		Sync.waitForSeconds(Constants.WAIT_5);		
 	}
 
 	public void EditVendorDataGlobalLocal() 
@@ -530,11 +530,14 @@ public class VendorPage {
 	/*****************************************************************************/
 
 	public void VendorName(String strValue) {
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForObject(driver, textName);
 		Textbox.enterValue("Name to create vendor", textName, strValue);
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_10);
+		WebDriverWait wait = new WebDriverWait(driver,80);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[text()='Search Term 1']/../div/input")));		
 		Textbox.click("clicking name1", textSearchterm1);
+
 	}
 	public void VendorNamechange(String strValue) {
 		Sync.waitForSeconds(Constants.WAIT_3);

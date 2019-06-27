@@ -24,7 +24,8 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Change_Fill_In_Data">
+	
+	 <test name="Material_Change_Fill_In_Data">
 		<classes>
 			<class name="com.mendix.test.MaterialChangeScript">
 				<methods>
@@ -33,11 +34,11 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Material_RequestId_Generation">
+	<test name="Material_Validate_Submit_Check">
 		<classes>
-			<class name="com.mendix.test.MaterialChangeScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Material_RequestId_Generation" />
+					<include name="Material_Create_Validate_Submit_Check" />
 				</methods>
 			</class>
 		</classes>
@@ -50,38 +51,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
-	
-	<test name="HeiPort_Login_GBDA">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsGBDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Material_Change_Review_Global_Data_Approve_GBDA">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include
-						name="Material_Create_Review_Global_Data_Approve_GBDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Process_Information_Check_GBDA">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include name="Process_Information_Check" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	
+	</test>	
 	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">

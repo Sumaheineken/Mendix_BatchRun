@@ -95,7 +95,7 @@
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include
-						name="Material_Create_Review_Global_Data_Approve_GDA" />
+						name="Material_Create_Review_Global_Data_Approve_GDA_Duplicate" />
 				</methods>
 			</class>
 		</classes>
@@ -129,6 +129,7 @@
 			</class>
 		</classes>
 	</test>
+
 
  </suite> 
 

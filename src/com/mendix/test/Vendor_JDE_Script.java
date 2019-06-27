@@ -100,7 +100,7 @@ public class Vendor_JDE_Script extends BaseScript{
 		String testCaseName = dataMap.get("Test_Case");
 		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
 		{
-			SharedDriver.pageContainer.vendor_JDE_Page.enterLocalData();
+			
 			SharedDriver.pageContainer.vendor_JDE_Page.clickFinancetab();
 			SharedDriver.pageContainer.vendor_JDE_Page.clickeditFinanceData();
 			
@@ -119,16 +119,17 @@ public class Vendor_JDE_Script extends BaseScript{
 			SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
 			SharedDriver.pageContainer.vendor_JDE_Page.clickValidatLocalData();
 			SharedDriver.pageContainer.vendor_JDE_Page.clickPlanningSaveButton();
-			//SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
-			SharedDriver.pageContainer.vendor_JDE_Page.submitLocal();
-			Sync.waitForSeconds(Constants.WAIT_10);
+			SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
+			SharedDriver.pageContainer.materialPage.submitLocalRequestTest();
+			Sync.waitForSeconds(Constants.WAIT_10);		
 			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+			Sync.waitForSeconds(Constants.WAIT_10);	
+			SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+			SharedDriver.pageContainer.materialPage.clickDuplicateCheck_SAP();		
+			SharedDriver.pageContainer.materialPage.getRequestId_CreateNew(suiteName);		  
+			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();	
 
-
-	SharedDriver.pageContainer.materialNavPage.submitGlobalRequestTest();
-					SharedDriver.pageContainer.materialPage.duplicateCheck_New();
-			SharedDriver.pageContainer.vendorPage.getRequestId_Vendor(suiteName);
-//			SharedDriver.pageContainer.materialPage.getRequestId_Create();
+			
 						
 		}
 
