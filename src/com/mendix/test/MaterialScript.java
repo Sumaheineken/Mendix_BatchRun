@@ -1120,7 +1120,7 @@ public class MaterialScript extends BaseScript{
 	}
 	
 	@Test(dataProvider="Dashboard_Syndication_Flag_Check",dataProviderClass=staticProviderClass.class)
-	public void globalIdSyndicationCheck(Map<String, String> dataMap, ITestContext context)
+	public void getMaterialVendorNumberForSAP(Map<String, String> dataMap, ITestContext context)
 			throws InterruptedException, FileNotFoundException, IOException 
 	{
 		String globalIdFromSheet = dataMap.get("Global_ID");
@@ -1134,6 +1134,61 @@ public class MaterialScript extends BaseScript{
 		String globalId = globalIdFromSheet.substring(0,currentRowFirstIndexGlobalId);
 		String mendixLogin = loginFromSheet.substring(0, currentRowFirstIndexMendixLogin);
 		String testCaseNameValue = testCaseNameFromSheet.substring(0, currentRowFirstIndexTestCaseName);
+		String loginType = mendixLogin.substring(0, 4);
+		System.out.println(loginType);
+		if(!globalId.equalsIgnoreCase("dummyRow"))
+		{
+			LoginScript.openBrowser();
+			Assert.assertTrue(SharedDriver.pageContainer.loginPage.login(mendixLogin, "Heineken01"));	
+			SharedDriver.pageContainer.homePage.navigateToWorkflow();
+			SharedDriver.pageContainer.materialPage.switchToPopup();
+			if(loginType.equalsIgnoreCase("MDMM"))
+			{
+				SharedDriver.pageContainer.materialPage.navigateToDashboard();	
+			}
+			else
+			{
+				SharedDriver.pageContainer.vendorPage.navigateToDashboard();
+			}
+			SharedDriver.pageContainer.materialPage.advancedSearch();
+			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
+			SharedDriver.pageContainer.materialPage.globalSearch(globalId);
+			if(mendixLogin.equalsIgnoreCase("MDVM_BE01_LDR")||mendixLogin.equalsIgnoreCase("MDVM_PL01_LDR"))
+			{
+				SharedDriver.pageContainer.vendorPage.get_Vendor_Account_Number_SAP(testCaseNameValue, mendixLogin);
+				SharedDriver.pageContainer.processInfoPage.browserClose();			
+			}
+			else if(mendixLogin.equalsIgnoreCase("MDMM_BE01_LDR")||mendixLogin.equalsIgnoreCase("MDMM_PL01_LDR"))
+			{
+				SharedDriver.pageContainer.materialPage.get_Material_Number_SAP(testCaseNameValue, mendixLogin);
+				SharedDriver.pageContainer.processInfoPage.browserClose();			
+			}
+			else
+			{
+				System.out.println("The logged in mendix user is not and SAP user so no need to get Material or Vendor Number");
+				SharedDriver.pageContainer.processInfoPage.browserClose();			
+			}
+
+		}
+
+	}
+	
+	@Test(dataProvider="Dashboard_Syndication_Flag_Check",dataProviderClass=staticProviderClass.class)
+	public void globalSyndicationCheckAndPrintStatus(Map<String, String> dataMap) throws InterruptedException
+	{
+		String globalIdFromSheet = dataMap.get("Global_ID");
+		String testCaseNameFromSheet = dataMap.get("Test_Case");
+		String loginFromSheet = dataMap.get("Mendix_User");
+		String curStr = "CurrRowNo";		
+		String lastStr = "LastRowNo";
+		int currentRowFirstIndexGlobalId = globalIdFromSheet.indexOf("CurrRowNo");
+		int currentRowFirstIndexTestCaseName = testCaseNameFromSheet.indexOf("CurrRowNo");
+		int currentRowFirstIndexMendixLogin = loginFromSheet.indexOf("CurrRowNo");
+		String testCaseNameValue = testCaseNameFromSheet.substring(0, currentRowFirstIndexTestCaseName);
+		String globalId = globalIdFromSheet.substring(0,currentRowFirstIndexGlobalId);
+		String mendixLogin = loginFromSheet.substring(0, currentRowFirstIndexMendixLogin);
+		String loginType = mendixLogin.substring(0, 4);
+		System.out.println(loginType);
 		
 		if(!globalId.equalsIgnoreCase("dummyRow"))
 		{
@@ -1141,29 +1196,19 @@ public class MaterialScript extends BaseScript{
 			Assert.assertTrue(SharedDriver.pageContainer.loginPage.login(mendixLogin, "Heineken01"));	
 			SharedDriver.pageContainer.homePage.navigateToWorkflow();
 			SharedDriver.pageContainer.materialPage.switchToPopup();
-			SharedDriver.pageContainer.materialPage.navigateToDashboard();
+			if(loginType.equalsIgnoreCase("MDMM"))
+			{
+				SharedDriver.pageContainer.materialPage.navigateToDashboard();	
+			}
+			else
+			{
+				SharedDriver.pageContainer.vendorPage.navigateToDashboard();
+			}
 			SharedDriver.pageContainer.materialPage.advancedSearch();
 			SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 			SharedDriver.pageContainer.materialPage.globalSearch(globalId);
-			switch(mendixLogin)
-			{
-			case "MDVM_BE01_LDR" :
-				SharedDriver.pageContainer.vendorPage.get_Vendor_Account_Number_SAP(testCaseNameValue, mendixLogin);
-				break;
-			case "MDMM_BE01_LDR" :
-				SharedDriver.pageContainer.materialPage.get_Material_Number_SAP(testCaseNameValue, mendixLogin);
-				break;
-			case "MDVM_PL01_LDR" :
-				SharedDriver.pageContainer.vendorPage.get_Vendor_Account_Number_SAP(testCaseNameValue, mendixLogin);
-				break;
-			case "MDMM_PL01_LDR" :
-				SharedDriver.pageContainer.materialPage.get_Material_Number_SAP(testCaseNameValue, mendixLogin);
-				break;
-			default:
-				System.out.println("The System is not an SAP so move on");
-			}
 			SharedDriver.pageContainer.materialPage.checkMaterialVendorSyndicationLocks(testCaseNameValue);
-			SharedDriver.pageContainer.processInfoPage.browserClose();
+			SharedDriver.pageContainer.processInfoPage.browserClose();			
 		}
 
 	}

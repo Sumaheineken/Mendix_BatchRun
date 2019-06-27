@@ -1695,7 +1695,7 @@ public class VendorPage {
 					{
 						String vendorAccNumber = vendorAccountNumberBE.getText();
 						System.out.println("The Vendor Account Number is :"+vendorAccNumber);
-						ExcelUtil.setCellDataOutputFile("OutputTestData", "Material_Number_AH1", vendorAccNumber, testCaseNameValue);
+						ExcelUtil.setCellDataOutputFile_MaterialVendorNumber("OutputTestData", "Material_Number_AH1", vendorAccNumber, testCaseNameValue);
 						System.out.println(""+vendorAccNumber);	
 					}
 					else
@@ -1717,7 +1717,7 @@ public class VendorPage {
 					{
 						String vendorAccNumber = vendorAccountNumberPL.getText();
 						System.out.println("The Vendor Account Number is :"+vendorAccNumber);
-						ExcelUtil.setCellDataOutputFile("OutputTestData", "Material_Number_AH1", vendorAccNumber, testCaseNameValue);
+						ExcelUtil.setCellDataOutputFile_MaterialVendorNumber("OutputTestData", "Material_Number_AH1", vendorAccNumber, testCaseNameValue);
 						System.out.println(""+vendorAccNumber);						
 					}
 					else

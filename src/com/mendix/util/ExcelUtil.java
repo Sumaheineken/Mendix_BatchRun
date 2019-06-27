@@ -533,17 +533,17 @@ public class ExcelUtil {
 	}
 	
 	
-	public static void setCellData_New_VendorAccNumber(String sheetName, String colName, String value, String suiteName)
+	public static void setCellData_New_VendorAccNumber(String sheetName, String colName, String value, String testCaseNameValue)
 	{
 		List<Object[]> data = new ArrayList<Object[]>();
 		try
 		{
-			FileInputStream fis = new FileInputStream("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX);
+			FileInputStream fis = new FileInputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
 			XSSFWorkbook workbook = new XSSFWorkbook(fis);
 			int col_Num = 0;
 			XSSFSheet sheet = workbook.getSheet(sheetName);
 
-			XSSFRow row = sheet.getRow(getRowNum("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX, "TestPlan", value));
+			XSSFRow row = sheet.getRow(getRowNum("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX, "OutputTestData", testCaseNameValue));
 			for (int i = 0; i < row.getLastCellNum(); i++) {
 				if (row.getCell(i).getStringCellValue().trim().equals(colName))
 				{
@@ -559,7 +559,7 @@ public class ExcelUtil {
 			Row firstRow=rowIterator.next();
 
 
-			testCaseName = getTestCaseName("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX, "TestPlan", suiteName);
+			testCaseName = getOutputTestCaseName("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX, "OutputTestData", testCaseNameValue);
 			Map<String, String> headerRow = getColumnNames(firstRow);
 			while(rowIterator.hasNext()){
 				Iterator<Cell> cellIterator=rowIterator.next().cellIterator();
@@ -581,9 +581,10 @@ public class ExcelUtil {
 					}catch(Exception e){}
 				}
 
-				FileOutputStream fos = new FileOutputStream("input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX);
+				FileOutputStream fos = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
 				workbook.write(fos);
 				fos.close();
+//				fis.close();
 			}
 		}
 		catch (Exception ex)
@@ -594,7 +595,7 @@ public class ExcelUtil {
 		//        return true;
 	}
 
-	public static void setCellDataOutputFile(String sheetName, String colName, String value, String testCaseNameValue)
+	public static void setCellDataOutputFile_globalId(String sheetName, String colName, String value, String testCaseNameValue)
 	{
 		List<Object[]> data = new ArrayList<Object[]>();
 		try
@@ -634,29 +635,182 @@ public class ExcelUtil {
 							cell.setCellValue(value);
 							}
 						}
-						else if(strColumnName.equalsIgnoreCase("Material_Number_AH1"))
-						{
-							if(rowMap.get("Test_Case").equalsIgnoreCase(testCaseName)){
-								cell.setCellValue(value);
-								}
+
 						}
-						else if(strColumnName.equalsIgnoreCase("Mendix_User"))
-						{
+					}catch(Exception e){}
+				}
+
+				FileOutputStream fos = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+				workbook.write(fos);
+				fos.close();
+//				fis.close();
+			}
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+			//            return  false;
+		}
+		//        return true;
+	}
+	
+	public static void setCellDataOutputFile_MaterialVendorNumber(String sheetName, String colName, String value, String testCaseNameValue)
+	{
+		List<Object[]> data = new ArrayList<Object[]>();
+		try
+		{
+			FileInputStream fis = new FileInputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+			XSSFWorkbook workbook = new XSSFWorkbook(fis);
+			int col_Num = 0;
+			XSSFSheet sheet = workbook.getSheet(sheetName);
+
+			XSSFRow row = sheet.getRow(getRowNum("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX, sheetName, value));
+			for (int i = 0; i < row.getLastCellNum(); i++) {
+				if (row.getCell(i).getStringCellValue().trim().equals(colName))
+				{
+					col_Num = i;
+				}
+			}
+
+			Iterator<Row> rowIterator = sheet.rowIterator();
+			Row firstRow=rowIterator.next();
+
+
+			testCaseName = getOutputTestCaseName("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX, "OutputTestData", testCaseNameValue);
+			Map<String, String> headerRow = getColumnNames(firstRow);
+			while(rowIterator.hasNext()){
+				Iterator<Cell> cellIterator=rowIterator.next().cellIterator();
+				Map<String,String> rowMap=new LinkedHashMap<String, String>();
+				for(Entry<?, ?> entry:headerRow.entrySet()){
+					String strColumnName=entry.getKey().toString();
+					String strValue="";
+					try{
+						Cell cell=cellIterator.next();
+						if(cell!=null){strValue=cell.toString();
+						rowMap.put(strColumnName, strValue.trim());
+							
+						if(strColumnName.equalsIgnoreCase("Material_Number_AH1")) {
 							if(rowMap.get("Test_Case").equalsIgnoreCase(testCaseName)){
-								cell.setCellValue(value);
-								}
+							cell.setCellValue(value);
+							}
 						}
-						else if(strColumnName.equalsIgnoreCase("Syndication_Status"))
-						{
-							if(rowMap.get("Test_Case").equalsIgnoreCase(testCaseName)){
-								cell.setCellValue(value);
-								}
+
 						}
-						else if(strColumnName.equalsIgnoreCase("UFT_User"))
-						{
+					}catch(Exception e){}
+				}
+
+				FileOutputStream fos = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+				workbook.write(fos);
+				fos.close();
+//				fis.close();
+			}
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+			//            return  false;
+		}
+		//        return true;
+	}
+	
+	public static void setCellDataOutputFile_MendixUser(String sheetName, String colName, String value, String testCaseNameValue)
+	{
+		List<Object[]> data = new ArrayList<Object[]>();
+		try
+		{
+			FileInputStream fis = new FileInputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+			XSSFWorkbook workbook = new XSSFWorkbook(fis);
+			int col_Num = 0;
+			XSSFSheet sheet = workbook.getSheet(sheetName);
+
+			XSSFRow row = sheet.getRow(getRowNum("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX, sheetName, value));
+			for (int i = 0; i < row.getLastCellNum(); i++) {
+				if (row.getCell(i).getStringCellValue().trim().equals(colName))
+				{
+					col_Num = i;
+				}
+			}
+
+			Iterator<Row> rowIterator = sheet.rowIterator();
+			Row firstRow=rowIterator.next();
+
+
+			testCaseName = getOutputTestCaseName("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX, "OutputTestData", testCaseNameValue);
+			Map<String, String> headerRow = getColumnNames(firstRow);
+			while(rowIterator.hasNext()){
+				Iterator<Cell> cellIterator=rowIterator.next().cellIterator();
+				Map<String,String> rowMap=new LinkedHashMap<String, String>();
+				for(Entry<?, ?> entry:headerRow.entrySet()){
+					String strColumnName=entry.getKey().toString();
+					String strValue="";
+					try{
+						Cell cell=cellIterator.next();
+						if(cell!=null){strValue=cell.toString();
+						rowMap.put(strColumnName, strValue.trim());
+							
+						if(strColumnName.equalsIgnoreCase("Mendix_User")) {
 							if(rowMap.get("Test_Case").equalsIgnoreCase(testCaseName)){
-								cell.setCellValue(value);
-								}
+							cell.setCellValue(value);
+							}
+						}
+
+						}
+					}catch(Exception e){}
+				}
+
+				FileOutputStream fos = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+				workbook.write(fos);
+				fos.close();
+//				fis.close();
+			}
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+			//            return  false;
+		}
+		//        return true;
+	}
+	
+	public static void setCellDataOutputFile_Syndication(String sheetName, String colName, String value, String testCaseNameValue)
+	{
+		List<Object[]> data = new ArrayList<Object[]>();
+		try
+		{
+			FileInputStream fis = new FileInputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+			XSSFWorkbook workbook = new XSSFWorkbook(fis);
+			int col_Num = 0;
+			XSSFSheet sheet = workbook.getSheet(sheetName);
+
+			XSSFRow row = sheet.getRow(getRowNum("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX, sheetName, value));
+			for (int i = 0; i < row.getLastCellNum(); i++) {
+				if (row.getCell(i).getStringCellValue().trim().equals(colName))
+				{
+					col_Num = i;
+				}
+			}
+
+			Iterator<Row> rowIterator = sheet.rowIterator();
+			Row firstRow=rowIterator.next();
+
+
+			testCaseName = getOutputTestCaseName("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX, "OutputTestData", testCaseNameValue);
+			Map<String, String> headerRow = getColumnNames(firstRow);
+			while(rowIterator.hasNext()){
+				Iterator<Cell> cellIterator=rowIterator.next().cellIterator();
+				Map<String,String> rowMap=new LinkedHashMap<String, String>();
+				for(Entry<?, ?> entry:headerRow.entrySet()){
+					String strColumnName=entry.getKey().toString();
+					String strValue="";
+					try{
+						Cell cell=cellIterator.next();
+						if(cell!=null){strValue=cell.toString();
+						rowMap.put(strColumnName, strValue.trim());
+							
+						if(strColumnName.equalsIgnoreCase("Syndication_Status")) {
+							if(rowMap.get("Test_Case").equalsIgnoreCase(testCaseName)){
+							cell.setCellValue(value);
+							}
 						}
 						}
 					}catch(Exception e){}
@@ -665,6 +819,66 @@ public class ExcelUtil {
 				FileOutputStream fos = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
 				workbook.write(fos);
 				fos.close();
+//				fis.close();
+			}
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+			//            return  false;
+		}
+		//        return true;
+	}
+	
+	public static void setCellDataOutputFile_UftUser(String sheetName, String colName, String value, String testCaseNameValue)
+	{
+		List<Object[]> data = new ArrayList<Object[]>();
+		try
+		{
+			FileInputStream fis = new FileInputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+			XSSFWorkbook workbook = new XSSFWorkbook(fis);
+			int col_Num = 0;
+			XSSFSheet sheet = workbook.getSheet(sheetName);
+
+			XSSFRow row = sheet.getRow(getRowNum("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX, sheetName, value));
+			for (int i = 0; i < row.getLastCellNum(); i++) {
+				if (row.getCell(i).getStringCellValue().trim().equals(colName))
+				{
+					col_Num = i;
+				}
+			}
+
+			Iterator<Row> rowIterator = sheet.rowIterator();
+			Row firstRow=rowIterator.next();
+
+
+			testCaseName = getOutputTestCaseName("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX, "OutputTestData", testCaseNameValue);
+			Map<String, String> headerRow = getColumnNames(firstRow);
+			while(rowIterator.hasNext()){
+				Iterator<Cell> cellIterator=rowIterator.next().cellIterator();
+				Map<String,String> rowMap=new LinkedHashMap<String, String>();
+				for(Entry<?, ?> entry:headerRow.entrySet()){
+					String strColumnName=entry.getKey().toString();
+					String strValue="";
+					try{
+						Cell cell=cellIterator.next();
+						if(cell!=null){strValue=cell.toString();
+						rowMap.put(strColumnName, strValue.trim());
+							
+						if(strColumnName.equalsIgnoreCase("UFT_User")) {
+							if(rowMap.get("Test_Case").equalsIgnoreCase(testCaseName)){
+							cell.setCellValue(value);
+							}
+						}
+
+						}
+					}catch(Exception e){}
+				}
+
+				FileOutputStream fos = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
+				workbook.write(fos);
+				fos.close();
+//				fis.close();
 			}
 		}
 		catch (Exception ex)
@@ -678,14 +892,13 @@ public class ExcelUtil {
 	public static String getOutputTestCaseName(String testDataFile, String sheetName, String testCaseNameValue)
 			throws IOException {
 		TestData.testDataFile = "input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX;
-		ArrayList<String[]> data = TestData.getTestCaseDataOfOutputSheet(sheetName , testCaseNameValue);
+		ArrayList<String[]> data = TestData.getTestCaseDataOfOutputSheet( "OutputTestData", testCaseNameValue);
 		String testCaseName=null;
 		for (int i = 0; i < data.size(); i++) {
 			String[] s = data.get(i);
 			for (int j = 0; j < s.length; j++) {
 				System.out.print(s[j] + " , ");
-				testCaseName=s[2].toString();
-
+				testCaseName=s[0].toString();
 			}
 			System.out.println("");
 			//			movedata(testCaseName);

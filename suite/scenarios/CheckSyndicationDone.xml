@@ -5,7 +5,8 @@
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="globalIdSyndicationCheck"/>
+					<include name="getMaterialVendorNumberForSAP"/>
+					<include name = "globalSyndicationCheckAndPrintStatus"/>
 				</methods>
 			</class>
 		</classes>

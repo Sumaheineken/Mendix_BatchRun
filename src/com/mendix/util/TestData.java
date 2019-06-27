@@ -159,7 +159,7 @@ public class TestData {
 			int i = 0;
 			String[] currentRowData = new String[colCount];
 			Row currentRow = rowIterator.next();
-			Cell testCaseStatusCell = currentRow.getCell(testCaseIdColNo+0);
+			Cell testCaseStatusCell = currentRow.getCell(testCaseIdColNo);
 
 			System.out.println("Test case name in Master Test Plan is : "+testCaseNameValue);
 			if(testCaseStatusCell.getStringCellValue().equalsIgnoreCase(testCaseNameValue)){

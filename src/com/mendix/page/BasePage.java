@@ -77,6 +77,7 @@ public class BasePage extends ExcelUtil{
 			CreationHelper createHelper = workbook.getCreationHelper();
 			Sheet sheet1 = workbook.createSheet("OutputTestData");
 			Row headerRow = sheet1.createRow(0);
+//			headerRow.createCell(0).setCellValue(createHelper.createRichTextString("Sl.No"));
 			headerRow.createCell(0).setCellValue(createHelper.createRichTextString("Test_Case"));
 			headerRow.createCell(1).setCellValue(createHelper.createRichTextString("Global_ID"));
 			headerRow.createCell(2).setCellValue(createHelper.createRichTextString("Material_Number_AH1"));
@@ -141,6 +142,10 @@ public class BasePage extends ExcelUtil{
 			
 //			for(int i=0; i< row.getLastCellNum(); i++)
 //			{
+//				Cell cell0 = newRow.createCell(0);
+//				int serialNumber = cell0.getRowIndex();
+//				String serialSequence = "0"+serialNumber;
+//				cell0.setCellValue(serialSequence);
 				Cell cell0 = newRow.createCell(0);
 				cell0.setCellValue(testCaseValue);
 				Cell cell1 = newRow.createCell(1);
@@ -153,6 +158,8 @@ public class BasePage extends ExcelUtil{
 				cell4.setCellValue("Syndication Not Done");
 				Cell cell5 = newRow.createCell(5);
 				cell5.setCellValue(uftUserValue);
+				Cell cell6 = newRow.createCell(6);
+				cell6.setCellValue("null");
 				
 				FileOutputStream output = new FileOutputStream("input/MDM_Output"+Constants.EXCEL_FORMAT_XLSX);
 				workbook.write(output);
@@ -170,19 +177,19 @@ public class BasePage extends ExcelUtil{
 		
 		System.out.println(globalIdValue);
 		System.out.println("Moving onto the excel");
-		ExcelUtil.setCellDataOutputFile("OutputTestData", "Global_ID", globalIdValue, testCaseOutputValue);
+		ExcelUtil.setCellDataOutputFile_globalId("OutputTestData", "Global_ID", globalIdValue, testCaseOutputValue);
 		
 	}
 
 	public static void writeOutputMaterialVendorNumber(String materialVendorNumberValue, String testCaseOutputValue) {
 		
-		ExcelUtil.setCellDataOutputFile("OutputTestData", "Material_Number_AH1", materialVendorNumberValue, testCaseOutputValue);
+		ExcelUtil.setCellDataOutputFile_MaterialVendorNumber("OutputTestData", "Material_Number_AH1", materialVendorNumberValue, testCaseOutputValue);
 		System.out.println(materialVendorNumberValue);
 	}
 
 	public static void writeOutputMindexUser(String loginValue, String testCaseOutputValue) {
 		
-		ExcelUtil.setCellDataOutputFile("OutputTestData", "Mendix_User", loginValue, testCaseOutputValue);
+		ExcelUtil.setCellDataOutputFile_MendixUser("OutputTestData", "Mendix_User", loginValue, testCaseOutputValue);
 		System.out.println(loginValue);
 		
 	}
@@ -190,14 +197,14 @@ public class BasePage extends ExcelUtil{
 	
 	public static void writeOutputSyndicationStatus(String syndicationValue, String testCaseOutputValue) {
 		
-		ExcelUtil.setCellDataOutputFile("OutputTestData", "Syndication_Status", syndicationValue, testCaseOutputValue);
+		ExcelUtil.setCellDataOutputFile_Syndication("OutputTestData", "Syndication_Status", syndicationValue, testCaseOutputValue);
 		System.out.println(syndicationValue);
 		
 	}
 
 	public static void writeOutputUftUser(String uftUserValue, String testCaseOutputValue) {
 		
-		ExcelUtil.setCellDataOutputFile("OutputTestData", "UFT_User", uftUserValue, testCaseOutputValue);
+		ExcelUtil.setCellDataOutputFile_UftUser("OutputTestData", "UFT_User", uftUserValue, testCaseOutputValue);
 		System.out.println(uftUserValue);
 	}
 

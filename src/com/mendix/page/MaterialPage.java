@@ -415,15 +415,16 @@ public class MaterialPage {
 	@FindBy(how=How.XPATH, using="//*[text()='Request ID']/../../td/div/input")
 	WebElement txtboxRequestId;
 
-	// @FindBy(how=How.XPATH, using=".//*[text()='Global
-	// Lock']/../../../../../../table[2]/tbody/tr[1]/td[1]/div")
+	// @FindBy(how=How.XPATH, using=".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[1]/div")
 	@FindBy(how = How.XPATH, using = "//div[contains(@class,'mx-name-dataView2 searchResults')]//table[2]/tbody/tr[1]/td[1]/div")
 	WebElement txtGlobalLockValue;
 
-	@FindBy(how = How.XPATH, using = ".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[2]/div")
+//	@FindBy(how = How.XPATH, using = ".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[2]/div")
+	@FindBy(how = How.XPATH, using = "//div[contains(@class,'mx-name-dataView2 searchResults')]//table[2]/tbody/tr[1]/td[2]/div")
 	WebElement txtLocalLockValue;
 
-	@FindBy(how = How.XPATH, using = ".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[3]/div")
+//	@FindBy(how = How.XPATH, using = ".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[3]/div")
+	@FindBy(how = How.XPATH, using = "//div[contains(@class,'mx-name-dataView2 searchResults')]//table[2]/tbody/tr[1]/td[3]/div")
 	WebElement txtFFDValue;
 	
 	@FindBy(how=How.XPATH, using = ".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PH1700']")
@@ -2668,7 +2669,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 				{
 					String materialNumber = materialNumberBE.getText();
 					System.out.println("The Material Number is :"+materialNumber);
-					ExcelUtil.setCellDataOutputFile("OutputTestData", "Material_Number_AH1", materialNumber, testCaseNameValue);
+					ExcelUtil.setCellDataOutputFile_MaterialVendorNumber("OutputTestData", "Material_Number_AH1", materialNumber, testCaseNameValue);
 					System.out.println(""+materialNumber);					
 				}
 				else
@@ -2690,7 +2691,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 				{
 					String materialNumber = materialNumberPL.getText();
 					System.out.println("The Material Number is :"+materialNumber);
-					ExcelUtil.setCellDataOutputFile("OutputTestData", "Material_Number_AH1", materialNumber, testCaseNameValue);
+					ExcelUtil.setCellDataOutputFile_MaterialVendorNumber("OutputTestData", "Material_Number_AH1", materialNumber, testCaseNameValue);
 					System.out.println(""+materialNumber);					
 				}
 				else
@@ -2765,7 +2766,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 		if (globalLockValue.equalsIgnoreCase("No") && localLockValue.equalsIgnoreCase("No")
 				&& fFDValue.equalsIgnoreCase("No")) {
 			System.out.println("Syndication Done");
-			ExcelUtil.setCellDataOutputFile("OutputTestData", "Syndication_Status", "Done", testCaseNameValue);
+			ExcelUtil.setCellDataOutputFile_Syndication("OutputTestData", "Syndication_Status", "Done", testCaseNameValue);
 		}
 		else {
 			System.out.println("Syndiction not done");
@@ -2781,8 +2782,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 		
 		System.out.println(globalIdValue);
 		System.out.println("Moving onto the excel");
-		ExcelUtil.setCellDataOutputFile("OutputTestData", "Global_ID", globalIdValue, testCaseOutputValue);
-		
+		ExcelUtil.setCellDataOutputFile_MaterialVendorNumber("OutputTestData", "Global_ID", globalIdValue, testCaseOutputValue);		
 	}
 	
 	public void get_Material_Number_SAP(String testCaseNameValue, String mendixLogin) throws InterruptedException 
