@@ -24,6 +24,7 @@
 			</class>
 		</classes>
 	</test>
+	
 	 <test name="Material_Change_Fill_In_Data">
 		<classes>
 			<class name="com.mendix.test.MaterialChangeScript">
@@ -33,11 +34,11 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Material_RequestId_Generation">
+	<test name="Material_Validate_Submit_Check">
 		<classes>
-			<class name="com.mendix.test.MaterialChangeScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Material_RequestId_Generation" />
+					<include name="Material_Create_Validate_Submit_Check" />
 				</methods>
 			</class>
 		</classes>
@@ -51,6 +52,7 @@
 			</class>
 		</classes>
 	</test>
+	
 	
 	<test name="HeiPort_Login_GBDA">
 		<classes>
@@ -111,7 +113,7 @@
 		</classes>
 	</test>
 	
-	<test name="HeiPort_ReLogin_LDR_Global">
+	 <test name="HeiPort_ReLogin_LDR_Global">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -120,14 +122,13 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
-	
-	<test name="Material_Resubmit_To_Approval_Global">
+	</test>	
+	<test name="Material_SubmitRequest_LDR">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="navigate_To_MDM_Workflow"/>
-					<include name="material_Resubmit_To_Global_Approval"/>
+					<include
+						name="Material_Save_As_Draft_Data_SubmitRequest_LDR" />
 				</methods>
 			</class>
 		</classes>
@@ -144,7 +145,7 @@
 	</test>
 	
 	
-	<test name="HeiPort_ReLogin_GDA">
+	<test name="HeiPort_ReLogin_GDA_Approve">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -159,7 +160,7 @@
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include
-						name="Material_Create_Review_Global_Data_Approve_GDA" />
+						name=" Material_Create_Review_Global_Data_Approve_GDA_Duplicate " />
 				</methods>
 			</class>
 		</classes>
