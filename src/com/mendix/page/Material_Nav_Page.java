@@ -185,7 +185,8 @@ public class Material_Nav_Page{
 		if(Button.verifyObject(btnGlobalData)) {
 			Sync.waitForSeconds(Constants.WAIT_3);
 			Sync.waitForObject(driver, btnGlobalData);
-			Button.click("Global Data ", btnGlobalData);
+			Button.jsclick("Global Data ", btnGlobalData,driver);
+			Sync.waitForSeconds(Constants.WAIT_3);
 		}
 		else {
 			Sync.waitForSeconds(Constants.WAIT_3);
@@ -630,15 +631,12 @@ public class Material_Nav_Page{
 	 * }
 	 */
 	public void submitLocalRequest() {
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForObject(driver, "Wait for Submit Local Request",
-				driver.findElement(By.xpath(".//*[text()='Submit Local Request']")));
+		driver.findElement(By.xpath(".//*[text()='Submit Local Request']")));
 		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath(".//*[text()='Submit Local Request']")));
-		Button.click("Click  Submit Local Request",
-				driver.findElement(By.xpath(".//*[text()='Submit Local Request']")));
-		// Button.click("Click Global submit Global Request",
-		// driver.findElement(By.xpath("(//span[@class='glyphicon
-		// glyphicon-save'])[2]")));
+		Button.jsclick("Click  Submit Local Request",
+		driver.findElement(By.xpath(".//*[text()='Submit Local Request']")),driver);		
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForSeconds(Constants.WAIT_5);
 	}

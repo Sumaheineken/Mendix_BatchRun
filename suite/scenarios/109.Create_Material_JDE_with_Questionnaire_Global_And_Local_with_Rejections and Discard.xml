@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="109.Create_Material_JDE_with_Questionnaire_Global_And_Local_with_Rejections and Discard">
+<suite name="109.Create_Material_JDE_with_Questionnaire_Global_And_Local_with_Rejections and Discard.xml">
 	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -13,8 +13,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
-	
+	</test>	
 	<test name="Material_Create_Fill in questionnaire">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
@@ -86,7 +85,7 @@
 		<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDS" />
+					<include name="loginAsLDS" />
 				</methods>
 			</class>
 		</classes>
@@ -141,6 +140,3 @@
 	</test>
 	
 </suite> 
-
-
-

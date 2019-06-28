@@ -1534,8 +1534,7 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForObject(driver, btnDiscardCreate);
 		Textbox.click("Click on discard button in locl action", btnDiscardCreate);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Button.jsclick("Click Proceed button", btnProceed, driver);
+		Sync.waitForSeconds(Constants.WAIT_5);		
 		Sync.waitForObject(driver, btnOK);
 		Button.click("Click On OK button", btnOK);
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -1703,6 +1702,7 @@ public class MaterialPage {
 		//WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
 		 Button.jsclick("Click on Popup", btnClose, driver);
 		 Sync.waitForSeconds(Constants.WAIT_10);
+		 Sync.waitForSeconds(Constants.WAIT_10);
 		}
 		else {
 			Sync.waitForSec(Constants.WAIT_5);
@@ -1710,6 +1710,7 @@ public class MaterialPage {
 		// Sync.waitForSeconds(Constants.WAIT_1);
 		// Button.jsclick("Click ok on info Popup", btnOkay, driver);
 	}
+
 
 	public boolean clickCreateRequestPopup() {
 		Sync.waitForSeconds(Constants.WAIT_5);
