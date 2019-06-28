@@ -12,6 +12,7 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
@@ -32,6 +33,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.ITestContext;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -251,9 +253,6 @@ public class MaterialPage {
 	@FindBy(how = How.XPATH, using = ".//*[text()='Open Record']")
 	WebElement btnOpenRecord;
 	
-	@FindBy(how = How.XPATH, using = "//*[text()='Local Actions:']/..//*[text()='Save As Draft']")
-    WebElement btnSaveAsDraftJde;
-	
 
 	// @FindBy(how=How.XPATH, using="(.//*[text()='New'])[4]")
 	/*
@@ -416,15 +415,16 @@ public class MaterialPage {
 	@FindBy(how=How.XPATH, using="//*[text()='Request ID']/../../td/div/input")
 	WebElement txtboxRequestId;
 
-	// @FindBy(how=How.XPATH, using=".//*[text()='Global
-	// Lock']/../../../../../../table[2]/tbody/tr[1]/td[1]/div")
+	// @FindBy(how=How.XPATH, using=".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[1]/div")
 	@FindBy(how = How.XPATH, using = "//div[contains(@class,'mx-name-dataView2 searchResults')]//table[2]/tbody/tr[1]/td[1]/div")
 	WebElement txtGlobalLockValue;
 
-	@FindBy(how = How.XPATH, using = ".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[2]/div")
+//	@FindBy(how = How.XPATH, using = ".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[2]/div")
+	@FindBy(how = How.XPATH, using = "//div[contains(@class,'mx-name-dataView2 searchResults')]//table[2]/tbody/tr[1]/td[2]/div")
 	WebElement txtLocalLockValue;
 
-	@FindBy(how = How.XPATH, using = ".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[3]/div")
+//	@FindBy(how = How.XPATH, using = ".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[3]/div")
+	@FindBy(how = How.XPATH, using = "//div[contains(@class,'mx-name-dataView2 searchResults')]//table[2]/tbody/tr[1]/td[3]/div")
 	WebElement txtFFDValue;
 	
 	@FindBy(how=How.XPATH, using = ".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PH1700']")
@@ -438,6 +438,9 @@ public class MaterialPage {
 	
 	@FindBy(how = How.XPATH, using = ".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PE2700']/../../td[1]/div")
 	WebElement materialNumberPL;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Local Actions:']/..//*[text()='Save As Draft']")
+    WebElement btnSaveAsDraftJde;
 
 	/**
 	 * Enter UserName. Enter Password
@@ -1532,7 +1535,7 @@ public class MaterialPage {
 		Sync.waitForObject(driver, btnDiscardCreate);
 		Textbox.click("Click on discard button in locl action", btnDiscardCreate);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		//Button.jsclick("Click Proceed button", btnProceed, driver);
+		Button.jsclick("Click Proceed button", btnProceed, driver);
 		Sync.waitForObject(driver, btnOK);
 		Button.click("Click On OK button", btnOK);
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -1753,8 +1756,8 @@ public class MaterialPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".modal-body.mx-dialog-body>p")));
 
 		Sync.waitForObject(driver, "Wait of Dialog Box Success Message", msgRequestSuccessMsg);
-		// String reqId=driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")).getText();
-		String reqId = driver.findElement(By.cssSelector(".modal-body.mx-dialog-body>p")).getText();
+		 String reqId=driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")).getText();
+		//String reqId = driver.findElement(By.cssSelector(".modal-body.mx-dialog-body>p")).getText();
 		String[] parts = reqId.split(" ");
 		String Id = parts[2];
 		System.out.println(Id);
@@ -2595,23 +2598,26 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 
 			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
-			List<WebElement> materialNumberlist = driver
-					.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[1]"));
+			if(driver.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[1]")).size()>0)
+			{
+				List<WebElement> materialNumberlist = driver
+						.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[1]"));
 
-			List<WebElement> targetSystemList = driver
-					.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]"));
+				List<WebElement> targetSystemList = driver
+						.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]"));
 
-			Iterator<WebElement> i = targetSystemList.iterator();
-			while (i.hasNext()) {
+				Iterator<WebElement> i = targetSystemList.iterator();
+				while (i.hasNext()) {
 
-				WebElement row = i.next();
-				String targetSystem = row.getText();
+					WebElement row = i.next();
+					String targetSystem = row.getText();
 
-				for (WebElement materialList : materialNumberlist) {
+					for (WebElement materialList : materialNumberlist) {
 
-					String materialNumb = materialList.getText();
-					System.out.println("Material Number = " + materialNumb + " for Target System : " + targetSystem);
-				}
+						String materialNumb = materialList.getText();
+						System.out.println("Material Number = " + materialNumb + " for Target System : " + targetSystem);
+					}
+				}				
 			}
 		} else {
 			System.out.println("Syndiction not done");
@@ -2628,59 +2634,73 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 			}
 			
 			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			if(driver.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[1]")).size()>0)
+			{
+				List<WebElement> materialNumberlist = driver
+						.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[1]"));
 
-			List<WebElement> materialNumberlist = driver
-					.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[1]"));
+				List<WebElement> targetSystemList = driver
+						.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]"));
 
-			List<WebElement> targetSystemList = driver
-					.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]"));
+				Iterator<WebElement> i = targetSystemList.iterator();
+				while (i.hasNext()) {
 
-			Iterator<WebElement> i = targetSystemList.iterator();
-			while (i.hasNext()) {
+					WebElement row = i.next();
+					String targetSystem = row.getText();
 
-				WebElement row = i.next();
-				String targetSystem = row.getText();
+					for (WebElement materialList : materialNumberlist) {
 
-				for (WebElement materialList : materialNumberlist) {
-
-					String materialNumb = materialList.getText();
-					System.out.println("Material Number = " + materialNumb + " for Target System : " + targetSystem);
+						String materialNumb = materialList.getText();
+						System.out.println("Material Number = " + materialNumb + " for Target System : " + targetSystem);
+					}
 				}
+				
 			}
 		}
 
 	}
 	
 	
-	public void getMaterialNumber(String suiteName, String opco) {
-		// TODO Auto-generated method stub
-		//Sync.waitForObject(driver, materialTargetSystemBE);
-		//SoftAssert assertTargetSystem = new SoftAssert();
-		//assertTargetSystem.assertEquals(materialTargetSystemBE.getText(), "PH1700", "The Target System is not there in Vendor Details of selected Global ID");
-		if(opco.equalsIgnoreCase("BE01"))
+	public void getMaterialNumber(String testCaseNameValue, String mendixLogin) {
+
+		if(mendixLogin.equalsIgnoreCase("MDMM_BE01_LDR"))
 		{
 			String materialTargetSystemBelgium = materialTargetSystemBE.getText();
 			if(materialTargetSystemBelgium.equalsIgnoreCase("PH1700"))
 			{
-				String materialNumber = materialNumberBE.getText();
-				System.out.println("The Material Number is :"+materialNumber);
-				ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", materialNumber, suiteName);
-				System.out.println(""+materialNumber);
+				if(driver.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PH1700']/../../td[1]/div")).size()>0)
+				{
+					String materialNumber = materialNumberBE.getText();
+					System.out.println("The Material Number is :"+materialNumber);
+					ExcelUtil.setCellDataOutputFile_MaterialVendorNumber("OutputTestData", "Material_Number_AH1", materialNumber, testCaseNameValue);
+					System.out.println(""+materialNumber);					
+				}
+				else
+				{
+					System.out.println("Material Number not yet displayed for the specified GlobalId");
+				}
 			}
 			else
 			{
 				System.out.println("No Element found to print in console");
 			}			
 		}
-		else if(opco.equalsIgnoreCase("PL01"))
+		else if(mendixLogin.equalsIgnoreCase("MDMM_PL01_LDR"))
 		{
 			String materialTargetSystemPoland = materialTargetSystemPL.getText();
 			if(materialTargetSystemPoland.equalsIgnoreCase("PE2700"))
 			{
-				String materialNumber = materialNumberPL.getText();
-				System.out.println("The Material Number is :"+materialNumber);
-				ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", materialNumber, suiteName);
-				System.out.println(""+materialNumber);
+				if(driver.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PE2700']/../../td[1]/div")).size()>0)
+				{
+					String materialNumber = materialNumberPL.getText();
+					System.out.println("The Material Number is :"+materialNumber);
+					ExcelUtil.setCellDataOutputFile_MaterialVendorNumber("OutputTestData", "Material_Number_AH1", materialNumber, testCaseNameValue);
+					System.out.println(""+materialNumber);					
+				}
+				else
+				{
+					System.out.println("Material Number not yet displayed for the specified GlobalId");
+				}
 			}
 			else
 			{
@@ -2730,9 +2750,50 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 			System.out.println("Flag for Deletion not done");
 
 		}
-		
+
+	}
+	
+	public void checkMaterialVendorSyndicationLocks(String testCaseNameValue) {
+
+		Sync.waitForSeconds(Constants.WAIT_5);
+		globalLockValue = txtGlobalLockValue.getText();
+
+		localLockValue = txtLocalLockValue.getText();
+
+		fFDValue = txtFFDValue.getText();
+
+		System.out.println("Global lock: " + globalLockValue);
+		System.out.println("Local Lock : " + localLockValue);
+		System.out.println("FFD : " + fFDValue);
+
+		if (globalLockValue.equalsIgnoreCase("No") && localLockValue.equalsIgnoreCase("No")
+				&& fFDValue.equalsIgnoreCase("No")) {
+			System.out.println("Syndication Done");
+			ExcelUtil.setCellDataOutputFile_Syndication("OutputTestData", "Syndication_Status", "Done", testCaseNameValue);
+		}
+		else {
+			System.out.println("Syndiction not done");
+			SoftAssert assrt = new SoftAssert();
+			assrt.assertEquals(globalLockValue, "No", "Global Lock is still active");
+			assrt.assertEquals(localLockValue, "No", "Local lock is still active");
+			assrt.assertEquals(fFDValue, "No", "FFD Value is still active");	
+		}
+
 	}
 
+	public void writeOutputGlobalId(String testCaseOutputValue, String globalIdValue) {
+		
+		System.out.println(globalIdValue);
+		System.out.println("Moving onto the excel");
+		ExcelUtil.setCellDataOutputFile_MaterialVendorNumber("OutputTestData", "Global_ID", globalIdValue, testCaseOutputValue);		
+	}
+	
+	public void get_Material_Number_SAP(String testCaseNameValue, String mendixLogin) throws InterruptedException 
+	{
+			SharedDriver.pageContainer.materialPage.checkDashboardLock();
+			SharedDriver.pageContainer.materialPage.getMaterialNumber(testCaseNameValue, mendixLogin);			
+	}
+	
 	public void clickDuplicateCheck_SAP() throws InterruptedException 
     {
 
@@ -2755,39 +2816,8 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
    		 clickCloseButtonToPopUp();
    		 submitGlobalRequest();
    	 }
-    } 
-
+    }
 	
-	public void checkMaterialVendorSyndicationLocks() {
-
-		Sync.waitForSeconds(Constants.WAIT_5);
-		globalLockValue = txtGlobalLockValue.getText();
-
-		localLockValue = txtLocalLockValue.getText();
-
-		fFDValue = txtFFDValue.getText();
-
-		System.out.println("Global lock: " + globalLockValue);
-		System.out.println("Local Lock : " + localLockValue);
-		System.out.println("FFD : " + fFDValue);
-
-		if (globalLockValue.equalsIgnoreCase("No") && localLockValue.equalsIgnoreCase("No")
-				&& fFDValue.equalsIgnoreCase("No")) {
-			System.out.println("Syndication Done");
-			
-
-		}
-		else {
-			System.out.println("Syndiction not done");
-			SoftAssert assrt = new SoftAssert();
-			assrt.assertEquals(globalLockValue, "No", "Global Lock is still active");
-			assrt.assertEquals(localLockValue, "No", "Local lock is still active");
-			assrt.assertEquals(fFDValue, "No", "FFD Value is still active");
-			
-			
-		}
-
-	}
 	public void saveAsDraftJDE() throws InterruptedException {
 
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -2800,8 +2830,5 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 		Sync.waitForSeconds(Constants.WAIT_5);
 		// Sync.waitForSeconds(Constants.WAIT_6);
 	}
-
-
 	
-
 }

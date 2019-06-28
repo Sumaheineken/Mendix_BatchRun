@@ -36,6 +36,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.ITestContext;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -464,9 +465,8 @@ public class VendorPage {
 
 	/*****************************************************************************/
 	public void EditVendorData() {
-		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Select EDit button", EditGlobalData);
-		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_2);
 		Button.click("Click EDit button", btnEdit);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		
@@ -484,13 +484,14 @@ public class VendorPage {
 		
 	}
 	public void EditVendorgloballovajdeData() {
-		Sync.waitForSeconds(Constants.WAIT_10);
 		Button.click("Select EDit button", EditGlobalData);
-		Sync.waitForSeconds(Constants.WAIT_10);
-		Button.click("Select EDit button", EditlocalData);
-		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_2);
+				Button.click("Select EDit button", EditlocalData);
+		Sync.waitForSeconds(Constants.WAIT_2);
+
 		Button.click("Click EDit button", btnEdit);
-		Sync.waitForSeconds(Constants.WAIT_5);		
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
 	}
 
 	public void EditVendorDataGlobalLocal() 
@@ -530,14 +531,11 @@ public class VendorPage {
 	/*****************************************************************************/
 
 	public void VendorName(String strValue) {
-		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.waitForObject(driver, textName);
 		Textbox.enterValue("Name to create vendor", textName, strValue);
-		Sync.waitForSeconds(Constants.WAIT_10);
-		WebDriverWait wait = new WebDriverWait(driver,80);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[text()='Search Term 1']/../div/input")));		
+		Sync.waitForSeconds(Constants.WAIT_1);
 		Textbox.click("clicking name1", textSearchterm1);
-
 	}
 	public void VendorNamechange(String strValue) {
 		Sync.waitForSeconds(Constants.WAIT_3);
@@ -1686,35 +1684,47 @@ public class VendorPage {
 		}
 
 		
-		public void getVendorAccountNumber(String suiteName, String opco) {
-			// TODO Auto-generated method stub
-			//Sync.waitForObject(driver, vendorTargetSystemBE);
-//			SoftAssert assertTargetSystem = new SoftAssert();
-//			assertTargetSystem.assertEquals(vendorTargetSystemBE.getText(), "PH1700", "The Target System is not there in Vendor Details of selected Global ID");
-			if(opco.equalsIgnoreCase("BE01"))
+		public void getVendorAccountNumber(String testCaseNameValue, String mendixUser) {
+	
+			if(mendixUser.equalsIgnoreCase("MDVM_BE01_LDR"))
 			{
 				String vendorTargetSystemBelgium = vendorTargetSystemBE.getText();
 				if(vendorTargetSystemBelgium.equalsIgnoreCase("PH1700"))
 				{
-					String vendorAccNumber = vendorAccountNumberBE.getText();
-					System.out.println("The Vendor Account Number is :"+vendorAccNumber);
-					ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", vendorAccNumber, suiteName);
-					System.out.println(""+vendorAccNumber);
+					if(driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PH1700']/../../td[1]/div")).size()>0)
+					{
+						String vendorAccNumber = vendorAccountNumberBE.getText();
+						System.out.println("The Vendor Account Number is :"+vendorAccNumber);
+						ExcelUtil.setCellDataOutputFile_MaterialVendorNumber("OutputTestData", "Material_Number_AH1", vendorAccNumber, testCaseNameValue);
+						System.out.println(""+vendorAccNumber);	
+					}
+					else
+					{
+						System.out.println("No Vendor Account Number Generated on UI for selected Global Id");
+					}
 				}
 				else
 				{
 					System.out.println("No Element found to print in console");
 				}
 			}
-			else if(opco.equalsIgnoreCase("PL01"))
+			else if(mendixUser.equalsIgnoreCase("MDVM_PL01_LDR"))
 			{
 				String vendorTargetSystemPoland = vendorTargetSystemPL.getText();
 				if(vendorTargetSystemPoland.equalsIgnoreCase("PE2700"))
 				{
-					String vendorAccNumber = vendorAccountNumberPL.getText();
-					System.out.println("The Vendor Account Number is :"+vendorAccNumber);
-					ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", vendorAccNumber, suiteName);
-					System.out.println(""+vendorAccNumber);
+					if(driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PE2700']/../../td[1]/div")).size()>0)
+					{
+						String vendorAccNumber = vendorAccountNumberPL.getText();
+						System.out.println("The Vendor Account Number is :"+vendorAccNumber);
+						ExcelUtil.setCellDataOutputFile_MaterialVendorNumber("OutputTestData", "Material_Number_AH1", vendorAccNumber, testCaseNameValue);
+						System.out.println(""+vendorAccNumber);						
+					}
+					else
+					{
+						System.out.println("No Vendor Account Number Generated on UI for selected Global Id");
+					}
+
 				}
 				else
 				{
@@ -1754,23 +1764,31 @@ public class VendorPage {
 						SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 					}
 				}
-				List<WebElement> vendorAccountNumberList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]"));
 				
-				List<WebElement> targetSystemList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[2]"));
-				
-				Iterator<WebElement> i = targetSystemList.iterator();
-				while(i.hasNext())
+				if(driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]")).size()>0)
 				{
-				
-					WebElement row = i.next();
-					String targetSystem = row.getText();
+					List<WebElement> vendorAccountNumberList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]"));
 					
-					for(WebElement vendorList : vendorAccountNumberList)
-					{	
+					List<WebElement> targetSystemList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[2]"));
 					
-						String vendorNumb = vendorList.getText();
-						System.out.println("Vendor Account Number = "+vendorNumb+" for Target System : "+targetSystem);
+					Iterator<WebElement> i = targetSystemList.iterator();
+					while(i.hasNext())
+					{
+					
+						WebElement row = i.next();
+						String targetSystem = row.getText();
+						
+						for(WebElement vendorList : vendorAccountNumberList)
+						{	
+						
+							String vendorNumb = vendorList.getText();
+							System.out.println("Vendor Account Number = "+vendorNumb+" for Target System : "+targetSystem);
+						}
 					}
+				}
+				else
+				{
+					System.out.println("No vendor Account numbers formed yet for the provided globalId");
 				}
 			}
 			else
@@ -1789,9 +1807,6 @@ public class VendorPage {
 					System.out.println("FFd Value is still active");
 				}
 				
-//				Assert.assertEquals(globalLockValue, "No", "Global Lock is still active");
-//				Assert.assertEquals(localLockValue, "No", "Local lock is still active");
-//				Assert.assertEquals(fFDValue, "No", "FFD Value is still active");
 				SharedDriver.pageContainer.vendorPage.GetFullVendorData();
 				Sync.waitForSeconds(Constants.WAIT_10);
 				if(driver.findElements(By.xpath("//*[@class='close mx-dialog-close']")).size()>0)
@@ -1802,23 +1817,30 @@ public class VendorPage {
 						SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 					}	
 				}
-				List<WebElement> vendorAccountNumberList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]"));
-				
-				List<WebElement> targetSystemList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[2]"));
-				
-				Iterator<WebElement> i = targetSystemList.iterator();
-				while(i.hasNext())
+				if(driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]")).size()>0)
 				{
-				
-					WebElement row = i.next();
-					String targetSystem = row.getText();
+					List<WebElement> vendorAccountNumberList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]"));
 					
-					for(WebElement vendorList : vendorAccountNumberList)
-					{	
+					List<WebElement> targetSystemList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[2]"));
 					
-						String vendorNumb = vendorList.getText();
-						System.out.println("Vendor Account Number = "+vendorNumb+" for Target System : "+targetSystem);
-					}
+					Iterator<WebElement> i = targetSystemList.iterator();
+					while(i.hasNext())
+					{
+					
+						WebElement row = i.next();
+						String targetSystem = row.getText();
+						
+						for(WebElement vendorList : vendorAccountNumberList)
+						{	
+						
+							String vendorNumb = vendorList.getText();
+							System.out.println("Vendor Account Number = "+vendorNumb+" for Target System : "+targetSystem);
+						}
+					}					
+				}
+				else
+				{
+					System.out.println("No vendor Account numbers formed yet for the provided globalId");
 				}
 			}
 			
@@ -1839,7 +1861,7 @@ public class VendorPage {
 			System.out.println("FFD : "+fFDValue);
 			if((globalLockValue.equalsIgnoreCase("Yes") && localLockValue.equalsIgnoreCase("Yes") && fFDValue.equalsIgnoreCase("Yes")) || (globalLockValue.equalsIgnoreCase("Yes") && localLockValue.equalsIgnoreCase("No") && fFDValue.equalsIgnoreCase("No"))||(globalLockValue.equalsIgnoreCase("No") && localLockValue.equalsIgnoreCase("Yes") && fFDValue.equalsIgnoreCase("No"))||(globalLockValue.equalsIgnoreCase("No") && localLockValue.equalsIgnoreCase("No") && fFDValue.equalsIgnoreCase("Yes"))||(globalLockValue.equalsIgnoreCase("Yes") && localLockValue.equalsIgnoreCase("Yes") && fFDValue.equalsIgnoreCase("No")))
 			{
-				Thread.sleep(120000);
+//				Thread.sleep(120000);
 				Textbox.clear("Clear TextBox Value", txtBoxGlobalId);
 				Textbox.enterValue("Enter TextBox Value", txtBoxGlobalId, strValue);
 				Sync.waitForSeconds(Constants.WAIT_5);
@@ -1953,7 +1975,10 @@ public class VendorPage {
 
 		}
 		
-		
-
+		public void get_Vendor_Account_Number_SAP(String testCaseNameValue, String mendixLogin) throws InterruptedException, FileNotFoundException, IOException 
+		{
+				SharedDriver.pageContainer.vendorPage.checkDashboardLockVendor();
+				SharedDriver.pageContainer.vendorPage.getVendorAccountNumber(testCaseNameValue, mendixLogin);							
+		}
 	
 }
