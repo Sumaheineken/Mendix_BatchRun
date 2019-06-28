@@ -326,7 +326,8 @@ public class MaterialScript extends BaseScript{
 			SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));		
 			SharedDriver.pageContainer.materialPage.validateTestCreate();
 			SharedDriver.pageContainer.materialPage.duplicateCheckButton();
-			SharedDriver.pageContainer.materialPage.clickDuplicateCheck_SAP();		
+			SharedDriver.pageContainer.materialPage.clickDuplicateCheck_SAP();
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
 		}
 		// Thread.sleep(3000);
