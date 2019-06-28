@@ -421,19 +421,35 @@ public class MaterialNavScript extends BaseScript{
 			SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));		
 			SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
 			SharedDriver.pageContainer.materialPage.duplicateCheckButton();
-			SharedDriver.pageContainer.materialPage.duplicateCheck_New();
-			SharedDriver.pageContainer.materialPage.submitGlobalRequestExtend();
-			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			SharedDriver.pageContainer.materialPage.clickDuplicateCheck_SAP();			
+			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
 			Sync.waitForSeconds(Constants.WAIT_10);
 			SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 			SharedDriver.pageContainer.materialPage.Localactionbutton();
 			SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
 			SharedDriver.pageContainer.materialNavPage.submitLocalRequest();
-			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
 
 		}
 		
 	}
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Material_Submit_GlobalandLocalRequest(Map<String,String> dataMap, ITestContext context) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		String suiteName = context.getSuite().getName();
+		String testCaseName = dataMap.get("Test_Case");
+		if(matchTestCaseAndSuiteName(testCaseName, suiteName))
+		{
+			Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+			SharedDriver.pageContainer.materialPage.switchToPopup();
+			SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+			SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
+			SharedDriver.pageContainer.materialPage.duplicateCheckButton();		
+			SharedDriver.pageContainer.materialPage.clickDuplicateCheck();				
+			SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();	
+		}
+	}
+
 	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Material_LocalData_Submit_LDR(Map<String,String> dataMap, ITestContext context) throws InterruptedException, FileNotFoundException, IOException 
