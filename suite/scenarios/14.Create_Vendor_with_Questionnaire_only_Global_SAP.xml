@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml">
-    <test name="HeiPort_Login_LDR">
+<suite name="14.Create_Vendor_with_Questionnaire_only_Global_SAP.xml"> 
+	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="test"/>
-					<!-- <include name="tasKill" /> -->
+					<include name = "printSuiteName"/>
 					<include name="openBrowser" />
 					<include name="loginAsLDRVendor" />
 				</methods>
@@ -63,37 +63,34 @@
 	</test>
 		<test name="Process_Information_Check_Approved">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="process_Information_Check_GlobalID_Extend_SAP_Vendor" />
-					<include name="get_Vendor_Account_Number_SAP"/>
+					<include name="process_Information_Check_GlobalID_Extend" />
 				</methods>
 			</class>
 		</classes>
 	</test>
 	
-	<!-- 
-  	 <test name="HeiPort_Login_LDR_2">
+ 	<test name="picking from excel Sheet">
 		<classes>
-			<class name="com.mendix.test.LoginScript">
+			<class name="com.mendix.test.BaseScript">
 				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsLDRVendor" />
+					<include name="readAndSetValuesFromDataSheet" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-		<test name="Vendor_Create_Syndication_Check">
+	
+	<test name="Printing into MDM Output Sheet">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.BaseScript">
 				<methods>
-					<include name="Vendor_Create_Syndication_Check_SAP" />
-					<include name="launchUFT_SAP_Vendor"/>
+					<include name="writeIntoTestDataSheet"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
-	 --> 
+
 </suite> 
 
 

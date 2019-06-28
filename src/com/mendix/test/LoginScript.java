@@ -51,20 +51,16 @@ public class LoginScript extends BaseScript {
 	 * Open browser.
 	 */
 	@Test
-	public void openBrowser(){
+	public static void openBrowser(){
 		ResultUtil.reporter.startTest("Open Browser");
 		SharedDriver.createDriver();
 	}
+	
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
 	public void printSuiteName(Map<String,String> dataMap, ITestContext context){
-		String suitName=context.getSuite().getName();		
-		String testCaseName = dataMap.get("Test_Case");
-		System.out.println("the test case name is"+testCaseName);
-		if(matchTestCaseAndSuiteName(testCaseName, suitName)){		
-		ResultUtil.reporter.startTest("ScenatioName is" +context.getSuite().getName());
-		}
+		String suitName=context.getSuite().getName();
+		ResultUtil.reporter.startTest("ScenatioName is" +suitName);
 	}
-		
 	
 	@Test
 	public void test()
