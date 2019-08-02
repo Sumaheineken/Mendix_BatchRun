@@ -37,7 +37,8 @@ public class LoginPage {
 	/** The btn open. */
 	@FindBy(how=How.XPATH, using=".//*[@id='logonForm']/table/tbody/tr[5]/td[2]/input")
 	WebElement btnLogin;
-	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
+
+		@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
 	public boolean login(String strUsername,String strPassword){		
 
 		Sync.waitForObject(driver, "Username", txtUsername);		
