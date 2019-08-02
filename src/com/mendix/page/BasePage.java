@@ -28,12 +28,11 @@ import com.mendix.util.ExcelUtil;
 public class BasePage extends ExcelUtil{
 	
 	WebDriver driver;
-	
-
 	public BasePage(WebDriver driver){
 		PageFactory.initElements(driver, this);
 		this.driver=driver;
 	}
+	
 	
 	public void waitForPageLoad() {
 		try {
